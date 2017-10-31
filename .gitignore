@@ -32,3 +32,16 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+### USER ADDED BELOW ###
+
+##
+# Don't track Standard Assets to avoid large git repo.
+# if you want to use one of these assets copy it and 
+# it's dependencies to the project.
+##
+/Assets/Standard Assets*
+
+# Files generated from scripts
+# TODO: possibly remove dimensions.txt.. not sure what it's for.
+dimensions.txt 

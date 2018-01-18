@@ -59,7 +59,8 @@ public class DepthCopyScript : MonoBehaviour {
         print(System.BitConverter.ToString(infoFile));
         print(unmanagedPointer.ToString());
         print(infoFile[7].ToString());*/
-		fullPath =  Application.dataPath + "/../../SONARBackEnd/x64/Debug/SONARBackEnd.exe";
+		fullPath =  Application.dataPath + "/Backend/SONARBackend.exe";
+		print("Path is "+fullPath);
 
 		if (processRunning) {
 			process.Kill ();
@@ -150,7 +151,7 @@ public class DepthCopyScript : MonoBehaviour {
 		//Copies the raw texture data to the pointer to the shared memory space provided by the DLL
 //		Marshal.Copy(bytes, 0, unmanagedPointer, bytes.Length);
 		//int x = GetSizeMem();
-		print("new size is: " + bytes.Length);
+		//print("new size is: " + bytes.Length);
 		//print ("SHMSize is: " + x);
 
 		if (Application.platform == RuntimePlatform.WindowsPlayer) {

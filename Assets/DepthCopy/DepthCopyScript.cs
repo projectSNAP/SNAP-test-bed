@@ -9,47 +9,47 @@ using UnityEngine;
 
 //[ExecuteInEditMode]
 public class DepthCopyScript : MonoBehaviour {
-    //Load the DLL functions from the DLL
-    //DLL is located in Assets/Plugins/x86_64 and must be named RenderPlugin
-    [DllImport("RenderingPlugin")]
-    private static extern void SetTimeFromUnity(float t);
+	//Load the DLL functions from the DLL
+	//DLL is located in Assets/Plugins/x86_64 and must be named RenderPlugin
+	[DllImport("RenderingPlugin")]
+	private static extern void SetTimeFromUnity(float t);
 
-    [DllImport("RenderingPlugin")]
-    private static extern System.IntPtr GetRenderEventFunc();
+	[DllImport("RenderingPlugin")]
+	private static extern System.IntPtr GetRenderEventFunc();
 
-    [DllImport("RenderingPlugin")]
-    private static extern System.IntPtr SetupReadPixels(int x, int y);
+	[DllImport("RenderingPlugin")]
+	private static extern System.IntPtr SetupReadPixels(int x, int y);
 
-    [DllImport("RenderingPlugin")]
-    private static extern void UnmapFile();
+	[DllImport("RenderingPlugin")]
+	private static extern void UnmapFile();
 
 	[DllImport("RenderingPlugin")]
 	private static extern void WriteMem(byte[] bytes, int size);
 
-//	[DllImport("RenderingPlugin")]
-//	private static extern int GetSizeMem();
-    
-    Texture2D tex;
-    public Material mat;
-    public Material BlankMat;
+	//	[DllImport("RenderingPlugin")]
+	//	private static extern int GetSizeMem();
+
+	Texture2D tex;
+	public Material mat;
+	public Material BlankMat;
 	string fullPath;
 	Process process;
 
 	bool processRunning = false;
-    bool cpressed = false;
+	bool cpressed = false;
 	bool bpressed = false;
-    byte[] bytes;
-    byte[] infoFile;
-    System.IntPtr unmanagedPointer;
+	byte[] bytes;
+	byte[] infoFile;
+	System.IntPtr unmanagedPointer;
 
-    // Use this for initialization
-    void Start () {
-		
-        GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
-        tex = new Texture2D(GetComponent<Camera>().pixelWidth, GetComponent<Camera>().pixelHeight, TextureFormat.RGBA32, false);
+	// Use this for initialization
+	void Start () {
 
-        bytes = new byte[4*GetComponent<Camera>().pixelWidth*GetComponent<Camera>().pixelHeight];
-        /*unmanagedPointer = Marshal.AllocHGlobal(bytes.Length);
+		GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
+		tex = new Texture2D(GetComponent<Camera>().pixelWidth, GetComponent<Camera>().pixelHeight, TextureFormat.RGBA32, false);
+
+		bytes = new byte[4*GetComponent<Camera>().pixelWidth*GetComponent<Camera>().pixelHeight];
+		/*unmanagedPointer = Marshal.AllocHGlobal(bytes.Length);
         
         long foo = unmanagedPointer.ToInt64();
         byte[] infoFile = System.BitConverter.GetBytes(foo);
@@ -59,8 +59,7 @@ public class DepthCopyScript : MonoBehaviour {
         print(System.BitConverter.ToString(infoFile));
         print(unmanagedPointer.ToString());
         print(infoFile[7].ToString());*/
-		fullPath =  Application.dataPath + "/Backend/SONARBackend.exe";
-		print("Path is "+fullPath);
+		fullPath =  Application.dataPath + "/Backend/SONARBackEnd.exe";
 
 		if (processRunning) {
 			process.Kill ();
@@ -73,9 +72,9 @@ public class DepthCopyScript : MonoBehaviour {
 		processRunning = true;
 
 
-    }
+	}
 
-    void OnEnable()
+	void OnEnable()
 	{
 		bytes = new byte[4 * GetComponent<Camera>().pixelWidth * GetComponent<Camera>().pixelHeight];
 		int size = bytes.Length;
@@ -84,7 +83,7 @@ public class DepthCopyScript : MonoBehaviour {
 		print("Size is: " + size);
 		unmanagedPointer = SetupReadPixels (xSize, ySize);
 		//unmanagedPointer = SetupReadPixels(size);
-		 
+
 
 		//Set up the dll, get a pointer to the shared named memory space
 		if(unmanagedPointer.ToInt32() != 0)
@@ -99,49 +98,49 @@ public class DepthCopyScript : MonoBehaviour {
 
 		}
 
-        
-    }
 
-    void Update()
-    {
+	}
+
+	void Update()
+	{
 		if (Input.GetKeyDown ("c")) {
 			cpressed = !cpressed;
 		} 
 		//if (Input.GetKeyDown ("b")) {
-			//if (processRunning) {
-			//	process.Kill ();
-			//}
-			//bpressed = true;
-			//print ("PATH IS:" + Application.dataPath);
-
-
-			//process = System.Diagnostics.Process.Start (fullPath);
-			//processRunning = true;
-			//cpressed = 0;
-		} 		//else {
-			//cpressed = 0;
+		//if (processRunning) {
+		//	process.Kill ();
 		//}
-            
-   	// }
-
-    void OnPostRender()
-    {
-        SetTimeFromUnity(Time.timeSinceLevelLoad);
-        GL.IssuePluginEvent(GetRenderEventFunc(), 1);
-    }
+		//bpressed = true;
+		//print ("PATH IS:" + Application.dataPath);
 
 
-    void OnRenderImage(RenderTexture source, RenderTexture destination)
-    {
-        //apply the depth-to-color shader
-        Graphics.Blit(source, destination, mat);
-        
-        RenderTexture.active = destination;
+		//process = System.Diagnostics.Process.Start (fullPath);
+		//processRunning = true;
+		//cpressed = 0;
+	} 		//else {
+	//cpressed = 0;
+	//}
 
-        //Reads the currently active rendertexture to the texture2d
-        tex.ReadPixels(new Rect(0, 0, GetComponent<Camera>().pixelWidth, GetComponent<Camera>().pixelHeight), 0, 0, false);
-        tex.Apply();
-        bytes = tex.GetRawTextureData();
+	// }
+
+	void OnPostRender()
+	{
+		SetTimeFromUnity(Time.timeSinceLevelLoad);
+		GL.IssuePluginEvent(GetRenderEventFunc(), 1);
+	}
+
+
+	void OnRenderImage(RenderTexture source, RenderTexture destination)
+	{
+		//apply the depth-to-color shader
+		Graphics.Blit(source, destination, mat);
+
+		RenderTexture.active = destination;
+
+		//Reads the currently active rendertexture to the texture2d
+		tex.ReadPixels(new Rect(0, 0, GetComponent<Camera>().pixelWidth, GetComponent<Camera>().pixelHeight), 0, 0, false);
+		tex.Apply();
+		bytes = tex.GetRawTextureData();
 
 		//for (int index = 0; index < bytes.Length; index++)
 		//{
@@ -149,9 +148,9 @@ public class DepthCopyScript : MonoBehaviour {
 		//}
 
 		//Copies the raw texture data to the pointer to the shared memory space provided by the DLL
-//		Marshal.Copy(bytes, 0, unmanagedPointer, bytes.Length);
+		//		Marshal.Copy(bytes, 0, unmanagedPointer, bytes.Length);
 		//int x = GetSizeMem();
-		//print("new size is: " + bytes.Length);
+		print("new size is: " + bytes.Length);
 		//print ("SHMSize is: " + x);
 
 		if (Application.platform == RuntimePlatform.WindowsPlayer) {
@@ -160,27 +159,27 @@ public class DepthCopyScript : MonoBehaviour {
 		else 
 		{
 			Marshal.Copy (bytes, 0, unmanagedPointer, bytes.Length);
-//			WriteMem (bytes, bytes.Length);
-//			for (int i = 0; i < 10; i++)
-//				print(Convert.ToBoolean(bytes[i]));
-//			for (int i = 0; i < 10; i++) {
-//				print (bytes [i]);
-//			};
+			//			WriteMem (bytes, bytes.Length);
+			//			for (int i = 0; i < 10; i++)
+			//				print(Convert.ToBoolean(bytes[i]));
+			//			for (int i = 0; i < 10; i++) {
+			//				print (bytes [i]);
+			//			};
 		}
 		//Marshal.AllocHGlobal(1);
 
-        //Call this to display whatever we want on the screen (use a mat if shader is desired)
-        if(cpressed == false)
-        {
-            Graphics.Blit(source, destination, BlankMat);
-        }
-        
-    }
+		//Call this to display whatever we want on the screen (use a mat if shader is desired)
+		if(cpressed == false)
+		{
+			Graphics.Blit(source, destination, BlankMat);
+		}
 
-    void OnDisable()
-    {
+	}
+
+	void OnDisable()
+	{
 		UnmapFile();
 		process.Kill();
-        print("unmapping");
-    }
+		print("unmapping");
+	}
 }

@@ -18,46 +18,65 @@ public class MenuUI : MonoBehaviour {
 
 	public float frequency;
 	public float tempFrequency;
+	public float maxFrequency;
 	public UnityEngine.UI.Slider FrequencySlider;
 	public UnityEngine.UI.InputField FrequencyInputField;
 
 	public float frequencyIncrement;
 	public float tempFrequencyIncrement;
+	public float maxFrequencyIncrement;
 	public UnityEngine.UI.Slider FrequencyIncrementSlider;
 	public UnityEngine.UI.InputField FrequencyIncrementInputField;
 
 	public float horizontalSteps;
 	public float tempHorizontalSteps;
+	public float maxHorizontalSteps;
 	public UnityEngine.UI.Slider HorizontalStepsSlider;
 	public UnityEngine.UI.InputField HorizontalStepsInputField;
 
 	public float stepDelay;
 	public float tempStepDelay;
+	public float maxStepDelay;
 	public UnityEngine.UI.Slider StepDelaySlider;
 	public UnityEngine.UI.InputField StepDelayInputField;
 
 	public float audioSpreadDegree;
 	public float tempAudioSpreadDegree;
+	public float maxAudioSpreadDegree;
 	public UnityEngine.UI.Slider AudioSpreadDegreeSlider;
 	public UnityEngine.UI.InputField AudioSpreadDegreeInputField;
 
 	public float audioVolumeRollOff;
 	public float tempAudioVolumeRollOff;
+	public float maxAudioVolumeRollOff;
 	public UnityEngine.UI.Slider AudioVolumeRollOffSlider;
 	public UnityEngine.UI.InputField AudioVolumeRollOffInputField;
 
 	public int scanningType;
 	public int tempScanningType;
+	public int maxScanningType;
 	public UnityEngine.UI.Dropdown ScanningTypeDropdown;
 
 	public bool vision;
 	public bool tempVision;
 	public UnityEngine.UI.Toggle VisionToggle;
 
-
+	public float minValue;
 
 	// Use this for initialization
 	void Start () {
+		/*min value setting for all configurations*/
+		minValue = 0;
+
+		/*max settings*/
+		maxFrequency = 50;
+		maxFrequencyIncrement = 10;
+		maxHorizontalSteps = 10;
+		maxStepDelay = 10;
+		maxAudioSpreadDegree = 90;
+		maxAudioVolumeRollOff = 50;
+		maxScanningType = 1; //two scanning type options, 0 or 1
+
 		/*default configuration settings*/
 		frequency = 25f;
 		frequencyIncrement = 5f;
@@ -135,13 +154,41 @@ public class MenuUI : MonoBehaviour {
 		LoadedConfig = JsonUtility.FromJson<SaveConfigurationSettings> (json);
 
 		/*set all configuration settings to loaded configurations*/
-		frequency = LoadedConfig.savedFrequency;
-		frequencyIncrement = LoadedConfig.savedFrequencyIncrement;
-		horizontalSteps = LoadedConfig.savedHorizontalSteps;
-		stepDelay = LoadedConfig.savedStepDelay;
-		audioSpreadDegree = LoadedConfig.savedAudioSpreadDegree;
-		audioVolumeRollOff = LoadedConfig.savedAudioVolumeRollOff;
-		scanningType = LoadedConfig.savedScanningType;
+		if (LoadedConfig.savedFrequency >= minValue && LoadedConfig.savedFrequency <= maxFrequency)
+			frequency = LoadedConfig.savedFrequency;
+		else
+			Debug.Log ("error: value for 'frequency' is out of range");
+		
+		if(LoadedConfig.savedFrequencyIncrement >= minValue && LoadedConfig.savedFrequencyIncrement <= maxFrequencyIncrement)
+			frequencyIncrement = LoadedConfig.savedFrequencyIncrement;
+		else
+			Debug.Log ("error: value for 'frequency increment' is out of range");
+		
+		if(LoadedConfig.savedHorizontalSteps >= minValue && LoadedConfig.savedHorizontalSteps <= maxHorizontalSteps)
+			horizontalSteps = LoadedConfig.savedHorizontalSteps;
+		else
+			Debug.Log ("error: value for 'horizontal steps' is out of range");
+		
+		if(LoadedConfig.savedStepDelay >= minValue && LoadedConfig.savedStepDelay <= maxStepDelay)
+			stepDelay = LoadedConfig.savedStepDelay;
+		else
+			Debug.Log ("error: value for 'step delay' is out of range");
+		
+		if(LoadedConfig.savedAudioSpreadDegree >= minValue && LoadedConfig.savedAudioSpreadDegree <= maxAudioSpreadDegree)
+			audioSpreadDegree = LoadedConfig.savedAudioSpreadDegree;
+		else
+			Debug.Log ("error: value for 'audio spread degree' is out of range");
+		
+		if(LoadedConfig.savedAudioVolumeRollOff >= minValue && LoadedConfig.savedAudioVolumeRollOff <= maxAudioVolumeRollOff)
+			audioVolumeRollOff = LoadedConfig.savedAudioVolumeRollOff;
+		else
+			Debug.Log ("error: value for 'audio volume roll-off' is out of range");
+		
+		if(LoadedConfig.savedScanningType >= minValue && LoadedConfig.savedScanningType <= maxScanningType)
+			scanningType = LoadedConfig.savedScanningType;
+		else
+			Debug.Log ("error: value for 'scanning type' is out of range");
+		
 		vision = LoadedConfig.savedVision;
 
 		/*set all configuration Sliders and Input Fields to loaded configuration values*/

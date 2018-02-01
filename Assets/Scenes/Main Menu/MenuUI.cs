@@ -46,6 +46,15 @@ public class MenuUI : MonoBehaviour {
 	public UnityEngine.UI.Slider AudioVolumeRollOffSlider;
 	public UnityEngine.UI.InputField AudioVolumeRollOffInputField;
 
+	public int scanningType;
+	public int tempScanningType;
+	public UnityEngine.UI.Dropdown ScanningTypeDropdown;
+
+	public bool vision;
+	public bool tempVision;
+	public UnityEngine.UI.Toggle VisionToggle;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -56,6 +65,8 @@ public class MenuUI : MonoBehaviour {
 		stepDelay = 5f;
 		audioSpreadDegree = 45f;
 		audioVolumeRollOff = 25f;
+		scanningType = 0;
+		vision = false;
 
 		/*default temp configuration settings*/
 		tempFrequency = 25f;
@@ -64,6 +75,8 @@ public class MenuUI : MonoBehaviour {
 		tempStepDelay = 5f;
 		tempAudioSpreadDegree = 45f;
 		tempAudioVolumeRollOff = 25f;
+		tempScanningType = 0;
+		tempVision = false;
 	}
 	
 	// Update is called once per frame
@@ -128,6 +141,8 @@ public class MenuUI : MonoBehaviour {
 		stepDelay = LoadedConfig.savedStepDelay;
 		audioSpreadDegree = LoadedConfig.savedAudioSpreadDegree;
 		audioVolumeRollOff = LoadedConfig.savedAudioVolumeRollOff;
+		scanningType = LoadedConfig.savedScanningType;
+		vision = LoadedConfig.savedVision;
 
 		/*set all configuration Sliders and Input Fields to loaded configuration values*/
 		FrequencySlider.value = frequency;
@@ -147,6 +162,10 @@ public class MenuUI : MonoBehaviour {
 
 		AudioVolumeRollOffSlider.value = audioVolumeRollOff;
 		AudioVolumeRollOffInputField.text = audioVolumeRollOff.ToString();
+
+		ScanningTypeDropdown.value = scanningType;
+
+		VisionToggle.isOn = vision;
 
 	}
 
@@ -169,6 +188,8 @@ public class MenuUI : MonoBehaviour {
 		save.savedStepDelay = tempStepDelay;
 		save.savedAudioSpreadDegree = tempAudioSpreadDegree;
 		save.savedAudioVolumeRollOff = tempAudioVolumeRollOff;
+		save.savedScanningType = tempScanningType;
+		save.savedVision = tempVision;
 		return save;
 	}
 
@@ -210,6 +231,10 @@ public class MenuUI : MonoBehaviour {
 		AudioVolumeRollOffSlider.value = audioVolumeRollOff;
 		AudioVolumeRollOffInputField.text = audioVolumeRollOff.ToString();
 
+		ScanningTypeDropdown.value = scanningType;
+
+		VisionToggle.isOn = vision;
+
 		CloseConfigMenu ();
 		OpenEscapeMenu ();
 	}
@@ -224,6 +249,8 @@ public class MenuUI : MonoBehaviour {
 		stepDelay = tempStepDelay;
 		audioSpreadDegree = tempAudioSpreadDegree;
 		audioVolumeRollOff = tempAudioVolumeRollOff;
+		scanningType = tempScanningType;
+		vision = tempVision;
 
 		CloseConfigMenu ();
 		OpenEscapeMenu ();
@@ -368,4 +395,25 @@ public class MenuUI : MonoBehaviour {
 	}
 	/****************************************************************************************************/
 
+
+	/********************************************** Vision *********************************************/
+	public void AdjustVisionToggle(){
+		tempVision = VisionToggle.isOn;
+	}
+
+	public void OnVisionToggleClicked(){
+		VisionToggle.isOn = tempVision;
+	}
+	/****************************************************************************************************/
+
+
+	/******************************************* Scanning Type ******************************************/
+	public void AdjustScanningTypeDropdown(){
+		tempScanningType = ScanningTypeDropdown.value;
+	}
+
+	public void OnScanningTypeDropdownClicked(){
+		ScanningTypeDropdown.value = tempScanningType;
+	}
+	/****************************************************************************************************/
 }

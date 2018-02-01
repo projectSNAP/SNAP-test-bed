@@ -9,4 +9,6 @@ public class SaveConfigurationSettings{
 	public float savedStepDelay;
 	public float savedAudioSpreadDegree;
 	public float savedAudioVolumeRollOff;
+	public int savedScanningType;
+	public bool savedVision;
 }

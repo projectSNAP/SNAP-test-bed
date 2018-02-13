@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/TempAssets/Hallway Map.unity
+  - enabled: 0
+    path: Assets/Scenes/Hallway Map/Hallway Map.unity
     guid: cd5a63ebe8cfb4e1fae6cf4f8b444748
+  - enabled: 1
+    path: Assets/Scenes/Main Menu/Main Menu.unity
+    guid: 71b1a2ba2535841bea1e0f4f29778fb6

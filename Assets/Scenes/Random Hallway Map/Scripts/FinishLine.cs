@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour {
 
-	void OnTriggerEnter(Collider col){
 
+	/*
+	*Function detects when character has entered the finish line of the map
+	*/
+	void OnTriggerEnter(Collider col){
 
 		if(col.gameObject.name == "FinishLine"){
 			Debug.Log("HI THERE");
 			Application.Quit();
 
 		}
-
-
 	}
 }

@@ -63,6 +63,9 @@ public class MenuUI : MonoBehaviour {
 
 	public float minValue;
 
+	public GameObject MapSelectionUI;
+	public static bool SelectMapMenuIsOpen = false;
+
 	// Use this for initialization
 	void Start () {
 		/*min value setting for all configurations*/
@@ -107,6 +110,9 @@ public class MenuUI : MonoBehaviour {
 			} else if (NewConfigurationMenuIsOpen) {
 				CloseConfigMenu ();
 				OpenEscapeMenu ();
+			} else if (SelectMapMenuIsOpen){
+				CloseMapSelectionMenu ();
+				OpenEscapeMenu ();
 			} else {
 				OpenEscapeMenu ();
 			}
@@ -127,13 +133,14 @@ public class MenuUI : MonoBehaviour {
 		Time.timeScale = 0f;
 		EscapeMenuIsOpen = true;
 	}
-		
+
+	/**************************/
+
 	public void CloseConfigMenu(){
 		ConfigurationMenuUI.SetActive (false);
 		Time.timeScale = 1f;
 		NewConfigurationMenuIsOpen = false;
 	}
-	/**************************/
 
 	/*New Configuration Button*/
 	public void OpenConfigMenu(){
@@ -461,6 +468,71 @@ public class MenuUI : MonoBehaviour {
 
 	public void OnScanningTypeDropdownClicked(){
 		ScanningTypeDropdown.value = tempScanningType;
+	}
+	/****************************************************************************************************/
+
+
+
+
+	/************************************** Map Selection Menu ******************************************/
+	public static bool HallwayRandomObjects = false;
+	public static bool HallwayNormal = false;
+	public UnityEngine.UI.Toggle HallwayRandomObjectToggle;
+	public UnityEngine.UI.Toggle HallwayNormalToggle;
+
+	public void OnSelectMapButtonClicked(){
+		CloseEscapeMenu ();
+		OpenMapSelectionMenu ();
+	}
+
+	public void OnSelectMapBackButtonClicked(){
+		CloseMapSelectionMenu ();
+		OpenEscapeMenu ();
+	}
+
+	public void OnHallwayMapRandomObjectsToggled(){
+		if (HallwayRandomObjectToggle.isOn == true) {
+			HallwayNormalToggle.isOn = false;
+			HallwayNormal = false;
+		}
+		HallwayRandomObjects = HallwayRandomObjectToggle.isOn;
+	}
+
+	public void OnHallwayMapNormalToggled(){
+		if (HallwayNormalToggle.isOn == true) {
+			HallwayRandomObjectToggle.isOn = false;
+			HallwayRandomObjects = false;
+		}
+		HallwayNormal = HallwayNormalToggle.isOn;
+	}
+
+	public void CloseMapSelectionMenu (){
+		MapSelectionUI.SetActive (false);
+		Time.timeScale = 1f;
+		SelectMapMenuIsOpen = false;
+	}
+
+	public void OpenMapSelectionMenu(){
+		MapSelectionUI.SetActive (true);
+		Time.timeScale = 0f;
+		SelectMapMenuIsOpen = true;
+		EscapeMenuIsOpen = false;
+	}
+	/****************************************************************************************************/
+
+
+
+	/**************************************** Start Button *********************************************/
+	public void OnStartButtonClicked(){
+		if (HallwayRandomObjects == true) {
+			/*Changes to "Random Hallway Map" Scene. (Assets -> Scenes -> Random Hallway Map)*/
+			SceneManager.LoadScene ("Random Hallway Map", LoadSceneMode.Single);
+		} else if (HallwayNormal == true) {
+			/*Changes to "Hallway Map" Scene. (Assets -> Scenes -> Hallway Map)*/
+			SceneManager.LoadScene ("Hallway Map", LoadSceneMode.Single);
+		} else {
+			Debug.Log ("No Map Selected. Got to \"Select Map\" and choose a map.");
+		}
 	}
 	/****************************************************************************************************/
 }

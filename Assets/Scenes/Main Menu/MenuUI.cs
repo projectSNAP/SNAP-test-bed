@@ -10,12 +10,17 @@ using UnityEditor;
 [System.Serializable]
 
 public class MenuUI : MonoBehaviour {
-
+	/*Main Menu UI elements*/
 	public static bool EscapeMenuIsOpen = false;
 	public static bool NewConfigurationMenuIsOpen = false;
+	public static bool SelectMapMenuIsOpen = false;
+	public static bool LogsMenuIsOpen = false;
 	public GameObject ConfigurationMenuUI;
 	public GameObject EscapeMenuUI;
+	public GameObject MapSelectionUI;
+	public GameObject LogsMenuUI;
 
+	/*Configuration settings elements*/
 	public float frequency;
 	public float tempFrequency;
 	public float maxFrequency;
@@ -61,10 +66,14 @@ public class MenuUI : MonoBehaviour {
 	public bool tempVision;
 	public UnityEngine.UI.Toggle VisionToggle;
 
+	/*Minimum value for configurations*/
 	public float minValue;
 
-	public GameObject MapSelectionUI;
-	public static bool SelectMapMenuIsOpen = false;
+	/*Map Selection UI elements*/
+	public static bool HallwayRandomObjects = false;
+	public static bool HallwayNormal = false;
+	public UnityEngine.UI.Toggle HallwayRandomObjectToggle;
+	public UnityEngine.UI.Toggle HallwayNormalToggle;
 
 	// Use this for initialization
 	void Start () {
@@ -99,6 +108,19 @@ public class MenuUI : MonoBehaviour {
 		tempAudioVolumeRollOff = 25f;
 		tempScanningType = 0;
 		tempVision = false;
+
+		/*default Map Selection settings*/
+		if (HallwayRandomObjects) {
+			HallwayRandomObjectToggle.isOn = true;
+		} else if (HallwayNormal) {
+			HallwayNormalToggle.isOn = true;
+		} else {
+			HallwayRandomObjectToggle.isOn = false;
+			HallwayNormalToggle.isOn = false;
+		}
+
+		/*Main Menu will be showing when a user clicks any "back to main menu" button*/
+		EscapeMenuUI.SetActive (true);
 	}
 	
 	// Update is called once per frame
@@ -112,6 +134,9 @@ public class MenuUI : MonoBehaviour {
 				OpenEscapeMenu ();
 			} else if (SelectMapMenuIsOpen){
 				CloseMapSelectionMenu ();
+				OpenEscapeMenu ();
+			} else if (LogsMenuIsOpen){
+				CloseLogsMenu ();
 				OpenEscapeMenu ();
 			} else {
 				OpenEscapeMenu ();
@@ -475,11 +500,6 @@ public class MenuUI : MonoBehaviour {
 
 
 	/************************************** Map Selection Menu ******************************************/
-	public static bool HallwayRandomObjects = false;
-	public static bool HallwayNormal = false;
-	public UnityEngine.UI.Toggle HallwayRandomObjectToggle;
-	public UnityEngine.UI.Toggle HallwayNormalToggle;
-
 	public void OnSelectMapButtonClicked(){
 		CloseEscapeMenu ();
 		OpenMapSelectionMenu ();
@@ -522,13 +542,45 @@ public class MenuUI : MonoBehaviour {
 
 
 
+	/******************************************** Logs Menu *********************************************/
+	/* Logs Button Clicked */
+	public void OnLogsButtonClicked(){
+		CloseEscapeMenu ();
+		OpenLogsMenu ();
+	}
+
+	/* Logs Menu Back Button */
+	public void OnLogsMenuBackButton(){
+		CloseLogsMenu ();
+		OpenEscapeMenu ();
+	}
+
+	public void CloseLogsMenu(){
+		LogsMenuUI.SetActive (false);
+		Time.timeScale = 1f;
+		LogsMenuIsOpen = false;
+	}
+
+	public void OpenLogsMenu(){
+		LogsMenuUI.SetActive (true);
+		Time.timeScale = 0f;
+		LogsMenuIsOpen = true;
+		EscapeMenuIsOpen = false;
+	}
+	/****************************************************************************************************/
+
+
 	/**************************************** Start Button *********************************************/
 	public void OnStartButtonClicked(){
 		if (HallwayRandomObjects == true) {
 			/*Changes to "Random Hallway Map" Scene. (Assets -> Scenes -> Random Hallway Map)*/
+			EscapeMenuIsOpen = false;
+			//EscapeMenuUI.SetActive (false);
 			SceneManager.LoadScene ("Random Hallway Map", LoadSceneMode.Single);
 		} else if (HallwayNormal == true) {
 			/*Changes to "Hallway Map" Scene. (Assets -> Scenes -> Hallway Map)*/
+			EscapeMenuIsOpen = false;
+			//EscapeMenuUI.SetActive (false);
 			SceneManager.LoadScene ("Hallway Map", LoadSceneMode.Single);
 		} else {
 			Debug.Log ("No Map Selected. Got to \"Select Map\" and choose a map.");

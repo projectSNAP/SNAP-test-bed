@@ -41,6 +41,8 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 	/*Quit Test Button Clicked*/
 	public void OnSNAPQuitButtonClicked(){
 		/*Changes to "Main Menu" Scene. (Assets -> Scenes -> Main Menu)*/
+		EscapeMenuIsOpen = false;
+		//MenuUI.SetActive (false);
 		SceneManager.LoadScene ("Main Menu", LoadSceneMode.Single);
 	}
 	/*****************************************************************************************************/

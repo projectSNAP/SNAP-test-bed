@@ -121,6 +121,10 @@ public class MenuUI : MonoBehaviour {
 
 		/*Main Menu will be showing when a user clicks any "back to main menu" button*/
 		EscapeMenuUI.SetActive (true);
+
+		/*Sets the cursor as active*/
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 	}
 	
 	// Update is called once per frame

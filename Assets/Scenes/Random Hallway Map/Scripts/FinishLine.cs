@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FinishLine : MonoBehaviour {
-
+	public GameObject MenuCanvas;
 
 	/*
 	*Function detects when character has entered the finish line of the map
@@ -12,8 +12,8 @@ public class FinishLine : MonoBehaviour {
 
 		if(col.gameObject.name == "FinishLine"){
 			Debug.Log("HI THERE");
-			Application.Quit();
-
+			//Application.Quit();
+			MenuCanvas.GetComponent<RandomHallwayMenuUI>().OpenTestCompleteMenu();
 		}
 	}
 }

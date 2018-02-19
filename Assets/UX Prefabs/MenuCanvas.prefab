@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 223510117355894246}
   - component: {fileID: 114325171323718760}
   - component: {fileID: 114944004790046102}
-  - component: {fileID: 114614875598399050}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -390,7 +389,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114614875598399050}
+      - m_Target: {fileID: 0}
         m_MethodName: OnSNAPQuitButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -430,18 +429,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114614875598399050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1838314278042242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3077da53e0827d74b8fd1365c4f9a4a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MenuUI: {fileID: 1902262614171382}
 --- !u!114 &114674318018065888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -508,7 +495,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114614875598399050}
+      - m_Target: {fileID: 0}
         m_MethodName: OnSNAPResumeButtonClicked
         m_Mode: 1
         m_Arguments:

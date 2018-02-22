@@ -15,7 +15,11 @@ public class CollisionDetDynamic : MonoBehaviour {
 		if(col.gameObject.name == "Cube(Clone)" || col.gameObject.name == "Sphere(Clone)" ||
 				col.gameObject.name == "Ground" || col.gameObject.name == "Right Wall" ||
 				col.gameObject.name == "Left Wall" || col.gameObject.name == "Back Wall" ||
-				col.gameObject.name == "Front Wall"){
+				col.gameObject.name == "Front Wall" || col.gameObject.name == "Wanderer" ||
+				col.gameObject.name == "Wanderer (1)" || col.gameObject.name == "Wanderer (2)" ||
+				col.gameObject.name == "Wanderer (3)" || col.gameObject.name == "Wanderer (4)" ||
+				col.gameObject.name == "Wanderer (5)" || col.gameObject.name == "Wanderer (6)" ||
+				col.gameObject.name == "Wanderer (7)" || col.gameObject.name == "Wanderer (8)" ){
 			totalCollision++;
 			Debug.Log(totalCollision);
 		}

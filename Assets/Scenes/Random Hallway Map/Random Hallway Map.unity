@@ -293,6 +293,8 @@ MonoBehaviour:
   maxCubeSize: 25
   minSphereSize: 10
   maxSphereSize: 25
+  numCubes: 0
+  numSpheres: 0
 --- !u!4 &424251491
 Transform:
   m_ObjectHideFlags: 0
@@ -382,8 +384,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429404801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 50, z: 475}
-  m_LocalScale: {x: 250, y: 100, z: 100}
+  m_LocalPosition: {x: 0, y: 50, z: 237.5}
+  m_LocalScale: {x: 150, y: 100, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9

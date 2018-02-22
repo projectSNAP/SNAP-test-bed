@@ -18,14 +18,13 @@ public class SpawnObstacles : MonoBehaviour {
 	public int minSphereSize;
 	public int maxSphereSize;
 
-
+	public int numCubes;
+	public int numSpheres;
 
 
 
 	// Use this for initialization
 	void Start () {
-		int numCubes = 30; //Number of cubes spawned
-		int numSpheres = 30; //Number of spheres spawned
 
 
 		/*Generate Cubes*/

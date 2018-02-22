@@ -4,10 +4,13 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour {
 	public GameObject MenuCanvas;
-	public GameObject FPSControllerObject;
+	public Transform FPSControllerObject;
+	public Text collisionsLabel;
+	public Text timeLabel;
 	int LogFileNumber;
 
 	void Start(){
@@ -24,13 +27,19 @@ public class FinishLine : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 
 		if(col.gameObject.name == "FinishLine"){
-			Debug.Log("HI THERE");
-			//Application.Quit();
 			/*Opens the Test Complete Menu when reaching the finish line*/
 			MenuCanvas.GetComponent<RandomHallwayMenuUI>().OpenTestCompleteMenu();
+			/*Accesses the "CollisionDetection" script through the FPSController to grab the number of collisions from the test*/
+			collisionsLabel.text = "Collisions: " + FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions ();
+			timeLabel.text = "Time: 4.5"; //INSERT TIME VARIABLE HERE
+			/*Save all the information as a JSON file*/
 			SaveLogFile ();
 		}
 	}
+
+
+
+	/****************************************** Save Log File ******************************************/
 
 	private SaveLoggingInformation CreateLogFile(){
 		SaveLoggingInformation save = new SaveLoggingInformation ();
@@ -72,4 +81,5 @@ public class FinishLine : MonoBehaviour {
 		}
 		LogFileNumber++;
 	}
+	/***************************************************************************************************/
 }

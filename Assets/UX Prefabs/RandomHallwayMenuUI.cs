@@ -10,7 +10,7 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 	public static bool TestCompleteMenuIsOpen;
 	public GameObject MenuUI;
 	public GameObject TestCompleteMenuUI;
-	public GameObject FPSControllerObject;
+	public Transform FPSControllerObject;
 
 	void Start(){
 		EscapeMenuIsOpen = false;
@@ -38,12 +38,20 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 		MenuUI.SetActive (false);
 		Time.timeScale = 1f;
 		EscapeMenuIsOpen = false;
+		/*Activate the FPS Controller*/
+		FPSControllerObject.GetComponent<FirstPersonController> ().enabled = true;
 	}
 
 	public void OpenEscapeMenu(){
 		MenuUI.SetActive (true);
 		Time.timeScale = 0f;
 		EscapeMenuIsOpen = true;
+		/*Disable the FPS Controller so we can use the menu without moving in the environment*/
+		FPSControllerObject.GetComponent<FirstPersonController> ().enabled = false;
+		/*Makes the cursor visible after pausing the test*/
+		Cursor.visible = true;
+		/*Unlocks the cursor from the FPS Controller so the cursor can move around in our menu*/
+		Cursor.lockState = CursorLockMode.None;
 	}
 
 	/*Resume Button*/
@@ -63,7 +71,12 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 		TestCompleteMenuUI.SetActive (true);
 		Time.timeScale = 0f;
 		TestCompleteMenuIsOpen = true;
-		//FPSControllerObject.GetComponent<FirstPersonController> ().m_MouseLook.lockCursor = false;
+		/*Disables the FPS Controller so we can use our Test Complete Menu without moving around in the environment*/
+		FPSControllerObject.GetComponent<FirstPersonController> ().enabled = false;
+		/*Makes the cursor visible*/
+		Cursor.visible = true;
+		/*Unlocks the cursor from the FPS Controller so the cursor can move around in our menu*/
+		Cursor.lockState = CursorLockMode.None;
 	}
 
 	public void CloseTestCompleteMenu(){
@@ -75,6 +88,10 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 	public void OnMainMenuButtonClicked(){
 		LoadMainMenu ();
 	}
+
+	public void OnNewTestButtonClicked(){
+		ReloadHallwayRandomObjectsScene ();
+	}
 	/*****************************************************************************************************/
 
 
@@ -84,6 +101,15 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 		TestCompleteMenuIsOpen = false;
 		EscapeMenuIsOpen = false;
 		SceneManager.LoadScene ("Main Menu", LoadSceneMode.Single);
+	}
+	/*****************************************************************************************************/
+
+
+
+	/****************************************** Reload Scene *********************************************/
+	public void ReloadHallwayRandomObjectsScene(){
+		/*Readloads the "Random Hallway Map" scene. (Assets->Scenes->Random Hallway Map)*/
+		SceneManager.LoadScene ("Random Hallway Map", LoadSceneMode.Single);
 	}
 	/*****************************************************************************************************/
 }

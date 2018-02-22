@@ -12,12 +12,20 @@ public class SpawnObstacles : MonoBehaviour {
 	public Vector3 center;
 	public Vector3 size;
 
+	public int minCubeSize;
+	public int maxCubeSize;
+
+	public int minSphereSize;
+	public int maxSphereSize;
+
+
+
 
 
 	// Use this for initialization
 	void Start () {
-		int numCubes = 50; //Number of cubes spawned
-		int numSpheres = 50; //Number of spheres spawned
+		int numCubes = 30; //Number of cubes spawned
+		int numSpheres = 30; //Number of spheres spawned
 
 
 		/*Generate Cubes*/
@@ -43,17 +51,14 @@ public class SpawnObstacles : MonoBehaviour {
 	*/
 	public void SpawnSphereRandObstacles(){
 		int xSize, ySize, zSize; //Holds the scale sizes of each dimension of the sphere
-		int minRange, maxRange; //Range the scale will randomly be between
 		Vector3 pos; //Will hold a random position vector within the desired volume for the sphere
 
-		minRange = 10;
-		maxRange = 30;
 
 		pos = center + new Vector3(Random.Range(-size.x / 2 , size.x/2), Random.Range(-size.y / 2 , size.y/2),Random.Range(-size.z / 2 , size.z/2));
 
-		xSize = Random.Range(minRange, maxRange);
-		ySize = Random.Range(minRange, maxRange);
-		zSize = Random.Range(minRange, maxRange);
+		xSize = Random.Range(minSphereSize, maxSphereSize);
+		ySize = Random.Range(minSphereSize, maxSphereSize);
+		zSize = Random.Range(minSphereSize, maxSphereSize);
 
 		spherePrefab.transform.localScale = new Vector3(xSize, ySize, zSize);
 
@@ -66,17 +71,14 @@ public class SpawnObstacles : MonoBehaviour {
 	*/
 	public void SpawnSquareRandObstacles(){
 		int xSize, ySize, zSize; //Holds the scale sizes of each dimension of the cube
-		int minRange, maxRange; //Range the scale will randomly be between
 		Vector3 pos; //Will hold a random position vector within the desired volume for the cube
 
-		minRange = 10;
-		maxRange = 30;
 
 		pos = center + new Vector3(Random.Range(-size.x / 2 , size.x/2), Random.Range(-size.y / 2 , size.y/2),Random.Range(-size.z / 2 , size.z/2));
 
-		xSize = Random.Range(minRange, maxRange);
-		ySize = Random.Range(minRange, maxRange);
-		zSize = Random.Range(minRange, maxRange);
+		xSize = Random.Range(minCubeSize, maxCubeSize);
+		ySize = Random.Range(minCubeSize, maxCubeSize);
+		zSize = Random.Range(minCubeSize, maxCubeSize);
 
 		cubePrefab.transform.localScale = new Vector3(xSize, ySize, zSize);
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class RandomHallwayMenuUI : MonoBehaviour {
 
@@ -9,11 +10,13 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 	public static bool TestCompleteMenuIsOpen;
 	public GameObject MenuUI;
 	public GameObject TestCompleteMenuUI;
+	public GameObject FPSControllerObject;
 
 	void Start(){
 		EscapeMenuIsOpen = false;
 		TestCompleteMenuIsOpen = false;
 		CloseEscapeMenu ();
+		CloseTestCompleteMenu ();
 	}
 
 	// Update is called once per frame
@@ -23,10 +26,8 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 			if (!TestCompleteMenuIsOpen) {
 				if (EscapeMenuIsOpen) {
 					CloseEscapeMenu ();
-					Cursor.visible = false;
 				} else {
 					OpenEscapeMenu ();
-					Cursor.visible = true;
 				}
 			}
 		}
@@ -62,6 +63,7 @@ public class RandomHallwayMenuUI : MonoBehaviour {
 		TestCompleteMenuUI.SetActive (true);
 		Time.timeScale = 0f;
 		TestCompleteMenuIsOpen = true;
+		//FPSControllerObject.GetComponent<FirstPersonController> ().m_MouseLook.lockCursor = false;
 	}
 
 	public void CloseTestCompleteMenu(){

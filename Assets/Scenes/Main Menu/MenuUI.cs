@@ -551,6 +551,7 @@ public class MenuUI : MonoBehaviour {
 	public void OnLogsButtonClicked(){
 		CloseEscapeMenu ();
 		OpenLogsMenu ();
+		LoadLogFiles ();
 	}
 
 	/* Logs Menu Back Button */
@@ -570,6 +571,10 @@ public class MenuUI : MonoBehaviour {
 		Time.timeScale = 0f;
 		LogsMenuIsOpen = true;
 		EscapeMenuIsOpen = false;
+	}
+
+	public void LoadLogFiles(){
+
 	}
 	/****************************************************************************************************/
 

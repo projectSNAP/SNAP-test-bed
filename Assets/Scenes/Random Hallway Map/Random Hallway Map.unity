@@ -418,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MenuUI: {fileID: 796183319}
   TestCompleteMenuUI: {fileID: 128399322}
+  FPSControllerObject: {fileID: 1977593044}
 --- !u!224 &319085999 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224490604726268252, guid: d54a0287a5bcd0440ba796097902076b,
@@ -1346,7 +1347,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RunSpeed
-      value: 80
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_MouseLook.lockCursor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -1391,6 +1396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuCanvas: {fileID: 319085994}
+  FPSControllerObject: {fileID: 1977593044}
 --- !u!1 &2028982463
 GameObject:
   m_ObjectHideFlags: 0

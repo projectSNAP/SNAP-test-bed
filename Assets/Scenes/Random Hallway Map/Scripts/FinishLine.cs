@@ -18,7 +18,7 @@ public class FinishLine : MonoBehaviour {
 
 			Debug.Log("TIME");
 			Debug.Log(totalTime);
-			Application.Quit();
+			//Application.Quit();
 
 		}
 	}

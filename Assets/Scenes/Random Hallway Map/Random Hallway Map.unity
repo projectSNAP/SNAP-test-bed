@@ -293,8 +293,8 @@ MonoBehaviour:
   maxCubeSize: 25
   minSphereSize: 10
   maxSphereSize: 25
-  numCubes: 0
-  numSpheres: 0
+  numCubes: 25
+  numSpheres: 25
 --- !u!4 &424251491
 Transform:
   m_ObjectHideFlags: 0
@@ -747,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649c3133fc96a4770b583a85990d0540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTime: {fileID: 0}
 --- !u!1 &2028982463
 GameObject:
   m_ObjectHideFlags: 0

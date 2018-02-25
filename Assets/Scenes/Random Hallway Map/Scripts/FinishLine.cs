@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour {
 
-	public float totalTime;
-	private float startTime;
+	public float totalTime; //Holds the total time the user took to finish the map
 
 
 	/*

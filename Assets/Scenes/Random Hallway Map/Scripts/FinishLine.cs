@@ -33,7 +33,7 @@ public class FinishLine : MonoBehaviour {
 			MenuCanvas.GetComponent<RandomHallwayMenuUI>().OpenTestCompleteMenu();
 			/*Accesses the "CollisionDetection" script through the FPSController to grab the number of collisions from the test*/
 			collisionsLabel.text = "Collisions: " + FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions ();
-			timeLabel.text = "Time: " + totalTime.toString(); //INSERT TIME VARIABLE HERE
+			timeLabel.text = "Time: " + totalTime.ToString(); //INSERT TIME VARIABLE HERE
 			/*Save all the information as a JSON file*/
 			SaveLogFile ();
 		}

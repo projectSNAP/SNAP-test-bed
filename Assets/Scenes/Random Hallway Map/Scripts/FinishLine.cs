@@ -7,6 +7,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour {
+	public float totalTime; //Holds the total time the user took to finish the map
 	public GameObject MenuCanvas;
 	public Transform FPSControllerObject;
 	public Text collisionsLabel;
@@ -27,11 +28,12 @@ public class FinishLine : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 
 		if(col.gameObject.name == "FinishLine"){
+			totalTime = Time.time;
 			/*Opens the Test Complete Menu when reaching the finish line*/
 			MenuCanvas.GetComponent<RandomHallwayMenuUI>().OpenTestCompleteMenu();
 			/*Accesses the "CollisionDetection" script through the FPSController to grab the number of collisions from the test*/
 			collisionsLabel.text = "Collisions: " + FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions ();
-			timeLabel.text = "Time: 4.5"; //INSERT TIME VARIABLE HERE
+			timeLabel.text = "Time: " + totalTime.ToString(); //INSERT TIME VARIABLE HERE
 			/*Save all the information as a JSON file*/
 			SaveLogFile ();
 		}

@@ -121,6 +121,10 @@ public class MenuUI : MonoBehaviour {
 
 		/*Main Menu will be showing when a user clicks any "back to main menu" button*/
 		EscapeMenuUI.SetActive (true);
+
+		/*Sets the cursor as active*/
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 	}
 	
 	// Update is called once per frame
@@ -547,6 +551,7 @@ public class MenuUI : MonoBehaviour {
 	public void OnLogsButtonClicked(){
 		CloseEscapeMenu ();
 		OpenLogsMenu ();
+		LoadLogFiles ();
 	}
 
 	/* Logs Menu Back Button */
@@ -566,6 +571,10 @@ public class MenuUI : MonoBehaviour {
 		Time.timeScale = 0f;
 		LogsMenuIsOpen = true;
 		EscapeMenuIsOpen = false;
+	}
+
+	public void LoadLogFiles(){
+
 	}
 	/****************************************************************************************************/
 

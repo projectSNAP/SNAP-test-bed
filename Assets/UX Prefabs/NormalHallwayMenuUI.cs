@@ -1,13 +1,17 @@
 ﻿using System.Collections;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NormalHallwayMenuUI : MonoBehaviour {
 
-	public static bool EscapeMenuIsOpen = false;
+	public static bool EscapeMenuIsOpen;
 	public GameObject MenuUI;
+
+	void Start(){
+		EscapeMenuIsOpen = false;
+		CloseEscapeMenu ();
+	}
 
 	// Update is called once per frame
 	void Update () {

@@ -20,4 +20,8 @@ public class CollisionDetection : MonoBehaviour {
 		}
 	}
 
+	public int GetTotalCollisions(){
+		return totalCollision;
+	}
+
 }

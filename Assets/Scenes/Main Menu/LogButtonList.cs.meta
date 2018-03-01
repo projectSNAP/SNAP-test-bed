@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 8095f3c535250b4469e4d73295ff5982
-timeCreated: 1519260109
+timeCreated: 1519862195
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - logButton: {fileID: 1920531533252994, guid: 7e3397a7ffce7274a9153a1c9ca3b52b,
+      type: 2}
+  - grid: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

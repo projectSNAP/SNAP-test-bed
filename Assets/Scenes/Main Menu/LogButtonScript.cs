@@ -33,7 +33,7 @@ public class LogButtonScript : MonoBehaviour {
 			/*Extract the data and insert it into our button via Text components*/
 			mapLabel.text = savedLogFile.mapName;
 			collisionLabel.text = "Collisions: " + savedLogFile.numberOfCollisions.ToString ();
-			timeLabel.text = "Time: " + savedLogFile.timeCompleted.ToString ();
+			timeLabel.text = "Time: " + savedLogFile.timeCompleted.ToString () + " sec";
 			dateLabel.text = "Date: " + savedLogFile.date;
 		} else {
 			/*If we can't find the file, thrown an error*/

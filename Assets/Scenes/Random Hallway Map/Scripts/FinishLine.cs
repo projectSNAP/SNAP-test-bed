@@ -32,8 +32,8 @@ public class FinishLine : MonoBehaviour {
 			/*Opens the Test Complete Menu when reaching the finish line*/
 			MenuCanvas.GetComponent<RandomHallwayMenuUI>().OpenTestCompleteMenu();
 			/*Accesses the "CollisionDetection" script through the FPSController to grab the number of collisions from the test*/
-			collisionsLabel.text = "Collisions: " + FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions ();
-			timeLabel.text = "Time: " + totalTime.ToString(); //INSERT TIME VARIABLE HERE
+			collisionsLabel.text = "Collisions: " + FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions ().ToString();
+			timeLabel.text = "Time: " + totalTime.ToString() + " sec"; 
 			/*Save all the information as a JSON file*/
 			SaveLogFile ();
 		}
@@ -47,7 +47,7 @@ public class FinishLine : MonoBehaviour {
 		SaveLoggingInformation save = new SaveLoggingInformation ();
 		save.mapName = "Hallway: Random Objects";
 		save.numberOfCollisions = FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions();
-		save.timeCompleted = 4.5f; //INSERT TIME VARIABLE HERE
+		save.timeCompleted = totalTime;
 		save.date = System.DateTime.Now.ToString("MM/dd/yyyy");
 		return save;
 	}

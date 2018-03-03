@@ -1644,8 +1644,8 @@ GameObject:
   - component: {fileID: 1977593046}
   - component: {fileID: 1977593045}
   - component: {fileID: 1977593051}
-  - component: {fileID: 1977593050}
   - component: {fileID: 1977593052}
+  - component: {fileID: 1977593050}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Untagged
@@ -1917,12 +1917,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1977593044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649c3133fc96a4770b583a85990d0540, type: 3}
+  m_Script: {fileID: 11500000, guid: 51fb5527995614216b17aa69dfa921d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 0
   MenuCanvas: {fileID: 0}
-  FPSControllerObject: {fileID: 0}
+  FPSControllerObject: {fileID: 1977593049}
   collisionsLabel: {fileID: 0}
   timeLabel: {fileID: 0}
 --- !u!1 &1993260571

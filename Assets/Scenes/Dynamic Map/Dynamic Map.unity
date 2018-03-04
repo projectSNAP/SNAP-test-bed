@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 282331667}
   m_Layer: 0
   m_Name: Wanderer
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,9 +263,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282331666}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -289,6 +289,138 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &384743093
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1382071624}
+    m_Modifications:
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -384
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623515645493944, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208003412890998, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1256306447}
+    - target: {fileID: 114208003412890998, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMainMenuButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867621175832948, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1256306447}
+    - target: {fileID: 114867621175832948, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnNewTestButtonClicked
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 45b6414b578b0d64b8924f8bd8c853e2, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &384743094 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114548657535823282, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+    type: 2}
+  m_PrefabInternal: {fileID: 384743093}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &384743095 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114497875450587930, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+    type: 2}
+  m_PrefabInternal: {fileID: 384743093}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &409742957
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +434,7 @@ GameObject:
   - component: {fileID: 409742958}
   m_Layer: 0
   m_Name: Front Wall
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,7 +656,7 @@ GameObject:
   - component: {fileID: 554482520}
   m_Layer: 0
   m_Name: Back Wall
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -610,7 +742,7 @@ GameObject:
   - component: {fileID: 632428716}
   m_Layer: 0
   m_Name: Wanderer (7)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -685,9 +817,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 632428715}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -711,6 +843,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &850387359 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1988625093573998, guid: 45b6414b578b0d64b8924f8bd8c853e2,
+    type: 2}
+  m_PrefabInternal: {fileID: 384743093}
 --- !u!1 &881712830
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +863,7 @@ GameObject:
   - component: {fileID: 881712831}
   m_Layer: 0
   m_Name: Wanderer (2)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,9 +938,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 881712830}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -842,7 +979,7 @@ GameObject:
   - component: {fileID: 925925414}
   m_Layer: 0
   m_Name: Wanderer (3)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -917,9 +1054,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 925925413}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -956,7 +1093,7 @@ GameObject:
   - component: {fileID: 985751232}
   m_Layer: 0
   m_Name: Right Wall
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1126,7 +1263,7 @@ GameObject:
   - component: {fileID: 1036265855}
   m_Layer: 0
   m_Name: Wanderer (4)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1201,9 +1338,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1036265854}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1328,6 +1465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuUI: {fileID: 469028826}
+  TestCompleteMenuUI: {fileID: 850387359}
+  FPSControllerObject: {fileID: 1977593044}
 --- !u!1001 &1382071623
 Prefab:
   m_ObjectHideFlags: 0
@@ -1449,10 +1588,20 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnSNAPQuitButtonClicked
       objectReference: {fileID: 0}
+    - target: {fileID: 224037044637654622, guid: 09458272ce8da7843965682c5f8de84f,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114406501603897636, guid: 09458272ce8da7843965682c5f8de84f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 09458272ce8da7843965682c5f8de84f, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &1382071624 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224965892754634126, guid: 09458272ce8da7843965682c5f8de84f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1382071623}
 --- !u!1 &1960566818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1617,7 @@ GameObject:
   - component: {fileID: 1960566819}
   m_Layer: 0
   m_Name: Wanderer (1)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1543,9 +1692,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1960566818}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1764,7 +1913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsWalking: 0
   m_WalkSpeed: 5
-  m_RunSpeed: 80
+  m_RunSpeed: 200
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 10
   m_StickToGroundForce: 10
@@ -1921,10 +2070,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 0
-  MenuCanvas: {fileID: 0}
-  FPSControllerObject: {fileID: 0}
-  collisionsLabel: {fileID: 0}
-  timeLabel: {fileID: 0}
+  MenuCanvas: {fileID: 1256306446}
+  FPSControllerObject: {fileID: 1977593049}
+  collisionsLabel: {fileID: 384743095}
+  timeLabel: {fileID: 384743094}
 --- !u!1 &1993260571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,7 +2089,7 @@ GameObject:
   - component: {fileID: 1993260572}
   m_Layer: 0
   m_Name: Wanderer (6)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2015,9 +2164,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1993260571}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -2054,7 +2203,7 @@ GameObject:
   - component: {fileID: 2028982464}
   m_Layer: 0
   m_Name: Left Wall
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2140,7 +2289,7 @@ GameObject:
   - component: {fileID: 2047920221}
   m_Layer: 0
   m_Name: Wanderer (8)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2215,9 +2364,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2047920220}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -2340,7 +2489,7 @@ GameObject:
   - component: {fileID: 2099750452}
   m_Layer: 0
   m_Name: Wanderer (5)
-  m_TagString: Untagged
+  m_TagString: Collidable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2415,9 +2564,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2099750451}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

@@ -11,8 +11,8 @@ public class CollisionDetDynamic : MonoBehaviour {
 	* Function detects when a character hits an obstacle and increments totalCollisions
 	*/
 	void OnTriggerEnter(Collider col){
-
-		if(col.gameObject.name == "Cube(Clone)" || col.gameObject.name == "Sphere(Clone)" ||
+		/*
+		if(col.gameObject.name == "Cube 1(Clone)" || col.gameObject.name == "Sphere 1(Clone)" ||
 				col.gameObject.name == "Ground" || col.gameObject.name == "Right Wall" ||
 				col.gameObject.name == "Left Wall" || col.gameObject.name == "Back Wall" ||
 				col.gameObject.name == "Front Wall" || col.gameObject.name == "Wanderer" ||
@@ -20,9 +20,15 @@ public class CollisionDetDynamic : MonoBehaviour {
 				col.gameObject.name == "Wanderer (3)" || col.gameObject.name == "Wanderer (4)" ||
 				col.gameObject.name == "Wanderer (5)" || col.gameObject.name == "Wanderer (6)" ||
 				col.gameObject.name == "Wanderer (7)" || col.gameObject.name == "Wanderer (8)" ){
+				*/
+		if(col.gameObject.tag == "Collidable"){
 			totalCollision++;
-			Debug.Log(totalCollision);
+			Debug.Log(col.gameObject.name + ": " + totalCollision);
 		}
+	}
+
+	public int GetTotalCollisions(){
+		return totalCollision;
 	}
 
 }

@@ -6,6 +6,15 @@ using System.IO;
 
 public class LogButtonList : MonoBehaviour {
 
+	#region Singleton
+	public static LogButtonList instance;
+
+	void Awake(){
+		instance = this;
+	}
+	#endregion
+
+	public List<GameObject> logsList = new List<GameObject> ();
 	public GameObject logButton; /*holds my "LogButton" prefab*/
 	public Transform grid;
 
@@ -41,9 +50,32 @@ public class LogButtonList : MonoBehaviour {
 			 */
 			informationLogButton.Setup (logFilePath);
 
+			/*Add the log button to our log button list*/
+			logsList.Add (newLogButton);
+
 			logFileNumber++;
 		}
 
 	}
 
+
+	public void Add(GameObject log){
+		logsList.Add (log);
+	}
+
+	public void Filter(string mapName){
+		foreach(GameObject log in logsList){
+			if (log.GetComponent<LogButtonScript> ().mapLabel.text != mapName) {
+				log.SetActive (false);
+			} else {
+				log.SetActive (true);
+			}
+		}
+	}
+
+	public void ResetFilter(){
+		foreach(GameObject log in logsList){
+			log.SetActive (true);
+		}
+	}
 }

@@ -71,10 +71,8 @@ public class MenuUI : MonoBehaviour {
 
 	/*Map Selection UI elements*/
 	public static bool HallwayRandomObjects = false;
-	public static bool HallwayNormal = false;
 	public static bool HallwayDynamic = false;
 	public UnityEngine.UI.Toggle HallwayRandomObjectToggle;
-	public UnityEngine.UI.Toggle HallwayNormalToggle;
 	public UnityEngine.UI.Toggle HallwayDynamicToggle;
 
 	// Use this for initialization
@@ -114,11 +112,11 @@ public class MenuUI : MonoBehaviour {
 		/*default Map Selection settings*/
 		if (HallwayRandomObjects) {
 			HallwayRandomObjectToggle.isOn = true;
-		} else if (HallwayNormal) {
-			HallwayNormalToggle.isOn = true;
+		} else if (HallwayDynamic) {
+			HallwayDynamicToggle.isOn = true;
 		} else {
 			HallwayRandomObjectToggle.isOn = false;
-			HallwayNormalToggle.isOn = false;
+			HallwayDynamicToggle.isOn = false;
 		}
 
 		/*Main Menu will be showing when a user clicks any "back to main menu" button*/
@@ -522,30 +520,16 @@ public class MenuUI : MonoBehaviour {
 
 	public void OnHallwayMapRandomObjectsToggled(){
 		if (HallwayRandomObjectToggle.isOn == true) {
-			HallwayNormalToggle.isOn = false;
-			HallwayNormal = false;
 			HallwayDynamicToggle.isOn = false;
 			HallwayDynamic = false;
 		}
 		HallwayRandomObjects = HallwayRandomObjectToggle.isOn;
 	}
 
-	public void OnHallwayMapNormalToggled(){
-		if (HallwayNormalToggle.isOn == true) {
-			HallwayRandomObjectToggle.isOn = false;
-			HallwayRandomObjects = false;
-			HallwayDynamicToggle.isOn = false;
-			HallwayDynamic = false;
-		}
-		HallwayNormal = HallwayNormalToggle.isOn;
-	}
-
 	public void OnHallwayMapDynamicToggled(){
 		if (HallwayDynamicToggle.isOn == true) {
 			HallwayRandomObjectToggle.isOn = false;
 			HallwayRandomObjects = false;
-			HallwayNormalToggle.isOn = false;
-			HallwayNormal = false;
 		}
 		HallwayDynamic = HallwayDynamicToggle.isOn;
 	}
@@ -605,8 +589,6 @@ public class MenuUI : MonoBehaviour {
 		EscapeMenuIsOpen = false;
 		if (HallwayRandomObjects == true) {
 			SceneManager.LoadScene ("Random Hallway Map", LoadSceneMode.Single);
-		} else if (HallwayNormal == true) {
-			SceneManager.LoadScene ("Hallway Map", LoadSceneMode.Single);
 		} else if (HallwayDynamic == true){
 			SceneManager.LoadScene ("Dynamic Map", LoadSceneMode.Single);
 		} else{

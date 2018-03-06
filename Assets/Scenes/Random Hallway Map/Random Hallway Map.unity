@@ -178,6 +178,20 @@ GameObject:
   m_PrefabParentObject: {fileID: 1805808141928552, guid: 75fedc1476008a04495c2daedbec6eb4,
     type: 2}
   m_PrefabInternal: {fileID: 2077055747}
+--- !u!114 &319085995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 319085994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3077da53e0827d74b8fd1365c4f9a4a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuUI: {fileID: 2134898014}
+  TestCompleteMenuUI: {fileID: 1207482757}
+  FPSControllerObject: {fileID: 1977593049}
 --- !u!1 &409742957
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +661,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+--- !u!1 &1207482757 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1847858918618486, guid: 75fedc1476008a04495c2daedbec6eb4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2077055747}
 --- !u!1 &1493643313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,6 +1132,65 @@ Prefab:
       propertyPath: FPSControllerObject
       value: 
       objectReference: {fileID: 1977593049}
-    m_RemovedComponents: []
+    - target: {fileID: 1847858918618486, guid: 75fedc1476008a04495c2daedbec6eb4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293969426759346, guid: 75fedc1476008a04495c2daedbec6eb4, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114281217965141924, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: FPSControllerObject
+      value: 
+      objectReference: {fileID: 1977593049}
+    - target: {fileID: 114081534088460004, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 319085995}
+    - target: {fileID: 114081534088460004, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMainMenuButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114229803779444202, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 319085995}
+    - target: {fileID: 114229803779444202, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnNewTestButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114090779512259624, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 319085995}
+    - target: {fileID: 114090779512259624, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSNAPResumeButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114591434506762260, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 319085995}
+    - target: {fileID: 114591434506762260, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSNAPQuitButtonClicked
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114281217965141924, guid: 75fedc1476008a04495c2daedbec6eb4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 75fedc1476008a04495c2daedbec6eb4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2134898014 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1293969426759346, guid: 75fedc1476008a04495c2daedbec6eb4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2077055747}

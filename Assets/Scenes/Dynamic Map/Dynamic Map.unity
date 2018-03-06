@@ -294,20 +294,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1805808141928552, guid: 75fedc1476008a04495c2daedbec6eb4,
     type: 2}
   m_PrefabInternal: {fileID: 508739171}
---- !u!114 &319033321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 319033320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e223ff7393160348af714a19ba4fcd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MenuUI: {fileID: 1322947632}
-  TestCompleteMenuUI: {fileID: 1983093842}
-  FPSControllerObject: {fileID: 1977593049}
 --- !u!1 &409742957
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,56 +608,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1293969426759346, guid: 75fedc1476008a04495c2daedbec6eb4, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 114281217965141924, guid: 75fedc1476008a04495c2daedbec6eb4,
+        type: 2}
+      propertyPath: FPSControllerObject
+      value: 
+      objectReference: {fileID: 1977593049}
     - target: {fileID: 1847858918618486, guid: 75fedc1476008a04495c2daedbec6eb4, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114591434506762260, guid: 75fedc1476008a04495c2daedbec6eb4,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 319033321}
-    - target: {fileID: 114591434506762260, guid: 75fedc1476008a04495c2daedbec6eb4,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSNAPQuitButtonClicked
-      objectReference: {fileID: 0}
-    - target: {fileID: 114090779512259624, guid: 75fedc1476008a04495c2daedbec6eb4,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 319033321}
-    - target: {fileID: 114090779512259624, guid: 75fedc1476008a04495c2daedbec6eb4,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSNAPResumeButtonClicked
-      objectReference: {fileID: 0}
-    - target: {fileID: 114229803779444202, guid: 75fedc1476008a04495c2daedbec6eb4,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 319033321}
-    - target: {fileID: 114229803779444202, guid: 75fedc1476008a04495c2daedbec6eb4,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnNewTestButtonClicked
-      objectReference: {fileID: 0}
-    - target: {fileID: 114081534088460004, guid: 75fedc1476008a04495c2daedbec6eb4,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 319033321}
-    - target: {fileID: 114081534088460004, guid: 75fedc1476008a04495c2daedbec6eb4,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnMainMenuButtonClicked
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114378833747637196, guid: 75fedc1476008a04495c2daedbec6eb4, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75fedc1476008a04495c2daedbec6eb4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &526352388
@@ -1542,11 +1488,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 508739171}
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &1322947632 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1293969426759346, guid: 75fedc1476008a04495c2daedbec6eb4,
-    type: 2}
-  m_PrefabInternal: {fileID: 508739171}
 --- !u!1 &1960566818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1896,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1977593044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649c3133fc96a4770b583a85990d0540, type: 3}
+  m_Script: {fileID: 11500000, guid: e029989043827324d96c940298e2d939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 0
@@ -1963,11 +1904,6 @@ MonoBehaviour:
   FPSControllerObject: {fileID: 1977593049}
   collisionsLabel: {fileID: 1187121774}
   timeLabel: {fileID: 1971986556}
---- !u!1 &1983093842 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1847858918618486, guid: 75fedc1476008a04495c2daedbec6eb4,
-    type: 2}
-  m_PrefabInternal: {fileID: 508739171}
 --- !u!1 &1993260571
 GameObject:
   m_ObjectHideFlags: 0

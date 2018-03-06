@@ -47,7 +47,7 @@ public class FinishLine : MonoBehaviour {
 		SaveLoggingInformation save = new SaveLoggingInformation ();
 		save.mapName = "Hallway: Random Objects";
 		save.numberOfCollisions = FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions();
-		save.timeCompleted = 4.5f; //INSERT TIME VARIABLE HERE
+		save.timeCompleted = totalTime; //INSERT TIME VARIABLE HERE
 		save.date = System.DateTime.Now.ToString("MM/dd/yyyy");
 		return save;
 	}

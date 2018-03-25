@@ -265,9 +265,9 @@ GameObject:
   - component: {fileID: 223981116982191690}
   - component: {fileID: 114598887222760178}
   - component: {fileID: 114624726708958284}
-  - component: {fileID: 114281217965141924}
+  - component: {fileID: 114379970244099076}
   m_Layer: 5
-  m_Name: MenuCanvas 1
+  m_Name: SubMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1874367607692240
 GameObject:
   m_ObjectHideFlags: 1
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114281217965141924}
+      - m_Target: {fileID: 0}
         m_MethodName: OnMainMenuButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114281217965141924}
+      - m_Target: {fileID: 114379970244099076}
         m_MethodName: OnSNAPResumeButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114281217965141924}
+      - m_Target: {fileID: 0}
         m_MethodName: OnNewTestButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -712,20 +712,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114281217965141924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805808141928552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e223ff7393160348af714a19ba4fcd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MenuUI: {fileID: 1293969426759346}
-  TestCompleteMenuUI: {fileID: 1847858918618486}
-  FPSControllerObject: {fileID: 0}
 --- !u!114 &114311158043558356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -753,6 +739,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114379970244099076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805808141928552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df8da3ba2dd264468782f6be735644c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1293969426759346}
+  testCompleteMenuUI: {fileID: 1847858918618486}
+  FPSControllerObject: {fileID: 0}
+  sceneName: Random Hallway Map
 --- !u!114 &114395946199191980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -899,7 +900,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114281217965141924}
+      - m_Target: {fileID: 114379970244099076}
         m_MethodName: OnSNAPQuitButtonClicked
         m_Mode: 1
         m_Arguments:

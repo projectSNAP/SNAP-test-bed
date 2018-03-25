@@ -8,10 +8,13 @@ using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour {
 	public float totalTime; //Holds the total time the user took to finish the map
+	public float startTime;
+	public float endTime;
 	public GameObject MenuCanvas;
 	public Transform FPSControllerObject;
 	public Text collisionsLabel;
 	public Text timeLabel;
+	public string mapName;
 	int LogFileNumber;
 
 	void Start(){
@@ -20,6 +23,7 @@ public class FinishLine : MonoBehaviour {
 		 * so LogFileNumber should equal 5
 		 */
 		LogFileNumber = 0;
+		startTime = Time.time;
 	}
 
 	/*
@@ -28,12 +32,13 @@ public class FinishLine : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 
 		if(col.gameObject.name == "FinishLine"){
-			totalTime = Time.time;
+			endTime = Time.time;
+			totalTime = endTime - startTime;
 			/*Opens the Test Complete Menu when reaching the finish line*/
-			MenuCanvas.GetComponent<RandomHallwayMenuUI>().OpenTestCompleteMenu();
+			MenuCanvas.GetComponent<SubMenuUI>().OpenTestCompleteMenu();
 			/*Accesses the "CollisionDetection" script through the FPSController to grab the number of collisions from the test*/
 			collisionsLabel.text = "Collisions: " + FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions ();
-			timeLabel.text = "Time: " + totalTime.ToString(); //INSERT TIME VARIABLE HERE
+			timeLabel.text = "Time: " + totalTime.ToString() + " sec";
 			/*Save all the information as a JSON file*/
 			SaveLogFile ();
 		}
@@ -45,9 +50,9 @@ public class FinishLine : MonoBehaviour {
 
 	private SaveLoggingInformation CreateLogFile(){
 		SaveLoggingInformation save = new SaveLoggingInformation ();
-		save.mapName = "Hallway: Random Objects";
+		save.mapName = mapName;
 		save.numberOfCollisions = FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions();
-		save.timeCompleted = totalTime; //INSERT TIME VARIABLE HERE
+		save.timeCompleted = totalTime; 
 		save.date = System.DateTime.Now.ToString("MM/dd/yyyy");
 		return save;
 	}

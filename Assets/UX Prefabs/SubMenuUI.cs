@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class DynamicMenuUI : MonoBehaviour {
+public class SubMenuUI : MonoBehaviour {
 
 	public static bool EscapeMenuIsOpen;
 	public static bool TestCompleteMenuIsOpen;
-	public GameObject MenuUI;
-	public GameObject TestCompleteMenuUI;
+	public GameObject pauseMenu;
+	public GameObject testCompleteMenuUI;
 	public Transform FPSControllerObject;
+	public string sceneName;
 
 	void Start(){
 		EscapeMenuIsOpen = false;
@@ -35,7 +36,7 @@ public class DynamicMenuUI : MonoBehaviour {
 
 	/********************************* Open/Close SNAP Sub Menu ******************************************/
 	public void CloseEscapeMenu(){
-		MenuUI.SetActive (false);
+		pauseMenu.SetActive (false);
 		Time.timeScale = 1f;
 		EscapeMenuIsOpen = false;
 		/*Activate the FPS Controller*/
@@ -43,7 +44,7 @@ public class DynamicMenuUI : MonoBehaviour {
 	}
 
 	public void OpenEscapeMenu(){
-		MenuUI.SetActive (true);
+		pauseMenu.SetActive (true);
 		Time.timeScale = 0f;
 		EscapeMenuIsOpen = true;
 		/*Disable the FPS Controller so we can use the menu without moving in the environment*/
@@ -68,7 +69,7 @@ public class DynamicMenuUI : MonoBehaviour {
 
 	/************************************* Test Complete Menu ********************************************/
 	public void OpenTestCompleteMenu(){
-		TestCompleteMenuUI.SetActive (true);
+		testCompleteMenuUI.SetActive (true);
 		Time.timeScale = 0f;
 		TestCompleteMenuIsOpen = true;
 		/*Disables the FPS Controller so we can use our Test Complete Menu without moving around in the environment*/
@@ -80,7 +81,7 @@ public class DynamicMenuUI : MonoBehaviour {
 	}
 
 	public void CloseTestCompleteMenu(){
-		TestCompleteMenuUI.SetActive (false);
+		testCompleteMenuUI.SetActive (false);
 		Time.timeScale = 1f;
 		TestCompleteMenuIsOpen = false;
 	}
@@ -90,7 +91,7 @@ public class DynamicMenuUI : MonoBehaviour {
 	}
 
 	public void OnNewTestButtonClicked(){
-		ReloadHallwayDynamicScene ();
+		ReloadScene ();
 	}
 	/*****************************************************************************************************/
 
@@ -107,9 +108,8 @@ public class DynamicMenuUI : MonoBehaviour {
 
 
 	/****************************************** Reload Scene *********************************************/
-	public void ReloadHallwayDynamicScene(){
-		/*Readloads the "Random Hallway Map" scene. (Assets->Scenes->Random Hallway Map)*/
-		SceneManager.LoadScene ("Dynamic Map", LoadSceneMode.Single);
+	public void ReloadScene(){
+		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
 	}
 	/*****************************************************************************************************/
 }

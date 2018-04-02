@@ -6544,6 +6544,7 @@ GameObject:
   - component: {fileID: 1139410101}
   - component: {fileID: 1139410100}
   - component: {fileID: 1139410104}
+  - component: {fileID: 1139410105}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6685,6 +6686,17 @@ MonoBehaviour:
   minValue: 0
   HallwayRandomObjectToggle: {fileID: 484576916}
   HallwayDynamicToggle: {fileID: 1429666373}
+--- !u!114 &1139410105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1139410099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77eec5bf4939a34da7522d26c2f45bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1147027535
 GameObject:
   m_ObjectHideFlags: 0

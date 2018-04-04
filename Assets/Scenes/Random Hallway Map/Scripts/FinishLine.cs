@@ -41,6 +41,8 @@ public class FinishLine : MonoBehaviour {
 			timeLabel.text = "Time: " + totalTime.ToString() + " sec";
 			/*Save all the information as a JSON file*/
 			SaveLogFile ();
+			/*reset Total Collisions for next test */
+			FPSControllerObject.GetComponent<CollisionDetection> ().ResetTotalCollisions();
 		}
 	}
 
@@ -52,7 +54,7 @@ public class FinishLine : MonoBehaviour {
 		SaveLoggingInformation save = new SaveLoggingInformation ();
 		save.mapName = mapName;
 		save.numberOfCollisions = FPSControllerObject.GetComponent<CollisionDetection> ().GetTotalCollisions();
-		save.timeCompleted = totalTime; 
+		save.timeCompleted = totalTime;
 		save.date = System.DateTime.Now.ToString("MM/dd/yyyy");
 		return save;
 	}

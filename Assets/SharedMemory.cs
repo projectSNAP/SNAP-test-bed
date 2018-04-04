@@ -21,6 +21,7 @@ public class SharedMemory : MonoBehaviour {
 	//[nF3, nF4]
 
 	void Start(){
+		GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
 		float[,] fArray = new float[2, 2]{ { 1.1f, 2.2f }, { 3.3f, 4.4f } };
 		int err = WriteArrayToSharedMemory (fArray[0,0], fArray[0,1], fArray[1,0], fArray[1,1]);
 

@@ -24,19 +24,13 @@ public class SharedMemory : MonoBehaviour {
 		float[,] fArray = new float[2, 2]{ { 1.1f, 2.2f }, { 3.3f, 4.4f } };
 		int err = WriteArrayToSharedMemory (fArray[0,0], fArray[0,1], fArray[1,0], fArray[1,1]);
 
-		if (err == 1)
-			Debug.Log ("CreateFileMapping failed!");
-		else if (err == 2)
-			Debug.Log ("MapViewOfFile failed!");
-		else if (err == 3)
-			Debug.Log ("UnmapViewOfFile failed!");
-		else
-			Debug.Log ("SUCCESS!!");
+		if (err != 0)
+			Debug.Log ("Write to shared memory failed!");
 
 
-		float[,] fResult = new float[2, 2];
-		ReadArrayFromSharedMemory (ref fResult[0,0], ref fResult[0,1], ref fResult[1,0], ref fResult[1,1]);
-		Debug.Log ("fResult: " + fResult[0,0] + ", " + fResult[0,1] + ", " + fResult[1,0] + ", " + fResult[1,1]);
+		//float[,] fResult = new float[2, 2];
+		//ReadArrayFromSharedMemory (ref fResult[0,0], ref fResult[0,1], ref fResult[1,0], ref fResult[1,1]);
+		//Debug.Log ("fResult: " + fResult[0,0] + ", " + fResult[0,1] + ", " + fResult[1,0] + ", " + fResult[1,1]);
 	}
 
 }

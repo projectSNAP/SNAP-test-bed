@@ -1,37 +1,71 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System; //allows us to use IntPtr type
 using System.Runtime.InteropServices; //allows us to access our SharedMemTestLib.dll
-
-/* If you want to try to pass an actual 2d float array to the SharedMemTestLib.dll, here is a thread on it:
- * 	https://stackoverflow.com/questions/18018509/passing-2d-array-from-c-sharp-to-c?rq=1
- * Otherwise, to use the dll Read/Write to shared memory, then you have to manually put in each element
- * of your 2d array into the functions.
- */
+using System.IO;
 
 public class SharedMemory : MonoBehaviour {
 	[DllImport("SharedMemoryDLL.dll")]
-	static extern int WriteArrayToSharedMemory(float f1, float f2, float f3, float f4);
-	//[f1, f2]
-	//[f3, f4]
+	static extern int WriteArrayToSharedMemory(IntPtr intArray, int size);
 
 	[DllImport("SharedMemoryDLL.dll")]
-	static extern void ReadArrayFromSharedMemory(ref float nF1, ref float nF2, ref float nF3, ref float nF4);
-	//[nF1, nF2]
-	//[nF3, nF4]
+	static extern IntPtr ReadArrayFromSharedMemory(ref int size);
+
+	Texture2D tex;
+	Texture2DArray texArr;
+	public Camera cam;
 
 	void Start(){
-		GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
-		float[,] fArray = new float[2, 2]{ { 1.1f, 2.2f }, { 3.3f, 4.4f } };
-		int err = WriteArrayToSharedMemory (fArray[0,0], fArray[0,1], fArray[1,0], fArray[1,1]);
+		cam.depthTextureMode = DepthTextureMode.Depth;
+		tex = new Texture2D(cam.pixelWidth, cam.pixelHeight, TextureFormat.RGBA32, false); //takes a screen shot from the cameras perspective
+		byte[] bytes = tex.GetRawTextureData ();
+		int[] intArr = ConvertToIntArray (bytes);
+		Debug.Log ("intArr: " + intArr[0] + ", " + intArr[1] + ", " + intArr[2] + ", " + intArr[3]);
+
+
+		//Initialize an IntPtr for our int array that we want to write to memory
+		GCHandle handle = GCHandle.Alloc (intArr, GCHandleType.Pinned);
+		IntPtr ipArr = handle.AddrOfPinnedObject();
+
+
+		//Copy our int array to our IntPtr that we initialized
+		Marshal.Copy (intArr, 0, ipArr, intArr.Length); 	//(int[] source, int startIndex, IntPtr dest, int length)
+		Debug.Log("intArr len: " + intArr.Length);
+
+
+		//Write the IntPtr array to memory
+		int err = WriteArrayToSharedMemory (ipArr, intArr.Length);
 
 		if (err != 0)
 			Debug.Log ("Write to shared memory failed!");
+		else
+			Debug.Log ("Write SUCCESS!");
+		
+
+		//Read the array from memory and store it in an IntPtr
+		int npArrSize = 0;
+		IntPtr npArr = ReadArrayFromSharedMemory (ref npArrSize);
+		if (npArr == null)
+			Debug.Log ("Read from shared memory failed!");
+		else
+			Debug.Log ("Read SUCCESS!");
 
 
-		//float[,] fResult = new float[2, 2];
-		//ReadArrayFromSharedMemory (ref fResult[0,0], ref fResult[0,1], ref fResult[1,0], ref fResult[1,1]);
-		//Debug.Log ("fResult: " + fResult[0,0] + ", " + fResult[0,1] + ", " + fResult[1,0] + ", " + fResult[1,1]);
+		//Copy elements that the IntPtr points to over to a new int array
+		int[] nArr = new int[npArrSize];
+		Marshal.Copy (npArr, nArr, 0, npArrSize);
+
+		Debug.Log ("nArr: " + nArr[0] + ", " + nArr[1] + ", " + nArr[2] + ", " + nArr[3]);
+
+	}
+
+	int[] ConvertToIntArray(byte[] bytes){
+		int[] intArr = new int[bytes.Length];
+		for (int i = 0; i < bytes.Length; i++) {
+			intArr [i] = bytes [i];
+		}
+		return intArr;
 	}
 
 }

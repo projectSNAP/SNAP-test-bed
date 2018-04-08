@@ -43,6 +43,7 @@ ehthumbs.db
 Thumbs.db
 
 ###
-# Log Files
+# Miscellenous Files
 ###
 Assets/Logs/*
+TestGame.app/*

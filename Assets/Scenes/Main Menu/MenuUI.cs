@@ -4,8 +4,12 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary; //Used for saving configuration files
 using System.IO; //Lets us read/write to save files
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
+/*
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+*/
 
 [System.Serializable]
 
@@ -187,13 +191,17 @@ public class MenuUI : MonoBehaviour {
 	 * Useful information on JSON for Unity:
 	 * 	https://docs.unity3d.com/Manual/JSONSerialization.html
 	*/
+
+/*
+	#if UNITY_EDITOR
+
 	public void OnLoadConfigurationClick(){
 		var path = UnityEditor.EditorUtility.OpenFilePanel ("Load configuration", "", "json");
 		string json = File.ReadAllText (path);
 		SaveConfigurationSettings LoadedConfig;
 		LoadedConfig = JsonUtility.FromJson<SaveConfigurationSettings> (json);
 
-		/*set all configuration settings to loaded configurations*/
+		//set all configuration settings to loaded configurations
 		if (LoadedConfig.savedFrequency >= minValue && LoadedConfig.savedFrequency <= maxFrequency)
 			frequency = LoadedConfig.savedFrequency;
 		else
@@ -231,7 +239,7 @@ public class MenuUI : MonoBehaviour {
 
 		vision = LoadedConfig.savedVision;
 
-		/*set all configuration Sliders and Input Fields to loaded configuration values*/
+		//set all configuration Sliders and Input Fields to loaded configuration values
 		FrequencySlider.value = frequency;
 		FrequencyInputField.text = frequency.ToString();
 
@@ -256,6 +264,8 @@ public class MenuUI : MonoBehaviour {
 
 	}
 
+	#endif
+*/
 	/*Back Button*/
 	public void OnSNAPBackButtonClick(){
 		CloseEscapeMenu ();
@@ -280,24 +290,28 @@ public class MenuUI : MonoBehaviour {
 		return save;
 	}
 
+//	#if UNITY_EDITOR
 	/* Saves the configurations when the Save Button is clicked.
 	 * Brings up the File Explorer window so the user can select where to place the new configuration file.
 	 * Allows the user to name the file whatever they want.
 	 */
+	/*
 	public void SaveConfigurationOnSaveClick(){
 		SaveConfigurationSettings save = CreateConfigurationSave ();
-		/*serialization of save*/
+		//serialization of save
 		string json = JsonUtility.ToJson (save);
 		var path = UnityEditor.EditorUtility.SaveFilePanel ("Save configuration", "", "newconfig","json");
 
 		if (path.Length != 0) {
-			File.WriteAllText (path, string.Empty); /*makes sure that the file is empty before writing to it*/
+			File.WriteAllText (path, string.Empty); //makes sure that the file is empty before writing to it
 			StreamWriter writer = new StreamWriter (path, true);
 			writer.Write (json);
 			writer.Close ();
 		}
 	}
 
+	#endif
+*/
 	public void OnCancelButtonClick(){
 		/* When the Cancel Button is clicked, set all Slider and Input Fields back to the original settings.*/
 		FrequencySlider.value = frequency;

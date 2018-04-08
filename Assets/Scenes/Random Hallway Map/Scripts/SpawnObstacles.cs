@@ -42,7 +42,7 @@ public class SpawnObstacles : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	/*
@@ -51,7 +51,7 @@ public class SpawnObstacles : MonoBehaviour {
 	public void SpawnSphereRandObstacles(){
 		int xSize, ySize, zSize; //Holds the scale sizes of each dimension of the sphere
 		Vector3 pos; //Will hold a random position vector within the desired volume for the sphere
-
+		GameObject clone; //clone of the Square prefab
 
 		pos = center + new Vector3(Random.Range(-size.x / 2 , size.x/2), Random.Range(-size.y / 2 , size.y/2),Random.Range(-size.z / 2 , size.z/2));
 
@@ -59,9 +59,11 @@ public class SpawnObstacles : MonoBehaviour {
 		ySize = Random.Range(minSphereSize, maxSphereSize);
 		zSize = Random.Range(minSphereSize, maxSphereSize);
 
-		spherePrefab.transform.localScale = new Vector3(xSize, ySize, zSize);
+		//spherePrefab.transform.localScale = new Vector3(xSize, ySize, zSize);
 
-		Instantiate(spherePrefab, pos, Quaternion.identity);
+		clone = Instantiate(spherePrefab, pos, Quaternion.identity);
+
+		clone.transform.localScale = new Vector3(xSize, ySize, zSize);
 	}
 
 
@@ -71,7 +73,7 @@ public class SpawnObstacles : MonoBehaviour {
 	public void SpawnSquareRandObstacles(){
 		int xSize, ySize, zSize; //Holds the scale sizes of each dimension of the cube
 		Vector3 pos; //Will hold a random position vector within the desired volume for the cube
-
+		GameObject clone; //clone of the Square prefab
 
 		pos = center + new Vector3(Random.Range(-size.x / 2 , size.x/2), Random.Range(-size.y / 2 , size.y/2),Random.Range(-size.z / 2 , size.z/2));
 
@@ -79,9 +81,12 @@ public class SpawnObstacles : MonoBehaviour {
 		ySize = Random.Range(minCubeSize, maxCubeSize);
 		zSize = Random.Range(minCubeSize, maxCubeSize);
 
-		cubePrefab.transform.localScale = new Vector3(xSize, ySize, zSize);
+		//cubePrefab.transform.localScale = new Vector3(xSize, ySize, zSize);
 
-		Instantiate(cubePrefab, pos, Quaternion.identity);
+		clone = Instantiate(cubePrefab, pos, Quaternion.identity);
+
+		clone.transform.localScale = new Vector3(xSize, ySize, zSize);
+
 	}
 
 	/*

@@ -191,7 +191,7 @@ public class MenuUI : MonoBehaviour {
 	public void OnLoadConfigurationClick(){
 		//var path = UnityEditor.EditorUtility.OpenFilePanel ("Load configuration", "", "json");
 		var path = StandaloneFileBrowser.OpenFilePanel("Open File", "", "", false);
-		string result = string.Concat(path); 
+		string result = string.Concat(path);
 		string json = File.ReadAllText (result);
 		SaveConfigurationSettings LoadedConfig;
 		LoadedConfig = JsonUtility.FromJson<SaveConfigurationSettings> (json);
@@ -291,9 +291,10 @@ public class MenuUI : MonoBehaviour {
 		SaveConfigurationSettings save = CreateConfigurationSave ();
 		/*serialization of save*/
 		string json = JsonUtility.ToJson (save);
-		var path = UnityEditor.EditorUtility.SaveFilePanel ("Save configuration", "", "newconfig","json");
-
-		if (path.Length != 0) {
+		//var path = UnityEditor.EditorUtility.SaveFilePanel ("Save configuration", "", "newconfig","json");
+		var path = StandaloneFileBrowser.SaveFilePanel("Save configuration", "", "newconfig", "json");
+		string newPath = string.Concat(path);
+		if (newPath.Length != 0) {
 			File.WriteAllText (path, string.Empty); /*makes sure that the file is empty before writing to it*/
 			StreamWriter writer = new StreamWriter (path, true);
 			writer.Write (json);

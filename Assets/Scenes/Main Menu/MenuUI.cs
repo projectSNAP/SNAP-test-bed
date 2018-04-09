@@ -4,7 +4,8 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary; //Used for saving configuration files
 using System.IO; //Lets us read/write to save files
 using UnityEngine.SceneManagement;
-using UnityEditor;
+//using UnityEditor;
+using SFB;
 
 
 [System.Serializable]
@@ -130,7 +131,7 @@ public class MenuUI : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		/* Open/Close Escape menu when Escape is pressed */
@@ -188,8 +189,10 @@ public class MenuUI : MonoBehaviour {
 	 * 	https://docs.unity3d.com/Manual/JSONSerialization.html
 	*/
 	public void OnLoadConfigurationClick(){
-		var path = UnityEditor.EditorUtility.OpenFilePanel ("Load configuration", "", "json");
-		string json = File.ReadAllText (path);
+		//var path = UnityEditor.EditorUtility.OpenFilePanel ("Load configuration", "", "json");
+		var path = StandaloneFileBrowser.OpenFilePanel("Open File", "", "", false);
+		string result = string.Concat(path); 
+		string json = File.ReadAllText (result);
 		SaveConfigurationSettings LoadedConfig;
 		LoadedConfig = JsonUtility.FromJson<SaveConfigurationSettings> (json);
 
@@ -198,37 +201,37 @@ public class MenuUI : MonoBehaviour {
 			frequency = LoadedConfig.savedFrequency;
 		else
 			Debug.Log ("error: value for 'frequency' is out of range");
-		
+
 		if(LoadedConfig.savedFrequencyIncrement >= minValue && LoadedConfig.savedFrequencyIncrement <= maxFrequencyIncrement)
 			frequencyIncrement = LoadedConfig.savedFrequencyIncrement;
 		else
 			Debug.Log ("error: value for 'frequency increment' is out of range");
-		
+
 		if(LoadedConfig.savedHorizontalSteps >= minValue && LoadedConfig.savedHorizontalSteps <= maxHorizontalSteps)
 			horizontalSteps = LoadedConfig.savedHorizontalSteps;
 		else
 			Debug.Log ("error: value for 'horizontal steps' is out of range");
-		
+
 		if(LoadedConfig.savedStepDelay >= minValue && LoadedConfig.savedStepDelay <= maxStepDelay)
 			stepDelay = LoadedConfig.savedStepDelay;
 		else
 			Debug.Log ("error: value for 'step delay' is out of range");
-		
+
 		if(LoadedConfig.savedAudioSpreadDegree >= minValue && LoadedConfig.savedAudioSpreadDegree <= maxAudioSpreadDegree)
 			audioSpreadDegree = LoadedConfig.savedAudioSpreadDegree;
 		else
 			Debug.Log ("error: value for 'audio spread degree' is out of range");
-		
+
 		if(LoadedConfig.savedAudioVolumeRollOff >= minValue && LoadedConfig.savedAudioVolumeRollOff <= maxAudioVolumeRollOff)
 			audioVolumeRollOff = LoadedConfig.savedAudioVolumeRollOff;
 		else
 			Debug.Log ("error: value for 'audio volume roll-off' is out of range");
-		
+
 		if(LoadedConfig.savedScanningType >= minValue && LoadedConfig.savedScanningType <= maxScanningType)
 			scanningType = LoadedConfig.savedScanningType;
 		else
 			Debug.Log ("error: value for 'scanning type' is out of range");
-		
+
 		vision = LoadedConfig.savedVision;
 
 		/*set all configuration Sliders and Input Fields to loaded configuration values*/

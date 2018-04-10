@@ -4,7 +4,6 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary; //Used for saving configuration files
 using System.IO; //Lets us read/write to save files
 using UnityEngine.SceneManagement;
-//using UnityEditor;
 using SFB;
 
 
@@ -189,7 +188,6 @@ public class MenuUI : MonoBehaviour {
 	 * 	https://docs.unity3d.com/Manual/JSONSerialization.html
 	*/
 	public void OnLoadConfigurationClick(){
-		//var path = UnityEditor.EditorUtility.OpenFilePanel ("Load configuration", "", "json");
 		var path = StandaloneFileBrowser.OpenFilePanel("Open File", "", "", false);
 		string result = string.Concat(path);
 		string json = File.ReadAllText (result);
@@ -291,7 +289,6 @@ public class MenuUI : MonoBehaviour {
 		SaveConfigurationSettings save = CreateConfigurationSave ();
 		/*serialization of save*/
 		string json = JsonUtility.ToJson (save);
-		//var path = UnityEditor.EditorUtility.SaveFilePanel ("Save configuration", "", "newconfig","json");
 		var path = StandaloneFileBrowser.SaveFilePanel("Save configuration", "", "newconfig", "json");
 		string newPath = string.Concat(path);
 		if (newPath.Length != 0) {

@@ -626,6 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1867891250}
+  mat: {fileID: 2100000, guid: 5b012a568df33994e95df6619671e870, type: 2}
 --- !u!1 &985751231
 GameObject:
   m_ObjectHideFlags: 0

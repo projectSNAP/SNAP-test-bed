@@ -15,54 +15,24 @@ public class SharedMemory : MonoBehaviour {
 	Texture2D tex;
 	public Camera cam;
 	bool capture;
+	public Material mat;
 
 	void Start(){
-		//cam.depthTextureMode = DepthTextureMode.Depth;
 		capture = false;
-		/*
-		//Initialize an IntPtr for our int array that we want to write to memory
-		GCHandle handle = GCHandle.Alloc (intArr, GCHandleType.Pinned);
-		IntPtr ipArr = handle.AddrOfPinnedObject();
-
-
-		//Copy our int array to our IntPtr that we initialized
-		Marshal.Copy (intArr, 0, ipArr, intArr.Length); 	//(int[] source, int startIndex, IntPtr dest, int length)
-		Debug.Log("intArr len: " + intArr.Length);
-
-
-		//Write the IntPtr array to memory
-		int err = WriteArrayToSharedMemory (ipArr, intArr.Length);
-
-		if (err != 0)
-			Debug.Log ("Write to shared memory failed!");
-		else
-			Debug.Log ("Write SUCCESS!");
-
-		*/
-		
-		/*
-		//Read the array from memory and store it in an IntPtr
-		int npArrSize = 0;
-		IntPtr npArr = ReadArrayFromSharedMemory (ref npArrSize);
-		if (npArr == null)
-			Debug.Log ("Read from shared memory failed!");
-		else
-			Debug.Log ("Read SUCCESS!");
-
-
-		//Copy elements that the IntPtr points to over to a new int array
-		int[] nArr = new int[npArrSize];
-		Marshal.Copy (npArr, nArr, 0, npArrSize);
-
-		Debug.Log ("nArr: " + nArr[0] + ", " + nArr[1] + ", " + nArr[2] + ", " + nArr[3]);
-		*/
-
 	}
 
 	void Update(){
 		if (Input.GetKey (KeyCode.C)) {
 			capture = true;
 		}
+	}
+
+	void OnRenderImage(RenderTexture src, RenderTexture dest){
+		//src is the fully rendered scene that you would normally
+		//send to the monitor. We are intercepting this so we can
+		//modify it before passing it on.
+
+		Graphics.Blit (src, dest, mat);
 	}
 
 	void OnPostRender(){
@@ -82,6 +52,7 @@ public class SharedMemory : MonoBehaviour {
 			Debug.Log ("intArr: " + intArr [0] + ", " + intArr [1] + ", " + intArr [2] + ", " + intArr [3] + ", " + intArr[intArr.Length - 3] + ", " + intArr[intArr.Length - 2] + ", " + intArr[intArr.Length - 1]);
 			Debug.Log ("intArr size: " + intArr.Length);
 
+
 			//Initialize an IntPtr for our int array that we want to write to memory
 			GCHandle handle = GCHandle.Alloc (intArr, GCHandleType.Pinned);
 			IntPtr ipArr = handle.AddrOfPinnedObject();
@@ -98,6 +69,7 @@ public class SharedMemory : MonoBehaviour {
 				Debug.Log ("Write to shared memory failed!");
 			else
 				Debug.Log ("Write SUCCESS!");
+			
 
 			/*
 			//Read the array from memory and store it in an IntPtr

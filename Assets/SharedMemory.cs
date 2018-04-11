@@ -16,9 +16,14 @@ public class SharedMemory : MonoBehaviour {
 	public Camera cam;
 	bool capture;
 	public Material mat;
+	int width, height;
 
 	void Start(){
 		capture = false;
+		cam.depthTextureMode = DepthTextureMode.Depth;
+		width = cam.pixelWidth;
+		height = cam.pixelHeight;
+		tex = new Texture2D (width, height, TextureFormat.RGBA32, false);
 	}
 
 	void Update(){
@@ -31,31 +36,24 @@ public class SharedMemory : MonoBehaviour {
 		//src is the fully rendered scene that you would normally
 		//send to the monitor. We are intercepting this so we can
 		//modify it before passing it on.
-
 		Graphics.Blit (src, dest, mat);
-	}
-
-	void OnPostRender(){
 		if (capture) {
-			cam.depthTextureMode = DepthTextureMode.Depth;
-			int width = cam.pixelWidth;
-			int height = cam.pixelHeight;
-			tex = new Texture2D (width, height, TextureFormat.RGBA32, false);
+			RenderTexture.active = dest;
 			tex.ReadPixels (new Rect (0, 0, width, height), 0, 0);
 			tex.Apply ();
 			byte[] bytes = tex.GetRawTextureData ();
-			Destroy (tex);
+
 			Debug.Log ("bytes: " + bytes [0] + ", " + bytes [1] + ", " + bytes [2] + ", " + bytes [bytes.Length - 3] + ", " + bytes [bytes.Length - 2] + ", " + bytes [bytes.Length - 1]);
 			Debug.Log ("bytes len: " + bytes.Length);
-			//System.IO.File.WriteAllBytes (Application.dataPath + ("/testPIC"), bytes);
+
 			int[] intArr = ConvertToIntArray (bytes);
-			Debug.Log ("intArr: " + intArr [0] + ", " + intArr [1] + ", " + intArr [2] + ", " + intArr [3] + ", " + intArr[intArr.Length - 3] + ", " + intArr[intArr.Length - 2] + ", " + intArr[intArr.Length - 1]);
+			Debug.Log ("intArr: " + intArr [0] + ", " + intArr [1] + ", " + intArr [2] + ", " + intArr [3] + ", " + intArr [intArr.Length - 3] + ", " + intArr [intArr.Length - 2] + ", " + intArr [intArr.Length - 1]);
 			Debug.Log ("intArr size: " + intArr.Length);
 
 
 			//Initialize an IntPtr for our int array that we want to write to memory
 			GCHandle handle = GCHandle.Alloc (intArr, GCHandleType.Pinned);
-			IntPtr ipArr = handle.AddrOfPinnedObject();
+			IntPtr ipArr = handle.AddrOfPinnedObject ();
 
 
 			//Copy our int array to our IntPtr that we initialized
@@ -69,10 +67,10 @@ public class SharedMemory : MonoBehaviour {
 				Debug.Log ("Write to shared memory failed!");
 			else
 				Debug.Log ("Write SUCCESS!");
-			
+
 
 			/*
-			//Read the array from memory and store it in an IntPtr
+				//Read the array from memory and store it in an IntPtr
 			int npArrSize = 0;
 			IntPtr npArr = ReadArrayFromSharedMemory (ref npArrSize);
 			if (npArr == null)
@@ -88,9 +86,13 @@ public class SharedMemory : MonoBehaviour {
 			Debug.Log ("nArr: " + nArr[0] + ", " + nArr[1] + ", " + nArr[2] + ", " + nArr[3] + ", " + nArr[nArr.Length - 3] + ", " + nArr[nArr.Length - 2] + ", " + nArr[nArr.Length - 1]);
 			Debug.Log ("nArr size: " + nArr.Length);
 			*/
-
 			capture = false;
 		}
+
+	}
+
+	void OnPostRender(){
+		
 	}
 
 

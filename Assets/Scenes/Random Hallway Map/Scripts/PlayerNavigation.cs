@@ -5,43 +5,46 @@ using UnityEngine;
 public class PlayerNavigation : MonoBehaviour {
 
 
-	////Public Variables
-	public AudioSource north;
-	public AudioSource south;
-	public AudioSource east;
-	public AudioSource west;
-	public AudioSource ne;
-	public AudioSource nw;
-	public AudioSource se;
-	public AudioSource sw;
+	////Private Variables
+	public AudioClip north;
+	public AudioClip south;
+	public AudioClip east;
+	public AudioClip west;
+	public AudioClip ne;
+	public AudioClip nw;
+	public AudioClip se;
+	public AudioClip sw;
 
 	public GameObject player;
 
 
-	/////Private Variables
+	////Private Variables
+	private AudioSource audio;
+
 	private float playerDir;
 
 
 	/////Private Constant Variables
-	private static const float northLowDeg = 330f;
-	private static const float northHighDeg = 30f;
-	private static const float neLowDeg = 30f;
-	private static const float neHighDeg = 60f;
-	private static const float eastLowDeg = 60f;
-	private static const float eastHighDeg = 120f;
-	private static const float seLowDeg = 120f;
-	private static const float seHighDeg = 150f;
-	private static const float southLowDeg = 150f;
-	private static const float southHighDeg = 210f;
-	private static const float swLowDeg = 210f;
-	private static const float swHighDeg = 240f;
-	private static const float westLowDeg = 240f;
-	private static const float westHighDeg = 300f;
-	private static const float nwLowDeg = 300f;
-	private static const float nwHighDeg = 330f;
+	private const float northLowDeg = 330f;
+	private const float northHighDeg = 30f;
+	private const float neLowDeg = 30f;
+	private const float neHighDeg = 60f;
+	private const float eastLowDeg = 60f;
+	private const float eastHighDeg = 120f;
+	private const float seLowDeg = 120f;
+	private const float seHighDeg = 150f;
+	private const float southLowDeg = 150f;
+	private const float southHighDeg = 210f;
+	private const float swLowDeg = 210f;
+	private const float swHighDeg = 240f;
+	private const float westLowDeg = 240f;
+	private const float westHighDeg = 300f;
+	private const float nwLowDeg = 300f;
+	private const float nwHighDeg = 330f;
 
 	// Use this for initialization
 	void Start () {
+		audio = GetComponent<AudioSource>();
 
 	}
 
@@ -51,14 +54,35 @@ public class PlayerNavigation : MonoBehaviour {
 
 
 		if (Input.GetKeyDown("p")){
-			Debug.Log(playerDir);
-			if ((playerDir > 270f && playerDir <= 360f) || (playerDir > 0f && playerDir < 90f)){
-				north.Play();
-			}
-			else if((playerDir < 270f && playerDir > 180f) || (playerDir > 90f && playerDir < 180f)){
-				south.Play();
-			}
+			PlayPlayerDirection();
 		}
 
+	}
+
+	private void PlayPlayerDirection(){
+		if(playerDir > northLowDeg && playerDir < 360f || playerDir > 0f && playerDir < northHighDeg){
+			audio.PlayOneShot(north);
+		}
+		else if(playerDir > neLowDeg && playerDir < neHighDeg){
+			audio.PlayOneShot(ne);
+		}
+		else if(playerDir > eastLowDeg && playerDir < eastHighDeg){
+			audio.PlayOneShot(east);
+		}
+		else if(playerDir > seLowDeg && playerDir < seHighDeg){
+			audio.PlayOneShot(se);
+		}
+		else if(playerDir > southLowDeg && playerDir < southHighDeg){
+			audio.PlayOneShot(south);
+		}
+		else if(playerDir > swLowDeg && playerDir < swHighDeg){
+			audio.PlayOneShot(sw);
+		}
+		else if(playerDir > westLowDeg && playerDir < westHighDeg){
+			audio.PlayOneShot(west);
+		}
+		else if(playerDir > nwLowDeg && playerDir < nwHighDeg){
+			audio.PlayOneShot(nw);
+		}
 	}
 }

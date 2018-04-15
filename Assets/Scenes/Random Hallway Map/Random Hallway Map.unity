@@ -388,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 409742957}
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 50, z: -500}
-  m_LocalScale: {x: 10, y: 1, z: 15}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -423,14 +423,14 @@ MonoBehaviour:
   cubePrefab: {fileID: 1216269293222742, guid: 6451d7c5e733a45d6a48b5955b1a1eb5, type: 2}
   spherePrefab: {fileID: 1131509271297538, guid: 0fbd9776cf4704c37af0e66005e151eb,
     type: 2}
-  center: {x: 0, y: 10, z: -125}
-  size: {x: 150, y: 10, z: 650}
+  center: {x: 0, y: 10, z: -250}
+  size: {x: 100, y: 10, z: 400}
   minCubeSize: 10
-  maxCubeSize: 25
+  maxCubeSize: 18
   minSphereSize: 10
-  maxSphereSize: 25
-  numCubes: 25
-  numSpheres: 25
+  maxSphereSize: 18
+  numCubes: 15
+  numSpheres: 15
 --- !u!4 &424251491
 Transform:
   m_ObjectHideFlags: 0
@@ -520,7 +520,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429404801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 50, z: 237.5}
+  m_LocalPosition: {x: 0, y: 50, z: -15}
   m_LocalScale: {x: 150, y: 100, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
@@ -604,8 +604,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 554482519}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 50, z: 250}
-  m_LocalScale: {x: 10, y: 1, z: 15}
+  m_LocalPosition: {x: 0, y: 50, z: 0}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -688,8 +688,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 985751231}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 75, y: 50, z: -125}
-  m_LocalScale: {x: 10, y: 1, z: 75}
+  m_LocalPosition: {x: 50, y: 50, z: -250}
+  m_LocalScale: {x: 10, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -772,8 +772,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1116933744}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 100, z: -125}
-  m_LocalScale: {x: 15, y: 1, z: 75}
+  m_LocalPosition: {x: 0, y: 100, z: -250}
+  m_LocalScale: {x: 10, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -970,6 +970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 0
+  startTime: 0
+  endTime: 0
   MenuCanvas: {fileID: 187589730}
   FPSControllerObject: {fileID: 1977593049}
   collisionsLabel: {fileID: 1740459074}
@@ -1053,8 +1055,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2028982463}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -75, y: 50, z: -125}
-  m_LocalScale: {x: 10, y: 1, z: 75}
+  m_LocalPosition: {x: -50, y: 50, z: -250}
+  m_LocalScale: {x: 10, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1137,8 +1139,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049220415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -125}
-  m_LocalScale: {x: 15, y: 1, z: 75}
+  m_LocalPosition: {x: 0, y: 0, z: -250}
+  m_LocalScale: {x: 10, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1

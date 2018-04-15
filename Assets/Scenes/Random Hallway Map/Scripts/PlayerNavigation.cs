@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class PlayerNavigation : MonoBehaviour {
 
+
+	////Public Variables
 	public AudioSource north;
 	public AudioSource south;
+	public AudioSource east;
+	public AudioSource west;
+	public AudioSource ne;
+	public AudioSource nw;
+	public AudioSource se;
+	public AudioSource sw;
 
 	public GameObject player;
 
+
+	/////Private Variables
 	private float playerDir;
 
+
+	/////Private Constant Variables
 	private static const float northLowDeg = 330f;
 	private static const float northHighDeg = 30f;
 	private static const float neLowDeg = 30f;

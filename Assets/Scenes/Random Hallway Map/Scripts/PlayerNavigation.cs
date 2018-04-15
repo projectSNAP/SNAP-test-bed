@@ -11,6 +11,23 @@ public class PlayerNavigation : MonoBehaviour {
 
 	private float playerDir;
 
+	private static const float northLowDeg = 330f;
+	private static const float northHighDeg = 30f;
+	private static const float neLowDeg = 30f;
+	private static const float neHighDeg = 60f;
+	private static const float eastLowDeg = 60f;
+	private static const float eastHighDeg = 120f;
+	private static const float seLowDeg = 120f;
+	private static const float seHighDeg = 150f;
+	private static const float southLowDeg = 150f;
+	private static const float southHighDeg = 210f;
+	private static const float swLowDeg = 210f;
+	private static const float swHighDeg = 240f;
+	private static const float westLowDeg = 240f;
+	private static const float westHighDeg = 300f;
+	private static const float nwLowDeg = 300f;
+	private static const float nwHighDeg = 330f;
+
 	// Use this for initialization
 	void Start () {
 

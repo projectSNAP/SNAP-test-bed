@@ -42,13 +42,15 @@ public class PlayerNavigation : MonoBehaviour {
 	private const float nwLowDeg = 300f;
 	private const float nwHighDeg = 330f;
 
-	// Use this for initialization
 	void Start () {
 		audio = GetComponent<AudioSource>();
 
 	}
 
-	// Update is called once per frame
+	/*
+	* Called once per frame, and reassigns the player's directions
+	* Also checks to see if 'p' is pressed in order to play their direction
+	*/
 	void Update () {
 		playerDir = player.transform.eulerAngles.y;
 
@@ -59,6 +61,9 @@ public class PlayerNavigation : MonoBehaviour {
 
 	}
 
+	/*
+	*Checks the direction of the player and plays the respective audio clip
+	*/
 	private void PlayPlayerDirection(){
 		if(playerDir > northLowDeg && playerDir < 360f || playerDir > 0f && playerDir < northHighDeg){
 			audio.PlayOneShot(north);

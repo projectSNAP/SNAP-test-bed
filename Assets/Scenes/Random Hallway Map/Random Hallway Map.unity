@@ -610,23 +610,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
---- !u!1 &557295929 stripped
+--- !u!1 &582882087 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_PrefabInternal: {fileID: 1867891249}
---- !u!114 &557295930
+--- !u!114 &582882088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 557295929}
+  m_GameObject: {fileID: 582882087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c98beceb51d17a14ab87616b59078324, type: 3}
+  m_Script: {fileID: 11500000, guid: e77eec5bf4939a34da7522d26c2f45bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: b4d7f72b5459df94eb7aa0983c5c9e95, type: 2}
-  BlankMat: {fileID: 2100000, guid: b4d7f72b5459df94eb7aa0983c5c9e95, type: 2}
 --- !u!1 &985751231
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +938,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_WalkSpeed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: far clip plane
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}

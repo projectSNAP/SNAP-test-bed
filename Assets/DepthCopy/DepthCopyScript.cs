@@ -49,16 +49,7 @@ public class DepthCopyScript : MonoBehaviour {
         tex = new Texture2D(GetComponent<Camera>().pixelWidth, GetComponent<Camera>().pixelHeight, TextureFormat.RGBA32, false);
 
         bytes = new byte[4*GetComponent<Camera>().pixelWidth*GetComponent<Camera>().pixelHeight];
-        /*unmanagedPointer = Marshal.AllocHGlobal(bytes.Length);
-        
-        long foo = unmanagedPointer.ToInt64();
-        byte[] infoFile = System.BitConverter.GetBytes(foo);
-        System.IO.File.WriteAllBytes("infoFile.txt", infoFile);
 
-        print("stuff");
-        print(System.BitConverter.ToString(infoFile));
-        print(unmanagedPointer.ToString());
-        print(infoFile[7].ToString());*/
 		fullPath =  Application.dataPath + "/Backend/SONARBackend.exe";
 		print("Path is "+fullPath);
 
@@ -142,6 +133,7 @@ public class DepthCopyScript : MonoBehaviour {
         tex.ReadPixels(new Rect(0, 0, GetComponent<Camera>().pixelWidth, GetComponent<Camera>().pixelHeight), 0, 0, false);
         tex.Apply();
         bytes = tex.GetRawTextureData();
+		print ("bytes: " + bytes);
 
 		//for (int index = 0; index < bytes.Length; index++)
 		//{

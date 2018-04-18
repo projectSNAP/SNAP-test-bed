@@ -32,9 +32,9 @@ public class LogButtonList : MonoBehaviour {
 		int logFileNumber = 0;
 		string logFilePath;
 		/*While loop seaches through "Logs" folder and checks if the log file, with a specific number, exists*/
-		while (System.IO.File.Exists ("Assets/Logs/log" + logFileNumber + ".json")) {
+		while (System.IO.File.Exists ("Logs/log" + logFileNumber + ".json")) {
 			/*Path to the log file*/
-			logFilePath = "Assets/Logs/log" + logFileNumber + ".json";
+			logFilePath = "Logs/log" + logFileNumber + ".json";
 
 			/*Create a new log button from "LogButton" prefab. (Assets->UX Prefabs)*/
 			GameObject newLogButton = Instantiate(logButton);

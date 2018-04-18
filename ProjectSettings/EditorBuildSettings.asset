@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Hallway Map/Hallway Map.unity
+  - enabled: 0
+    path: 
     guid: cd5a63ebe8cfb4e1fae6cf4f8b444748
   - enabled: 1
-    path: Assets/Scenes/Main Menu/Main Menu.unity
+    path: Assets/Menu/Main Menu.unity
     guid: 71b1a2ba2535841bea1e0f4f29778fb6
   - enabled: 1
-    path: Assets/Scenes/Random Hallway Map/Random Hallway Map.unity
+    path: Assets/Maps/Random Hallway Map.unity
     guid: 2052d7c3042104266a71b4b8c5249d3a
   - enabled: 1
-    path: Assets/Scenes/Dynamic Map/Dynamic Map.unity
+    path: Assets/Maps/Dynamic Map.unity
     guid: af37ab61d0378409ea58786b342d63e5

@@ -101,7 +101,7 @@ public class SubMenuUI : MonoBehaviour {
 		/*Changes to "Main Menu" Scene. (Assets -> Scenes -> Main Menu)*/
 		TestCompleteMenuIsOpen = false;
 		EscapeMenuIsOpen = false;
-		SceneManager.LoadScene ("Assets/Menu/Main Menu", LoadSceneMode.Single);
+		SceneManager.LoadScene ("Menu/Main Menu", LoadSceneMode.Single);
 	}
 	/*****************************************************************************************************/
 

@@ -37,8 +37,7 @@ public class SharedMemory : MonoBehaviour {
 		height = cam.pixelHeight;
 		tex = new Texture2D(width, height, TextureFormat.RGBA32, false);
 
-		print (Application.dataPath);
-		pathToVAEExecutable =  Application.dataPath + "SNAP-visual-audio-engine.exe";
+		pathToVAEExecutable =  Application.dataPath + "bin/SNAP-visual-audio-engine.exe";
 
 		if (processRunning) {
 			process.Kill ();

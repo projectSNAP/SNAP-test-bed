@@ -17,10 +17,9 @@ public class PlayerNavigation : MonoBehaviour {
 
 	public GameObject player;
 
+	public AudioSource audio;
 
 	////Private Variables
-	private AudioSource audio;
-
 	private float playerDir;
 
 
@@ -43,7 +42,7 @@ public class PlayerNavigation : MonoBehaviour {
 	private const float nwHighDeg = 330f;
 
 	void Start () {
-		audio = GetComponent<AudioSource>();
+		
 
 	}
 

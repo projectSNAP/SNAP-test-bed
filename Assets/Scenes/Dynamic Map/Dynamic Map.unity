@@ -1916,7 +1916,7 @@ MonoBehaviour:
   m_WalkSpeed: 40
   m_RunSpeed: 80
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 10
+  m_JumpSpeed: 0
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
@@ -2079,6 +2079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962d286e083e8440688a0e885fbbb549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 1977593045}
+  collide: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!114 &1977593053
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour {
 
+	public AudioSource audio;
+	public AudioClip collide;
+
 	public static int totalCollision = 0; //Keeps track of total amount of collision
 	private static float lastCollisionTime = 0f; //Holds the time of the previous collision
 	private const float MAX_COLLISION_INTERVAL = 1f; //Maximum interval to count another collision
+
 
 	/*
 	* Function detects when a character hits an obstacle and increments totalCollisions
@@ -22,6 +26,7 @@ public class CollisionDetection : MonoBehaviour {
 				col.gameObject.name == "Wanderer (5)" || col.gameObject.name == "Wanderer (6)" ||
 				col.gameObject.name == "Wanderer (7)" || col.gameObject.name == "Wanderer (8)"){
 			AddToTotalCollisions();
+			audio.PlayOneShot(collide);
 		}
 
 	}

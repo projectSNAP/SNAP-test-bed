@@ -1035,6 +1035,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &1867891250 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1867891249}
 --- !u!1 &1977593044 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -1075,6 +1080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962d286e083e8440688a0e885fbbb549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 1867891250}
+  collide: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!136 &1977593051
 CapsuleCollider:
   m_ObjectHideFlags: 0

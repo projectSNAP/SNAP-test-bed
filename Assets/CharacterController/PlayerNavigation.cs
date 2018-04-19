@@ -42,7 +42,7 @@ public class PlayerNavigation : MonoBehaviour {
 	private const float nwHighDeg = 330f;
 
 	void Start () {
-		
+
 
 	}
 

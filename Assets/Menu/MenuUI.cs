@@ -14,10 +14,12 @@ public class MenuUI : MonoBehaviour {
 	public static bool EscapeMenuIsOpen = false;
 	public static bool NewConfigurationMenuIsOpen = false;
 	public static bool SelectMapMenuIsOpen = false;
+	public static bool MapSettingsMenuIsOpen = false;
 	public static bool LogsMenuIsOpen = false;
 	public GameObject ConfigurationMenuUI;
 	public GameObject EscapeMenuUI;
 	public GameObject MapSelectionUI;
+	public GameObject MapSettingUI;
 	public GameObject LogsMenuUI;
 
 	/*Configuration settings elements*/
@@ -514,6 +516,11 @@ public class MenuUI : MonoBehaviour {
 		OpenMapSelectionMenu ();
 	}
 
+	public void OnMapSettingsButtonClicked(){
+		CloseEscapeMenu();
+		OpenMapSettingsMenu();
+	}
+
 	public void OnSelectMapBackButtonClicked(){
 		CloseMapSelectionMenu ();
 		OpenEscapeMenu ();
@@ -546,6 +553,13 @@ public class MenuUI : MonoBehaviour {
 		MapSelectionUI.SetActive (true);
 		Time.timeScale = 0f;
 		SelectMapMenuIsOpen = true;
+		EscapeMenuIsOpen = false;
+	}
+
+	public void OpenMapSettingsMenu(){
+		MapSettingUI.SetActive(true);
+		Time.timeScale = 0f;
+		MapSettingsMenuIsOpen = true;
 		EscapeMenuIsOpen = false;
 	}
 	/****************************************************************************************************/

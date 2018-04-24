@@ -7,9 +7,10 @@ using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour {
-	public float totalTime; //Holds the total time the user took to finish the map
-	public float startTime;
-	public float endTime;
+
+	private float totalTime; //Holds the total time the user took to finish the map
+	private float startTime;
+	private float endTime;
 	public GameObject MenuCanvas;
 	public Transform FPSControllerObject;
 	public Text collisionsLabel;

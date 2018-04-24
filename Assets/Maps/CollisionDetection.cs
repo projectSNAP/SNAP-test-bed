@@ -8,6 +8,9 @@ public class CollisionDetection : MonoBehaviour {
 	private static float lastCollisionTime = 0f; //Holds the time of the previous collision
 	private const float MAX_COLLISION_INTERVAL = 1f; //Maximum interval to count another collision
 
+	public AudioSource audio;
+	public AudioClip clip;
+
 	/*
 	* Function detects when a character hits an obstacle and increments totalCollisions
 	*/
@@ -21,6 +24,7 @@ public class CollisionDetection : MonoBehaviour {
 				col.gameObject.name == "Wanderer (3)" || col.gameObject.name == "Wanderer (4)" ||
 				col.gameObject.name == "Wanderer (5)" || col.gameObject.name == "Wanderer (6)" ||
 				col.gameObject.name == "Wanderer (7)" || col.gameObject.name == "Wanderer (8)"){
+
 			AddToTotalCollisions();
 		}
 
@@ -33,6 +37,7 @@ public class CollisionDetection : MonoBehaviour {
 		if(lastCollisionTime == 0.0){
 			lastCollisionTime = Time.time;
 			totalCollision++;
+			audio.PlayOneShot(clip);
 			return;
 		}
 
@@ -43,6 +48,7 @@ public class CollisionDetection : MonoBehaviour {
 
 		if(netTime > MAX_COLLISION_INTERVAL){
 			totalCollision++;
+			audio.PlayOneShot(clip);
 		}
 
 		lastCollisionTime = currTime;

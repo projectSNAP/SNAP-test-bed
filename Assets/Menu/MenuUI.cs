@@ -155,6 +155,34 @@ public class MenuUI : MonoBehaviour {
 		tempScanningType = 0;
 		tempVision = false;
 
+		/*max map settings*/
+		maxCubesSpawned = 30;
+		maxSpheresSpawned = 30;
+		maxCubeMinSize = 15;
+		maxCubeMaxSize = 30;
+		maxSphereMinSize = 15;
+		maxSphereMaxSize = 30;
+		maxScanningType = 1; //two scanning type options, 0 or 1
+
+		/*default configuration settings*/
+		cubesSpawned = 15;
+		spheresSpawned = 15;
+		cubeMinSize = 15;
+		cubeMaxSize = 15;
+		sphereMinSize = 15;
+		sphereMaxSize = 15;
+		mapSelected = 0;
+
+		/*default temp configuration settings*/
+		tempCubesSpawned = 15;
+		tempSpheresSpawned = 15;
+		tempCubeMinSize = 15;
+		tempCubeMaxSize = 15;
+		tempSphereMinSize = 15;
+		tempSphereMaxSize = 15;
+		tempMapSelected = 0;
+
+
 		/*default Map Selection settings*/
 		if (HallwayRandomObjects) {
 			HallwayRandomObjectToggle.isOn = true;
@@ -214,6 +242,12 @@ public class MenuUI : MonoBehaviour {
 	}
 
 	/**************************/
+	public void CloseMapSettingsMenu(){
+		MapSettingUI.SetActive(false);
+		Time.timeScale = 1f;
+		MapSettingsMenuIsOpen = false;
+
+	}
 
 	public void CloseConfigMenu(){
 		ConfigurationMenuUI.SetActive (false);
@@ -371,6 +405,33 @@ public class MenuUI : MonoBehaviour {
 		}
 	}
 
+	public void OnMapSettingCancelClick(){
+		/* When the Cancel Button is clicked, set all Slider and Input Fields back to the original settings.*/
+		CubesSpawnedSlider.value = cubesSpawned;
+		CubesSpawnedInputField.text = cubesSpawned.ToString();
+
+		SpheresSpawnedSlider.value = spheresSpawned;
+		SpheresSpawnedInputField.text = spheresSpawned.ToString();
+
+		CubeMinSizeSlider.value = cubeMinSize;
+		CubeMinSizeInputField.text = cubeMinSize.ToString();
+
+		CubeMaxSizeSlider.value = cubeMaxSize;
+		CubeMaxSizeInputField.text = cubeMaxSize.ToString();
+
+		SphereMinSizeSlider.value = sphereMinSize;
+		SphereMinSizeInputField.text = sphereMinSize.ToString();
+
+		SphereMaxSizeSlider.value = sphereMaxSize;
+		SphereMaxSizeInputField.text = sphereMaxSize.ToString();
+
+		MapSelectedDropdown.value = mapSelected;
+
+
+		CloseMapSettingsMenu ();
+		OpenEscapeMenu ();
+	}
+
 	public void OnCancelButtonClick(){
 		/* When the Cancel Button is clicked, set all Slider and Input Fields back to the original settings.*/
 		FrequencySlider.value = frequency;
@@ -396,6 +457,19 @@ public class MenuUI : MonoBehaviour {
 		VisionToggle.isOn = vision;
 
 		CloseConfigMenu ();
+		OpenEscapeMenu ();
+	}
+
+	public void onMapSettingBackButtonClick(){
+		cubesSpawned = tempCubesSpawned;
+		spheresSpawned = tempSpheresSpawned;
+		cubeMinSize = tempCubeMinSize;
+		cubeMaxSize = tempCubeMaxSize;
+		sphereMinSize = tempSphereMinSize;
+		sphereMaxSize = tempSphereMaxSize;
+		mapSelected = tempMapSelected;
+
+		CloseMapSettingsMenu ();
 		OpenEscapeMenu ();
 	}
 

@@ -2241,7 +2241,7 @@ RectTransform:
   - {fileID: 1580275334}
   - {fileID: 1172238202}
   m_Father: {fileID: 1360037237}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2293,15 +2293,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Unilateral
+    - m_Text: Hallway
       m_Image: {fileID: 0}
-    - m_Text: Bilateral
+    - m_Text: Dynamic
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustScanningTypeDropdown
+        m_MethodName: AdjustMapSelectedDropdown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2312,7 +2312,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnScanningTypeDropdownClicked
+        m_MethodName: OnMapSelectedDropdownClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2794,7 +2794,7 @@ GameObject:
   - component: {fileID: 304403655}
   - component: {fileID: 304403654}
   m_Layer: 5
-  m_Name: HorizontalStepsInputField
+  m_Name: MinCubeInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2872,7 +2872,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustHorizontalStepsFromInputField
+        m_MethodName: AdjustCubeMinSpawnInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2883,7 +2883,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnHorizontalStepsInputFieldChanged
+        m_MethodName: OnCubeMinimumFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2899,7 +2899,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustHorizontalStepsFromInputField
+        m_MethodName: AdjustCubeMinSpawnInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2910,7 +2910,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnHorizontalStepsInputFieldChanged
+        m_MethodName: OnCubeMinimumFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4141,7 +4141,7 @@ RectTransform:
   m_Children:
   - {fileID: 1207991818}
   m_Father: {fileID: 1360037237}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5434,7 +5434,7 @@ GameObject:
   - component: {fileID: 639483090}
   - component: {fileID: 639483089}
   m_Layer: 5
-  m_Name: FreqIncInputField
+  m_Name: SphereSpawnInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5512,7 +5512,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromInputField
+        m_MethodName: AdjustSpheresSpawnedInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5523,7 +5523,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementInputFieldChanged
+        m_MethodName: OnSpheresSpawnedInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5539,7 +5539,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromInputField
+        m_MethodName: AdjustSpheresSpawnedInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5550,7 +5550,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementInputFieldChanged
+        m_MethodName: OnSpheresSpawnedInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6510,7 +6510,7 @@ GameObject:
   - component: {fileID: 722910901}
   - component: {fileID: 722910900}
   m_Layer: 5
-  m_Name: AudioVolumeRollOffInputField
+  m_Name: MaxSphereInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6588,7 +6588,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioVolumeRollOffFromInputField
+        m_MethodName: AdjustSphereMaxSizeFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6599,7 +6599,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioVolumeRollOffInputFieldChanged
+        m_MethodName: OnSphereMaxSizeInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6615,7 +6615,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioVolumeRollOffFromInputField
+        m_MethodName: AdjustSphereMaxSizeFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6626,7 +6626,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioVolumeRollOffInputFieldChanged
+        m_MethodName: OnSphereMaxSizeInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6693,7 +6693,7 @@ GameObject:
   - component: {fileID: 728599162}
   - component: {fileID: 728599161}
   m_Layer: 5
-  m_Name: AudioSpreadInputField
+  m_Name: MinSphereInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6771,7 +6771,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioSpreadDegreeFromInputField
+        m_MethodName: AdjustSphereMinSizeFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6782,7 +6782,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioSpreadDegreeInputFieldChanged
+        m_MethodName: OnSphereMinSizeInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6798,7 +6798,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioSpreadDegreeFromInputField
+        m_MethodName: AdjustSphereMinSizeFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6809,7 +6809,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioSpreadDegreeInputFieldChanged
+        m_MethodName: OnSphereMinSizeInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8420,14 +8420,14 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1911430238}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 30
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromSlider
+        m_MethodName: AdjustSpheresSpawnedFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8438,7 +8438,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementSliderChanged
+        m_MethodName: OnSpheresSpawnedSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8531,15 +8531,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 2006467466}
   m_HandleRect: {fileID: 1022293542}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 50
+  m_MinValue: 15
+  m_MaxValue: 30
   m_WholeNumbers: 1
-  m_Value: 25
+  m_Value: 15
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioVolumeRollOffFromSlider
+        m_MethodName: AdjustSphereMaxSizeFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8550,7 +8550,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioVolumeRollOffSliderChanged
+        m_MethodName: OnSphereMaxSizeSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8664,7 +8664,7 @@ RectTransform:
   m_Children:
   - {fileID: 444076207}
   m_Father: {fileID: 1360037237}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -10391,6 +10391,40 @@ MonoBehaviour:
   vision: 0
   tempVision: 0
   VisionToggle: {fileID: 295891422}
+  cubesSpawned: 0
+  tempCubesSpawned: 0
+  maxCubesSpawned: 0
+  CubesSpawnedSlider: {fileID: 1811345146}
+  CubesSpawnedInputField: {fileID: 1176604289}
+  spheresSpawned: 0
+  tempSpheresSpawned: 0
+  maxSpheresSpawned: 0
+  SpheresSpawnedSlider: {fileID: 998893791}
+  SpheresSpawnedInputField: {fileID: 639483089}
+  cubeMinSize: 0
+  tempCubeMinSize: 0
+  maxCubeMinSize: 0
+  CubeMinSizeSlider: {fileID: 1676052563}
+  CubeMinSizeInputField: {fileID: 304403654}
+  cubeMaxSize: 0
+  tempCubeMaxSize: 0
+  maxCubeMaxSize: 0
+  CubeMaxSizeSlider: {fileID: 1338788671}
+  CubeMaxSizeInputField: {fileID: 1379640390}
+  sphereMinSize: 0
+  tempSphereMinSize: 0
+  maxSphereMinSize: 0
+  SphereMinSizeSlider: {fileID: 1190840507}
+  SphereMinSizeInputField: {fileID: 728599161}
+  sphereMaxSize: 0
+  tempSphereMaxSize: 0
+  maxSphereMaxSize: 0
+  SphereMaxSizeSlider: {fileID: 999270815}
+  SphereMaxSizeInputField: {fileID: 722910900}
+  mapSelected: 0
+  tempMapSelected: 0
+  maxMapType: 0
+  MapSelectedDropdown: {fileID: 253945286}
   minValue: 0
   HallwayRandomObjectToggle: {fileID: 484576916}
   HallwayDynamicToggle: {fileID: 1429666373}
@@ -10713,7 +10747,7 @@ GameObject:
   - component: {fileID: 1176604290}
   - component: {fileID: 1176604289}
   m_Layer: 5
-  m_Name: FreqInputField
+  m_Name: CubeSpawnInpField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10791,7 +10825,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromInputField
+        m_MethodName: AdjustCubesSpawnedFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10802,7 +10836,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyInputFieldChanged
+        m_MethodName: OnCubesSpawnedInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10818,7 +10852,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromInputField
+        m_MethodName: AdjustCubesSpawnedInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10829,7 +10863,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyInputFieldChanged
+        m_MethodName: OnCubesSpawnedInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11035,15 +11069,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 401858708}
   m_HandleRect: {fileID: 1835539911}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 90
+  m_MinValue: 1
+  m_MaxValue: 15
   m_WholeNumbers: 1
-  m_Value: 45
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioSpreadDegreeFromSlider
+        m_MethodName: AdjustSphereMinSizeFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11054,7 +11088,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioSpreadDegreeSliderChanged
+        m_MethodName: OnSphereMinSizeSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12216,15 +12250,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 1968050765}
   m_HandleRect: {fileID: 1116996027}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
+  m_MinValue: 15
+  m_MaxValue: 30
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 15
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustStepDelayFromSlider
+        m_MethodName: AdjustCubeMaxSizeFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12235,7 +12269,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnStepDelaySliderChanged
+        m_MethodName: OnCubeMaxSizeSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12558,7 +12592,6 @@ RectTransform:
   - {fileID: 1338788670}
   - {fileID: 1190840506}
   - {fileID: 999270814}
-  - {fileID: 2076019272}
   - {fileID: 253945285}
   - {fileID: 1023145699}
   - {fileID: 1371790506}
@@ -12723,7 +12756,7 @@ RectTransform:
   m_Children:
   - {fileID: 78508636}
   m_Father: {fileID: 1360037237}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -12949,7 +12982,7 @@ GameObject:
   - component: {fileID: 1379640391}
   - component: {fileID: 1379640390}
   m_Layer: 5
-  m_Name: StepDelayInputField
+  m_Name: MaxCubeInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13027,7 +13060,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustStepDelayFromInputField
+        m_MethodName: AdjustCubeMaxSizeFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13038,7 +13071,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnStepDelayInputFieldChanged
+        m_MethodName: OnCubeMaxSizeInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13054,7 +13087,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustStepDelayFromInputField
+        m_MethodName: AdjustCubeMaxSizeFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13065,7 +13098,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnStepDelayInputFieldChanged
+        m_MethodName: OnCubeMaxSizeInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14483,84 +14516,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 480, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1508990875
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1714203642950408, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1508990876}
-  - component: {fileID: 1508990878}
-  - component: {fileID: 1508990877}
-  m_Layer: 5
-  m_Name: VisionToggleText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1508990876
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224200420689959804, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1508990875}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2076019272}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -200.1, y: 0}
-  m_SizeDelta: {x: 149.8, y: 60}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1508990877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114720570039802652, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1508990875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 37
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 40
-    m_Alignment: 3
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Vision:'
---- !u!222 &1508990878
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 222052675328441546, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1508990875}
 --- !u!1 &1516843449
 GameObject:
   m_ObjectHideFlags: 0
@@ -15247,7 +15202,7 @@ GameObject:
   - component: {fileID: 1617528815}
   - component: {fileID: 1617528814}
   m_Layer: 5
-  m_Name: Unilateral
+  m_Name: Hallway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15305,7 +15260,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Unilateral
+  m_Text: Hallway
 --- !u!222 &1617528815
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15609,79 +15564,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1659549568}
---- !u!1 &1672044339
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1371698324379190, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1672044340}
-  - component: {fileID: 1672044342}
-  - component: {fileID: 1672044341}
-  m_Layer: 5
-  m_Name: Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1672044340
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224010318903508828, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1672044339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1972102575}
-  m_Father: {fileID: 2076019272}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -20}
-  m_SizeDelta: {x: 40, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1672044341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114933223691758694, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1672044339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1672044342
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 222123698264800722, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1672044339}
 --- !u!1 &1675037467
 GameObject:
   m_ObjectHideFlags: 0
@@ -15951,15 +15833,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 314240346}
   m_HandleRect: {fileID: 1058856991}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
+  m_MinValue: 1
+  m_MaxValue: 15
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustHorizontalStepsFromSlider
+        m_MethodName: AdjustCubeMinSizeFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15970,7 +15852,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnHorizontalStepsSliderChanged
+        m_MethodName: OnCubeMinimumSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16840,14 +16722,14 @@ MonoBehaviour:
   m_HandleRect: {fileID: 848976231}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 50
+  m_MaxValue: 30
   m_WholeNumbers: 1
-  m_Value: 25
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromSlider
+        m_MethodName: AdjustCubesSpawnedFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16858,7 +16740,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencySliderChanged
+        m_MethodName: OnCubesSpawnedSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18719,78 +18601,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1969394614}
---- !u!1 &1972102574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1324550318475662, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1972102575}
-  - component: {fileID: 1972102577}
-  - component: {fileID: 1972102576}
-  m_Layer: 5
-  m_Name: Checkmark
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1972102575
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224219841942914226, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972102574}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1672044340}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 40, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1972102576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114187646080035128, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972102574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1972102577
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 222401277619591362, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1972102574}
 --- !u!1 &1983762745
 GameObject:
   m_ObjectHideFlags: 0
@@ -19432,112 +19242,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2071743115}
---- !u!1 &2076019271
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1766273987737726, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2076019272}
-  - component: {fileID: 2076019273}
-  m_Layer: 5
-  m_Name: VisionToggle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2076019272
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224705691905187482, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2076019271}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1672044340}
-  - {fileID: 1508990876}
-  m_Father: {fileID: 1360037237}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -110, y: -290}
-  m_SizeDelta: {x: 40, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2076019273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114296584332464772, guid: 3fb3feba7a9691d4ba80eae5511762ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2076019271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 2109663825, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1672044341}
-  toggleTransition: 1
-  graphic: {fileID: 1972102576}
-  m_Group: {fileID: 0}
-  onValueChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustVisionToggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnVisionToggleClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
 --- !u!1 &2076864301
 GameObject:
   m_ObjectHideFlags: 0

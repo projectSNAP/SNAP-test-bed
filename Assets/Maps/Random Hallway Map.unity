@@ -274,7 +274,7 @@ Prefab:
         type: 2}
       propertyPath: FPSControllerObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1732641637}
     - target: {fileID: 114229803779444202, guid: 75fedc1476008a04495c2daedbec6eb4,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -846,6 +846,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1732641637 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4224711687859362, guid: e46515343c3564d4291383385de65a3a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1942728783}
 --- !u!1001 &1942728783
 Prefab:
   m_ObjectHideFlags: 0

@@ -12,7 +12,10 @@ using System.Diagnostics; //allows us to use Process
 
 public class SharedMemory : MonoBehaviour {
 	[DllImport("bin\\SharedMemoryDLL.dll")]
-	static extern IntPtr CreatePointerToSharedMemory (int x, int y);
+	static extern IntPtr CreateImagePointerToSharedMemory (int x, int y);
+
+	[DllImport("bin\\SharedMemoryDLL.dll")]
+	static extern IntPtr CreateDimensionPointerToSharedMemory (int x, int y);
 
 	[DllImport("bin\\SharedMemoryDLL.dll")]
 	static extern void UnmapPointerToSharedMemory (IntPtr pSharedMem);
@@ -25,7 +28,8 @@ public class SharedMemory : MonoBehaviour {
 	string pathToVAEExecutable;
 	Process process;
 	byte[] bytes;
-	IntPtr ptrToSharedMemory;
+	int[] dim;
+	IntPtr ptrToSharedMemory, ptrToDim;
 	const int RGBA_TYPE = 4;
 	bool processRunning = false;
 	Camera cam;
@@ -55,7 +59,9 @@ public class SharedMemory : MonoBehaviour {
 		width = cam.pixelWidth;
 		height = cam.pixelHeight;
 		bytes = new byte[RGBA_TYPE * width * height];
-		ptrToSharedMemory = CreatePointerToSharedMemory(width, height);
+		dim = new int[2]; //dimensions of image
+		ptrToDim = CreateDimensionPointerToSharedMemory(2, 1);
+		ptrToSharedMemory = CreateImagePointerToSharedMemory(width, height);
 	}
 
 
@@ -71,7 +77,14 @@ public class SharedMemory : MonoBehaviour {
 		//Reads pixels from the camera to our texture2D
 		tex.ReadPixels(new Rect(0, 0, width, height), 0, 0, false);
 		tex.Apply();
-		bytes = tex.GetRawTextureData();
+		bytes = tex.GetRawTextureData(); //bytes of image
+		print("w: " + width);
+		dim [0] = width;
+		dim [1] = height;
+		print ("dim w: " + dim[0] + " dim h: " + dim[1]);
+
+		//Copy our dimensions of the image to shared memory space
+		Marshal.Copy(dim, 0, ptrToDim, dim.Length);
 
 		//Copy our byte array to our shared memory space
 		Marshal.Copy (bytes, 0, ptrToSharedMemory, bytes.Length);
@@ -80,6 +93,7 @@ public class SharedMemory : MonoBehaviour {
 	void OnDisable()
 	{
 		UnmapPointerToSharedMemory (ptrToSharedMemory);
+		UnmapPointerToSharedMemory (ptrToDim);
 		process.Kill();
 	}
 

@@ -209,7 +209,6 @@ public class MenuUI : MonoBehaviour {
 		/*Main Menu will be showing when a user clicks any "back to main menu" button*/
 		EscapeMenuUI.SetActive (true);
 		CloseConfigMenu ();
-		//CloseMapSelectionMenu ();
 		CloseMapSettingsMenu();
 		CloseLogsMenu ();
 
@@ -354,7 +353,8 @@ public class MenuUI : MonoBehaviour {
 
 	/*Back Button*/
 	public void OnSNAPBackButtonClick(){
-		CloseEscapeMenu ();
+		//CloseEscapeMenu ();
+		Application.Quit();
 	}
 	/****************************************************************************************************/
 
@@ -425,7 +425,6 @@ public class MenuUI : MonoBehaviour {
 
 		string json = JsonUtility.ToJson (save);
 		var path = Application.dataPath + "/MapSettings/mapsetting.json";
-		//string newPath = string.Concat(path);
 		if (path.Length != 0) {
 			File.WriteAllText (path, string.Empty); //makes sure that the file is empty before writing to it
 			StreamWriter writer = new StreamWriter (path, true);
@@ -433,20 +432,16 @@ public class MenuUI : MonoBehaviour {
 			writer.Close ();
 		}
 
+		cubesSpawned = tempCubesSpawned;
+		spheresSpawned = tempSpheresSpawned;
+		cubeMinSize = tempCubeMinSize;
+		cubeMaxSize = tempCubeMaxSize;
+		sphereMinSize = tempSphereMinSize;
+		sphereMaxSize = tempSphereMaxSize;
+		mapSelected = tempMapSelected;
+
 		CloseMapSettingsMenu();
 		OpenEscapeMenu();
-
-		/*
-		string json = JsonUtility.ToJson(save);
-		var path = StandaloneFileBrowser.SaveFilePanel("Save Map Settings", "", "newmap", "json");
-		string newPath = string.Concat(path);
-		if(newPath.Length != 0){
-			File.WriteAllText(path, string.Empty);
-			StreamWriter writer = new StreamWriter (path, true);
-			writer.Write(json);
-			writer.Close();
-		}
-		*/
 	}
 
 	public void OnMapSettingCancelClick(){
@@ -501,19 +496,6 @@ public class MenuUI : MonoBehaviour {
 		VisionToggle.isOn = vision;
 
 		CloseConfigMenu ();
-		OpenEscapeMenu ();
-	}
-
-	public void onMapSettingBackButtonClick(){
-		cubesSpawned = tempCubesSpawned;
-		spheresSpawned = tempSpheresSpawned;
-		cubeMinSize = tempCubeMinSize;
-		cubeMaxSize = tempCubeMaxSize;
-		sphereMinSize = tempSphereMinSize;
-		sphereMaxSize = tempSphereMaxSize;
-		mapSelected = tempMapSelected;
-
-		CloseMapSettingsMenu ();
 		OpenEscapeMenu ();
 	}
 

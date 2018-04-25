@@ -420,12 +420,6 @@ MonoBehaviour:
     type: 2}
   center: {x: 0, y: 1, z: 0}
   size: {x: 20, y: 1, z: 75}
-  minCubeSize: 1
-  maxCubeSize: 5
-  minSphereSize: 1
-  maxSphereSize: 5
-  numCubes: 25
-  numSpheres: 25
 --- !u!4 &424251491
 Transform:
   m_ObjectHideFlags: 0
@@ -905,9 +899,31 @@ Prefab:
       propertyPath: timeLabel
       value: 
       objectReference: {fileID: 1968474088}
+    - target: {fileID: 20609718746509356, guid: e46515343c3564d4291383385de65a3a,
+        type: 2}
+      propertyPath: far clip plane
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e46515343c3564d4291383385de65a3a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1942728784 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1741085520185728, guid: e46515343c3564d4291383385de65a3a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1942728783}
+--- !u!114 &1942728786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942728784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a5b229101d73348a08b40cf032ba1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: b4d7f72b5459df94eb7aa0983c5c9e95, type: 2}
 --- !u!114 &1968474088 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114834400240908020, guid: 75fedc1476008a04495c2daedbec6eb4,

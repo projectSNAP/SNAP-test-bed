@@ -112,11 +112,14 @@ public class MenuUI : MonoBehaviour {
 	public UnityEngine.UI.Dropdown MapSelectedDropdown;
 
 
+	private SaveMapSettings mainMapSettings;
+
+
 	/*Minimum value for configurations*/
 	public float minValue;
 
 	/*Map Selection UI elements*/
-	public static bool HallwayRandomObjects = false;
+	public static bool HallwayRandomObjects = true;
 	public static bool HallwayDynamic = false;
 	public UnityEngine.UI.Toggle HallwayRandomObjectToggle;
 	public UnityEngine.UI.Toggle HallwayDynamicToggle;
@@ -181,6 +184,15 @@ public class MenuUI : MonoBehaviour {
 		tempSphereMinSize = 15;
 		tempSphereMaxSize = 15;
 		tempMapSelected = 0;
+
+		/*default map settings*/
+		mainMapSettings.savedCubesSpawned = cubesSpawned;
+		mainMapSettings.savedSpheresSpawned = spheresSpawned;
+		mainMapSettings.savedCubeMinSize = cubeMinSize;
+		mainMapSettings.savedCubeMaxSize = cubeMaxSize;
+		mainMapSettings.savedSphereMinSize = sphereMinSize;
+		mainMapSettings.savedSphereMaxSize = sphereMaxSize;
+		mainMapSettings.savedMapSelected = 0;
 
 
 		/*default Map Selection settings*/
@@ -370,6 +382,16 @@ public class MenuUI : MonoBehaviour {
 		save.savedSphereMinSize = tempSphereMinSize;
 		save.savedSphereMaxSize = tempSphereMaxSize;
 		save.savedMapSelected = tempMapSelected;
+
+		if(tempMapSelected == 0){
+			HallwayRandomObjects = true;
+			HallwayDynamic = false;
+		}
+		else{
+			HallwayRandomObjects = false;
+			HallwayDynamic = true;
+		}
+
 		return save;
 	}
 
@@ -380,11 +402,13 @@ public class MenuUI : MonoBehaviour {
 	public void SaveConfigurationOnSaveClick(){
 		SaveConfigurationSettings save = CreateConfigurationSave ();
 		/*serialization of save*/
+
+
 		string json = JsonUtility.ToJson (save);
 		var path = StandaloneFileBrowser.SaveFilePanel("Save configuration", "", "newconfig", "json");
 		string newPath = string.Concat(path);
 		if (newPath.Length != 0) {
-			File.WriteAllText (path, string.Empty); /*makes sure that the file is empty before writing to it*/
+			File.WriteAllText (path, string.Empty); //makes sure that the file is empty before writing to it
 			StreamWriter writer = new StreamWriter (path, true);
 			writer.Write (json);
 			writer.Close ();
@@ -394,6 +418,12 @@ public class MenuUI : MonoBehaviour {
 	public void SaveMapSettingsOnSaveClick(){
 		SaveMapSettings save = CreateMapSave();
 
+		mainMapSettings = save;
+
+		CloseMapSettingsMenu();
+		OpenEscapeMenu();
+
+		/*
 		string json = JsonUtility.ToJson(save);
 		var path = StandaloneFileBrowser.SaveFilePanel("Save Map Settings", "", "newmap", "json");
 		string newPath = string.Concat(path);
@@ -403,6 +433,7 @@ public class MenuUI : MonoBehaviour {
 			writer.Write(json);
 			writer.Close();
 		}
+		*/
 	}
 
 	public void OnMapSettingCancelClick(){

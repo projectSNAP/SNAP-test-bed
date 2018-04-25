@@ -161,28 +161,28 @@ public class MenuUI : MonoBehaviour {
 		/*max map settings*/
 		maxCubesSpawned = 30;
 		maxSpheresSpawned = 30;
-		maxCubeMinSize = 15;
-		maxCubeMaxSize = 30;
-		maxSphereMinSize = 15;
-		maxSphereMaxSize = 30;
+		maxCubeMinSize = 3;
+		maxCubeMaxSize = 6;
+		maxSphereMinSize = 3;
+		maxSphereMaxSize = 6;
 		maxScanningType = 1; //two scanning type options, 0 or 1
 
 		/*default configuration settings*/
 		cubesSpawned = 15;
 		spheresSpawned = 15;
-		cubeMinSize = 15;
-		cubeMaxSize = 15;
-		sphereMinSize = 15;
-		sphereMaxSize = 15;
+		cubeMinSize = 2;
+		cubeMaxSize = 4;
+		sphereMinSize = 2;
+		sphereMaxSize = 4;
 		mapSelected = 0;
 
 		/*default temp configuration settings*/
 		tempCubesSpawned = 15;
 		tempSpheresSpawned = 15;
-		tempCubeMinSize = 15;
-		tempCubeMaxSize = 15;
-		tempSphereMinSize = 15;
-		tempSphereMaxSize = 15;
+		tempCubeMinSize = 2;
+		tempCubeMaxSize = 4;
+		tempSphereMinSize = 2;
+		tempSphereMaxSize = 4;
 		tempMapSelected = 0;
 
 		/*default map settings*/

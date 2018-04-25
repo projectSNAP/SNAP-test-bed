@@ -21,7 +21,6 @@ public class MenuUI : MonoBehaviour {
 	public GameObject MapSelectionUI;
 	public GameObject MapSettingUI;
 	public GameObject LogsMenuUI;
-	public GameObject MapSettingsHolder;
 
 	/*Configuration settings elements*/
 	public float frequency;
@@ -113,7 +112,7 @@ public class MenuUI : MonoBehaviour {
 	public UnityEngine.UI.Dropdown MapSelectedDropdown;
 
 
-	private SaveMapSettings mainMapSettings;
+	private SaveMapSettings mainMapSettings = new SaveMapSettings();
 
 
 	/*Minimum value for configurations*/
@@ -196,7 +195,6 @@ public class MenuUI : MonoBehaviour {
 		mainMapSettings.savedMapSelected = 0;
 
 
-		MapSettingsHolder.GetComponent<MapSettingsHolder>().setMapSettings(mainMapSettings);
 
 		/*default Map Selection settings*/
 		if (HallwayRandomObjects) {
@@ -211,7 +209,8 @@ public class MenuUI : MonoBehaviour {
 		/*Main Menu will be showing when a user clicks any "back to main menu" button*/
 		EscapeMenuUI.SetActive (true);
 		CloseConfigMenu ();
-		CloseMapSelectionMenu ();
+		//CloseMapSelectionMenu ();
+		CloseMapSettingsMenu();
 		CloseLogsMenu ();
 
 
@@ -229,8 +228,8 @@ public class MenuUI : MonoBehaviour {
 			} else if (NewConfigurationMenuIsOpen) {
 				CloseConfigMenu ();
 				OpenEscapeMenu ();
-			} else if (SelectMapMenuIsOpen){
-				CloseMapSelectionMenu ();
+			} else if (MapSettingsMenuIsOpen){
+				CloseMapSettingsMenu ();
 				OpenEscapeMenu ();
 			} else if (LogsMenuIsOpen){
 				CloseLogsMenu ();

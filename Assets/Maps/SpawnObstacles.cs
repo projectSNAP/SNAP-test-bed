@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary; //Used for saving configuration files
+using System.IO; //Lets us read/write to save files
 using UnityEngine;
 
 public class SpawnObstacles : MonoBehaviour {
@@ -21,7 +23,7 @@ public class SpawnObstacles : MonoBehaviour {
 	private int numCubes;
 	private int numSpheres;
 
-	private SaveMapSettings MapSetting;
+	private SaveMapSettings MapSetting = new SaveMapSettings();
 
 
 

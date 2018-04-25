@@ -14,10 +14,12 @@ public class MenuUI : MonoBehaviour {
 	public static bool EscapeMenuIsOpen = false;
 	public static bool NewConfigurationMenuIsOpen = false;
 	public static bool SelectMapMenuIsOpen = false;
+	public static bool MapSettingsMenuIsOpen = false;
 	public static bool LogsMenuIsOpen = false;
 	public GameObject ConfigurationMenuUI;
 	public GameObject EscapeMenuUI;
 	public GameObject MapSelectionUI;
+	public GameObject MapSettingUI;
 	public GameObject LogsMenuUI;
 
 	/*Configuration settings elements*/
@@ -66,11 +68,58 @@ public class MenuUI : MonoBehaviour {
 	public bool tempVision;
 	public UnityEngine.UI.Toggle VisionToggle;
 
+
+	/*Map settings elements*/
+	public int cubesSpawned;
+	public int tempCubesSpawned;
+	public int maxCubesSpawned;
+	public UnityEngine.UI.Slider CubesSpawnedSlider;
+	public UnityEngine.UI.InputField CubesSpawnedInputField;
+
+	public int spheresSpawned;
+	public int tempSpheresSpawned;
+	public int maxSpheresSpawned;
+	public UnityEngine.UI.Slider SpheresSpawnedSlider;
+	public UnityEngine.UI.InputField SpheresSpawnedInputField;
+
+	public int cubeMinSize;
+	public int tempCubeMinSize;
+	public int maxCubeMinSize;
+	public UnityEngine.UI.Slider CubeMinSizeSlider;
+	public UnityEngine.UI.InputField CubeMinSizeInputField;
+
+	public int cubeMaxSize;
+	public int tempCubeMaxSize;
+	public int maxCubeMaxSize;
+	public UnityEngine.UI.Slider CubeMaxSizeSlider;
+	public UnityEngine.UI.InputField CubeMaxSizeInputField;
+
+	public int sphereMinSize;
+	public int tempSphereMinSize;
+	public int maxSphereMinSize;
+	public UnityEngine.UI.Slider SphereMinSizeSlider;
+	public UnityEngine.UI.InputField SphereMinSizeInputField;
+
+	public int sphereMaxSize;
+	public int tempSphereMaxSize;
+	public int maxSphereMaxSize;
+	public UnityEngine.UI.Slider SphereMaxSizeSlider;
+	public UnityEngine.UI.InputField SphereMaxSizeInputField;
+
+	public int mapSelected;
+	public int tempMapSelected;
+	public int maxMapType;
+	public UnityEngine.UI.Dropdown MapSelectedDropdown;
+
+
+	private SaveMapSettings mainMapSettings = new SaveMapSettings();
+
+
 	/*Minimum value for configurations*/
 	public float minValue;
 
 	/*Map Selection UI elements*/
-	public static bool HallwayRandomObjects = false;
+	public static bool HallwayRandomObjects = true;
 	public static bool HallwayDynamic = false;
 	public UnityEngine.UI.Toggle HallwayRandomObjectToggle;
 	public UnityEngine.UI.Toggle HallwayDynamicToggle;
@@ -109,6 +158,44 @@ public class MenuUI : MonoBehaviour {
 		tempScanningType = 0;
 		tempVision = false;
 
+		/*max map settings*/
+		maxCubesSpawned = 30;
+		maxSpheresSpawned = 30;
+		maxCubeMinSize = 3;
+		maxCubeMaxSize = 6;
+		maxSphereMinSize = 3;
+		maxSphereMaxSize = 6;
+		maxScanningType = 1; //two scanning type options, 0 or 1
+
+		/*default configuration settings*/
+		cubesSpawned = 15;
+		spheresSpawned = 15;
+		cubeMinSize = 2;
+		cubeMaxSize = 4;
+		sphereMinSize = 2;
+		sphereMaxSize = 4;
+		mapSelected = 0;
+
+		/*default temp configuration settings*/
+		tempCubesSpawned = 15;
+		tempSpheresSpawned = 15;
+		tempCubeMinSize = 2;
+		tempCubeMaxSize = 4;
+		tempSphereMinSize = 2;
+		tempSphereMaxSize = 4;
+		tempMapSelected = 0;
+
+		/*default map settings*/
+		mainMapSettings.savedCubesSpawned = cubesSpawned;
+		mainMapSettings.savedSpheresSpawned = spheresSpawned;
+		mainMapSettings.savedCubeMinSize = cubeMinSize;
+		mainMapSettings.savedCubeMaxSize = cubeMaxSize;
+		mainMapSettings.savedSphereMinSize = sphereMinSize;
+		mainMapSettings.savedSphereMaxSize = sphereMaxSize;
+		mainMapSettings.savedMapSelected = 0;
+
+
+
 		/*default Map Selection settings*/
 		if (HallwayRandomObjects) {
 			HallwayRandomObjectToggle.isOn = true;
@@ -122,7 +209,7 @@ public class MenuUI : MonoBehaviour {
 		/*Main Menu will be showing when a user clicks any "back to main menu" button*/
 		EscapeMenuUI.SetActive (true);
 		CloseConfigMenu ();
-		CloseMapSelectionMenu ();
+		CloseMapSettingsMenu();
 		CloseLogsMenu ();
 
 
@@ -140,8 +227,8 @@ public class MenuUI : MonoBehaviour {
 			} else if (NewConfigurationMenuIsOpen) {
 				CloseConfigMenu ();
 				OpenEscapeMenu ();
-			} else if (SelectMapMenuIsOpen){
-				CloseMapSelectionMenu ();
+			} else if (MapSettingsMenuIsOpen){
+				CloseMapSettingsMenu ();
 				OpenEscapeMenu ();
 			} else if (LogsMenuIsOpen){
 				CloseLogsMenu ();
@@ -152,6 +239,7 @@ public class MenuUI : MonoBehaviour {
 		}
 
 	}
+
 
 	/********************************* Open/Close SNAP Menu ******************************************/
 	/*On Escape Button pressed*/
@@ -168,6 +256,12 @@ public class MenuUI : MonoBehaviour {
 	}
 
 	/**************************/
+	public void CloseMapSettingsMenu(){
+		MapSettingUI.SetActive(false);
+		Time.timeScale = 1f;
+		MapSettingsMenuIsOpen = false;
+
+	}
 
 	public void CloseConfigMenu(){
 		ConfigurationMenuUI.SetActive (false);
@@ -259,7 +353,8 @@ public class MenuUI : MonoBehaviour {
 
 	/*Back Button*/
 	public void OnSNAPBackButtonClick(){
-		CloseEscapeMenu ();
+		//CloseEscapeMenu ();
+		Application.Quit();
 	}
 	/****************************************************************************************************/
 
@@ -281,6 +376,28 @@ public class MenuUI : MonoBehaviour {
 		return save;
 	}
 
+	private SaveMapSettings CreateMapSave(){
+		SaveMapSettings save = new SaveMapSettings();
+		save.savedCubesSpawned = tempCubesSpawned;
+		save.savedSpheresSpawned = tempSpheresSpawned;
+		save.savedCubeMinSize = tempCubeMinSize;
+		save.savedCubeMaxSize = tempCubeMaxSize;
+		save.savedSphereMinSize = tempSphereMinSize;
+		save.savedSphereMaxSize = tempSphereMaxSize;
+		save.savedMapSelected = tempMapSelected;
+
+		if(tempMapSelected == 0){
+			HallwayRandomObjects = true;
+			HallwayDynamic = false;
+		}
+		else{
+			HallwayRandomObjects = false;
+			HallwayDynamic = true;
+		}
+
+		return save;
+	}
+
 	/* Saves the configurations when the Save Button is clicked.
 	 * Brings up the File Explorer window so the user can select where to place the new configuration file.
 	 * Allows the user to name the file whatever they want.
@@ -288,15 +405,70 @@ public class MenuUI : MonoBehaviour {
 	public void SaveConfigurationOnSaveClick(){
 		SaveConfigurationSettings save = CreateConfigurationSave ();
 		/*serialization of save*/
+
+
 		string json = JsonUtility.ToJson (save);
 		var path = StandaloneFileBrowser.SaveFilePanel("Save configuration", "", "newconfig", "json");
 		string newPath = string.Concat(path);
 		if (newPath.Length != 0) {
-			File.WriteAllText (path, string.Empty); /*makes sure that the file is empty before writing to it*/
+			File.WriteAllText (path, string.Empty); //makes sure that the file is empty before writing to it
 			StreamWriter writer = new StreamWriter (path, true);
 			writer.Write (json);
 			writer.Close ();
 		}
+	}
+
+	public void SaveMapSettingsOnSaveClick(){
+		SaveMapSettings save = CreateMapSave();
+
+		mainMapSettings = save;
+
+		string json = JsonUtility.ToJson (save);
+		var path = Application.dataPath + "/MapSettings/mapsetting.json";
+		if (path.Length != 0) {
+			File.WriteAllText (path, string.Empty); //makes sure that the file is empty before writing to it
+			StreamWriter writer = new StreamWriter (path, true);
+			writer.Write (json);
+			writer.Close ();
+		}
+
+		cubesSpawned = tempCubesSpawned;
+		spheresSpawned = tempSpheresSpawned;
+		cubeMinSize = tempCubeMinSize;
+		cubeMaxSize = tempCubeMaxSize;
+		sphereMinSize = tempSphereMinSize;
+		sphereMaxSize = tempSphereMaxSize;
+		mapSelected = tempMapSelected;
+
+		CloseMapSettingsMenu();
+		OpenEscapeMenu();
+	}
+
+	public void OnMapSettingCancelClick(){
+		/* When the Cancel Button is clicked, set all Slider and Input Fields back to the original settings.*/
+		CubesSpawnedSlider.value = cubesSpawned;
+		CubesSpawnedInputField.text = cubesSpawned.ToString();
+
+		SpheresSpawnedSlider.value = spheresSpawned;
+		SpheresSpawnedInputField.text = spheresSpawned.ToString();
+
+		CubeMinSizeSlider.value = cubeMinSize;
+		CubeMinSizeInputField.text = cubeMinSize.ToString();
+
+		CubeMaxSizeSlider.value = cubeMaxSize;
+		CubeMaxSizeInputField.text = cubeMaxSize.ToString();
+
+		SphereMinSizeSlider.value = sphereMinSize;
+		SphereMinSizeInputField.text = sphereMinSize.ToString();
+
+		SphereMaxSizeSlider.value = sphereMaxSize;
+		SphereMaxSizeInputField.text = sphereMaxSize.ToString();
+
+		MapSelectedDropdown.value = mapSelected;
+
+
+		CloseMapSettingsMenu ();
+		OpenEscapeMenu ();
 	}
 
 	public void OnCancelButtonClick(){
@@ -343,6 +515,164 @@ public class MenuUI : MonoBehaviour {
 		CloseConfigMenu ();
 		OpenEscapeMenu ();
 	}
+	/****************************************************************************************************/
+
+
+	/********************************* Cubes Spawned Configuration ******************************************/
+	/*Adjusts the frequency when the Frequency Slider is moved*/
+	public void AdjustCubesSpawnedFromSlider(){
+		tempCubesSpawned = (int) CubesSpawnedSlider.value;
+	}
+
+	/*Adjust the frequency when the Frequency Input Field is changed*/
+	public void AdjustCubesSpawnedInputField(){
+		tempCubesSpawned = int.Parse(CubesSpawnedInputField.text);
+	}
+
+	/*Change the Frequency Input Field text to match Frequency Slider value when slider is moved*/
+	public void OnCubesSpawnedSliderChanged(){
+		CubesSpawnedInputField.text = tempCubesSpawned.ToString();
+	}
+
+	/*Change the Frequency Slider value to match Frequency Input Field when input field is changed*/
+	public void OnCubesSpawnedInputFieldChanged(){
+		CubesSpawnedSlider.value = tempCubesSpawned;
+	}
+
+	/****************************************************************************************************/
+
+
+	/********************************* Spheres Spawned Configuration ******************************************/
+	/*Adjusts the frequency when the Frequency Slider is moved*/
+	public void AdjustSpheresSpawnedFromSlider(){
+		tempSpheresSpawned = (int) SpheresSpawnedSlider.value;
+	}
+
+	/*Adjust the frequency when the Frequency Input Field is changed*/
+	public void AdjustSpheresSpawnedInputField(){
+		tempSpheresSpawned = int.Parse(SpheresSpawnedInputField.text);
+	}
+
+	/*Change the Frequency Input Field text to match Frequency Slider value when slider is moved*/
+	public void OnSpheresSpawnedSliderChanged(){
+		SpheresSpawnedInputField.text = tempSpheresSpawned.ToString();
+	}
+
+	/*Change the Frequency Slider value to match Frequency Input Field when input field is changed*/
+	public void OnSpheresSpawnedInputFieldChanged(){
+		SpheresSpawnedSlider.value = tempSpheresSpawned;
+	}
+
+	/****************************************************************************************************/
+
+
+	/********************************* Cube Minimum Size Configuration ******************************************/
+	/*Adjusts the frequency when the Frequency Slider is moved*/
+	public void AdjustCubeMinSizeFromSlider(){
+		tempCubeMinSize = (int) CubeMinSizeSlider.value;
+	}
+
+	/*Adjust the frequency when the Frequency Input Field is changed*/
+	public void AdjustCubeMinSpawnInputField(){
+		tempCubeMinSize = int.Parse(CubeMinSizeInputField.text);
+	}
+
+	/*Change the Frequency Input Field text to match Frequency Slider value when slider is moved*/
+	public void OnCubeMinimumSliderChanged(){
+		CubeMinSizeInputField.text = tempCubeMinSize.ToString();
+	}
+
+	/*Change the Frequency Slider value to match Frequency Input Field when input field is changed*/
+	public void OnCubeMinimumFieldChanged(){
+		CubeMinSizeSlider.value = tempCubeMinSize;
+	}
+
+	/****************************************************************************************************/
+
+
+	/********************************* Cube Maximum Size Configuration ******************************************/
+	/*Adjusts the frequency when the Frequency Slider is moved*/
+	public void AdjustCubeMaxSizeFromSlider(){
+		tempCubeMaxSize = (int) CubeMaxSizeSlider.value;
+	}
+
+	/*Adjust the frequency when the Frequency Input Field is changed*/
+	public void AdjustCubeMaxSizeFromInputField(){
+		tempCubeMaxSize = int.Parse(CubeMaxSizeInputField.text);
+	}
+
+	/*Change the Frequency Input Field text to match Frequency Slider value when slider is moved*/
+	public void OnCubeMaxSizeSliderChanged(){
+		CubeMaxSizeInputField.text = tempCubeMaxSize.ToString();
+	}
+
+	/*Change the Frequency Slider value to match Frequency Input Field when input field is changed*/
+	public void OnCubeMaxSizeInputFieldChanged(){
+		CubeMaxSizeSlider.value = tempCubeMaxSize;
+	}
+
+	/****************************************************************************************************/
+
+
+	/********************************* Sphere Minimum Size Configuration ******************************************/
+	/*Adjusts the frequency when the Frequency Slider is moved*/
+	public void AdjustSphereMinSizeFromSlider(){
+		tempSphereMinSize = (int) SphereMinSizeSlider.value;
+	}
+
+	/*Adjust the frequency when the Frequency Input Field is changed*/
+	public void AdjustSphereMinSizeFromInputField(){
+		tempSphereMinSize = int.Parse(SphereMinSizeInputField.text);
+	}
+
+	/*Change the Frequency Input Field text to match Frequency Slider value when slider is moved*/
+	public void OnSphereMinSizeSliderChanged(){
+		SphereMinSizeInputField.text = tempSphereMinSize.ToString();
+	}
+
+	/*Change the Frequency Slider value to match Frequency Input Field when input field is changed*/
+	public void OnSphereMinSizeInputFieldChanged(){
+		SphereMinSizeSlider.value = tempSphereMinSize;
+	}
+
+	/****************************************************************************************************/
+
+
+	/********************************* Sphere Maximum Size Configuration ******************************************/
+	/*Adjusts the frequency when the Frequency Slider is moved*/
+	public void AdjustSphereMaxSizeFromSlider(){
+		tempSphereMaxSize = (int) SphereMaxSizeSlider.value;
+	}
+
+	/*Adjust the frequency when the Frequency Input Field is changed*/
+	public void AdjustSphereMaxSizeFromInputField(){
+		tempSphereMaxSize = int.Parse(SphereMaxSizeInputField.text);
+	}
+
+	/*Change the Frequency Input Field text to match Frequency Slider value when slider is moved*/
+	public void OnSphereMaxSizeSliderChanged(){
+		SphereMaxSizeInputField.text = tempSphereMaxSize.ToString();
+	}
+
+	/*Change the Frequency Slider value to match Frequency Input Field when input field is changed*/
+	public void OnSphereMaxSizeInputFieldChanged(){
+		SphereMaxSizeSlider.value = tempSphereMaxSize;
+	}
+
+	/****************************************************************************************************/
+
+
+	/******************************************* Map Selected ******************************************/
+	public void AdjustMapSelectedDropdown(){
+		tempMapSelected = MapSelectedDropdown.value;
+	}
+
+	public void OnMapSelectedDropdownClicked(){
+		MapSelectedDropdown.value = tempMapSelected;
+	}
+
+
+
 	/****************************************************************************************************/
 
 
@@ -514,6 +844,11 @@ public class MenuUI : MonoBehaviour {
 		OpenMapSelectionMenu ();
 	}
 
+	public void OnMapSettingsButtonClicked(){
+		CloseEscapeMenu();
+		OpenMapSettingsMenu();
+	}
+
 	public void OnSelectMapBackButtonClicked(){
 		CloseMapSelectionMenu ();
 		OpenEscapeMenu ();
@@ -546,6 +881,13 @@ public class MenuUI : MonoBehaviour {
 		MapSelectionUI.SetActive (true);
 		Time.timeScale = 0f;
 		SelectMapMenuIsOpen = true;
+		EscapeMenuIsOpen = false;
+	}
+
+	public void OpenMapSettingsMenu(){
+		MapSettingUI.SetActive(true);
+		Time.timeScale = 0f;
+		MapSettingsMenuIsOpen = true;
 		EscapeMenuIsOpen = false;
 	}
 	/****************************************************************************************************/

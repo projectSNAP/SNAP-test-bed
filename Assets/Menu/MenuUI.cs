@@ -13,6 +13,7 @@ public class MenuUI : MonoBehaviour {
 	/*Main Menu UI elements*/
 	public static bool EscapeMenuIsOpen = false;
 	public static bool NewConfigurationMenuIsOpen = false;
+	public static bool MoreConfigurationMenuIsOpen = false;
 	public static bool SelectMapMenuIsOpen = false;
 	public static bool MapSettingsMenuIsOpen = false;
 	public static bool LogsMenuIsOpen = false;
@@ -21,6 +22,7 @@ public class MenuUI : MonoBehaviour {
 	public GameObject MapSelectionUI;
 	public GameObject MapSettingUI;
 	public GameObject LogsMenuUI;
+	public GameObject MoreConfigurationMenuUI;
 
 	/*Configuration settings elements*/
 	public float frequency;
@@ -211,6 +213,7 @@ public class MenuUI : MonoBehaviour {
 		CloseConfigMenu ();
 		CloseMapSettingsMenu();
 		CloseLogsMenu ();
+		CloseMoreConfigMenu ();
 
 
 		/*Sets the cursor as active*/
@@ -227,11 +230,14 @@ public class MenuUI : MonoBehaviour {
 			} else if (NewConfigurationMenuIsOpen) {
 				CloseConfigMenu ();
 				OpenEscapeMenu ();
-			} else if (MapSettingsMenuIsOpen){
+			} else if (MapSettingsMenuIsOpen) {
 				CloseMapSettingsMenu ();
 				OpenEscapeMenu ();
-			} else if (LogsMenuIsOpen){
+			} else if (LogsMenuIsOpen) {
 				CloseLogsMenu ();
+				OpenEscapeMenu ();
+			}else if (MoreConfigurationMenuIsOpen){
+				CloseMoreConfigMenu ();
 				OpenEscapeMenu ();
 			} else {
 				OpenEscapeMenu ();
@@ -275,6 +281,20 @@ public class MenuUI : MonoBehaviour {
 		Time.timeScale = 0f;
 		NewConfigurationMenuIsOpen = true;
 		EscapeMenuIsOpen = false;
+	}
+
+	/*More Configuration Menu*/
+	public void CloseMoreConfigMenu(){
+		MoreConfigurationMenuUI.SetActive (false);
+		Time.timeScale = 1f;
+		MoreConfigurationMenuIsOpen = false;
+	}
+
+	public void OpenMoreConfigMenu(){
+		MoreConfigurationMenuUI.SetActive (true);
+		Time.timeScale = 0f;
+		MoreConfigurationMenuIsOpen = true;
+		NewConfigurationMenuIsOpen = false;
 	}
 
 	/* Load Configuration Button
@@ -514,6 +534,17 @@ public class MenuUI : MonoBehaviour {
 
 		CloseConfigMenu ();
 		OpenEscapeMenu ();
+	}
+
+	public void OnConfigurationMoreButtonClick(){
+		/* When the "More" button is clicked it takes you to the menu with more configurations*/
+		CloseConfigMenu ();
+		OpenMoreConfigMenu ();
+	}
+
+	public void OnMoreConfigurationBackClick(){
+		CloseMoreConfigMenu ();
+		OpenConfigMenu ();
 	}
 	/****************************************************************************************************/
 

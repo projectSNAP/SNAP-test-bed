@@ -12,19 +12,30 @@ public class SpawnObstacles : MonoBehaviour {
 	public Vector3 center;
 	public Vector3 size;
 
-	public int minCubeSize;
-	public int maxCubeSize;
+	private int minCubeSize;
+	private int maxCubeSize;
 
-	public int minSphereSize;
-	public int maxSphereSize;
+	private int minSphereSize;
+	private int maxSphereSize;
 
-	public int numCubes;
-	public int numSpheres;
+	private int numCubes;
+	private int numSpheres;
+
+	private SaveMapSettings MapSetting;
 
 
 
 	// Use this for initialization
 	void Start () {
+
+		LoadMapSettings();
+
+		numCubes = MapSetting.savedCubesSpawned;
+		numSpheres = MapSetting.savedSpheresSpawned;
+		minCubeSize = MapSetting.savedCubeMinSize;
+		maxCubeSize = MapSetting.savedCubeMaxSize;
+		minSphereSize = MapSetting.savedSphereMinSize;
+		maxSphereSize =  MapSetting.savedSphereMaxSize;
 
 
 		/*Generate Cubes*/
@@ -42,6 +53,20 @@ public class SpawnObstacles : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+	}
+
+	private void LoadMapSettings(){
+		var path = Application.dataPath + "/MapSettings/mapsetting.json";
+		string result = string.Concat(path);
+		string json = File.ReadAllText (result);
+		SaveMapSettings LoadedMapSettings;
+		LoadedMapSettings = JsonUtility.FromJson<SaveMapSettings> (json);
+
+		MapSetting = LoadedMapSettings;
+
+
+		///TO DO: IMPLEMENT ERROR CHECKING similar to OnLoadConfigurationClick
 
 	}
 

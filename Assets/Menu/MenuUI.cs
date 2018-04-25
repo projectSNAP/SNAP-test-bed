@@ -21,6 +21,7 @@ public class MenuUI : MonoBehaviour {
 	public GameObject MapSelectionUI;
 	public GameObject MapSettingUI;
 	public GameObject LogsMenuUI;
+	public GameObject MapSettingsHolder;
 
 	/*Configuration settings elements*/
 	public float frequency;
@@ -195,6 +196,8 @@ public class MenuUI : MonoBehaviour {
 		mainMapSettings.savedMapSelected = 0;
 
 
+		MapSettingsHolder.GetComponent<MapSettingsHolder>().setMapSettings(mainMapSettings);
+
 		/*default Map Selection settings*/
 		if (HallwayRandomObjects) {
 			HallwayRandomObjectToggle.isOn = true;
@@ -238,6 +241,7 @@ public class MenuUI : MonoBehaviour {
 		}
 
 	}
+
 
 	/********************************* Open/Close SNAP Menu ******************************************/
 	/*On Escape Button pressed*/
@@ -419,6 +423,16 @@ public class MenuUI : MonoBehaviour {
 		SaveMapSettings save = CreateMapSave();
 
 		mainMapSettings = save;
+
+		string json = JsonUtility.ToJson (save);
+		var path = Application.dataPath + "/MapSettings/mapsetting.json";
+		//string newPath = string.Concat(path);
+		if (path.Length != 0) {
+			File.WriteAllText (path, string.Empty); //makes sure that the file is empty before writing to it
+			StreamWriter writer = new StreamWriter (path, true);
+			writer.Write (json);
+			writer.Close ();
+		}
 
 		CloseMapSettingsMenu();
 		OpenEscapeMenu();

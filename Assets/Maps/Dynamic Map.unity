@@ -1524,7 +1524,8 @@ Prefab:
       propertyPath: far clip plane
       value: 100
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114888874599094968, guid: e46515343c3564d4291383385de65a3a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e46515343c3564d4291383385de65a3a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1182313258 stripped

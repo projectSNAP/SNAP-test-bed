@@ -230,7 +230,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.019838884, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1110,8 +1110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -300, y: -28.3}
-  m_SizeDelta: {x: 60.9, y: 56.6}
+  m_AnchoredPosition: {x: -350, y: -28.3}
+  m_SizeDelta: {x: 150, y: 56.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &100046784
 MonoBehaviour:
@@ -1159,12 +1159,12 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 1
-  m_CharacterLimit: 2
+  m_CharacterLimit: 4
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromInputField
+        m_MethodName: AdjustCycleLengthFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1175,7 +1175,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyInputFieldChanged
+        m_MethodName: OnCycleLengthInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1190,8 +1190,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromInputField
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1201,8 +1201,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyInputFieldChanged
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 25
+  m_Text: 1000
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -4506,19 +4506,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1292212387}
   m_TextComponent: {fileID: 2029307996}
   m_Placeholder: {fileID: 771416669}
-  m_ContentType: 2
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 1
-  m_CharacterLimit: 2
+  m_CharacterValidation: 2
+  m_CharacterLimit: 6
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromInputField
+        m_MethodName: AdjustMinFrequencyFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4529,7 +4529,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyInputFieldChanged
+        m_MethodName: OnMinFrequencyInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4544,8 +4544,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromInputField
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4555,8 +4555,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyInputFieldChanged
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4571,7 +4571,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 25
+  m_Text: 110.0
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -4610,7 +4610,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -27}
-  m_SizeDelta: {x: 40, y: 44}
+  m_SizeDelta: {x: 150, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &399424713
 MonoBehaviour:
@@ -4645,7 +4645,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 440.0
 --- !u!222 &399424714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6675,8 +6675,8 @@ RectTransform:
   m_Father: {fileID: 2079049114}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.019838884, y: 0}
+  m_AnchorMax: {x: 0.019838884, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7162,8 +7162,8 @@ RectTransform:
   m_Father: {fileID: 1712392827}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7448,8 +7448,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -300, y: -28.3}
-  m_SizeDelta: {x: 60.9, y: 56.6}
+  m_AnchoredPosition: {x: -295, y: -28.3}
+  m_SizeDelta: {x: 85, y: 56.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &669594055
 MonoBehaviour:
@@ -7943,7 +7943,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -300, y: -28.3}
-  m_SizeDelta: {x: 60.9, y: 56.6}
+  m_SizeDelta: {x: 80, y: 56.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &710771596
 MonoBehaviour:
@@ -8505,7 +8505,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8664,7 +8664,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -27}
-  m_SizeDelta: {x: 40, y: 44}
+  m_SizeDelta: {x: 70, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764117268
 MonoBehaviour:
@@ -8699,7 +8699,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 32
 --- !u!222 &764117269
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8804,7 +8804,29 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1139410104}
+        m_MethodName: AdjustDistanceIndicatorDropdown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1139410104}
+        m_MethodName: OnDistanceIndicatorDropdownClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Dropdown+DropdownEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &768042645
@@ -9253,7 +9275,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -27}
-  m_SizeDelta: {x: 40, y: 44}
+  m_SizeDelta: {x: 60, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &822318092
 CanvasRenderer:
@@ -9295,7 +9317,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 25
+  m_Text: 1.0
 --- !u!1 &839407681
 GameObject:
   m_ObjectHideFlags: 0
@@ -10252,14 +10274,14 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1974299320}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 15
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromSlider
+        m_MethodName: AdjustDepthLengthFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10270,7 +10292,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementSliderChanged
+        m_MethodName: OnDepthLengthSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10351,7 +10373,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.15151516, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10638,7 +10660,29 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1139410104}
+        m_MethodName: AdjustHeightIndicatorDropdown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1139410104}
+        m_MethodName: OnHeightIndicatorDropdownClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Dropdown+DropdownEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &985916471
@@ -12271,7 +12315,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.49720672, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12730,43 +12774,67 @@ MonoBehaviour:
   MapSettingUI: {fileID: 1360037234}
   LogsMenuUI: {fileID: 1924309461}
   MoreConfigurationMenuUI: {fileID: 1590120173}
-  frequency: 25
-  tempFrequency: 0
+  frequencyMin: 0
+  tempFrequencyMin: 0
+  minFrequency: 0
+  FrequencyMinSlider: {fileID: 1188989395}
+  FrequencyMinInputField: {fileID: 398165474}
+  frequencyMax: 0
+  tempFrequencyMax: 0
   maxFrequency: 0
-  FrequencySlider: {fileID: 1188989395}
-  FrequencyInputField: {fileID: 398165474}
-  frequencyIncrement: 10
-  tempFrequencyIncrement: 0
-  maxFrequencyIncrement: 0
-  FrequencyIncrementSlider: {fileID: 1685047324}
-  FrequencyIncrementInputField: {fileID: 1901348931}
-  horizontalSteps: 10
-  tempHorizontalSteps: 0
-  maxHorizontalSteps: 0
-  HorizontalStepsSlider: {fileID: 1476418458}
-  HorizontalStepsInputField: {fileID: 1397378416}
-  stepDelay: 10
-  tempStepDelay: 0
-  maxStepDelay: 0
-  StepDelaySlider: {fileID: 1819907249}
-  StepDelayInputField: {fileID: 1836013909}
-  audioSpreadDegree: 45
-  tempAudioSpreadDegree: 0
-  maxAudioSpreadDegree: 0
-  AudioSpreadDegreeSlider: {fileID: 1306817921}
-  AudioSpreadDegreeInputField: {fileID: 1547447102}
-  audioVolumeRollOff: 0
-  tempAudioVolumeRollOff: 0
-  maxAudioVolumeRollOff: 0
-  AudioVolumeRollOffSlider: {fileID: 1426716146}
-  AudioVolumeRollOffInputField: {fileID: 1390131841}
+  FrequencyMaxSlider: {fileID: 1685047324}
+  FrequencyMaxInputField: {fileID: 1901348931}
+  horizontalResolution: 0
+  tempHorizontalResolution: 0
+  maxHorizontalRes: 0
+  minHorizontalRes: 0
+  HorizontalResolutionSlider: {fileID: 1476418458}
+  HorizontalResolutionInputField: {fileID: 1397378416}
+  verticalResolution: 0
+  tempVerticalResolution: 0
+  maxVerticalRes: 0
+  minVerticalRes: 0
+  VerticalResolutionSlider: {fileID: 1819907249}
+  VerticalResolutionInputField: {fileID: 1836013909}
+  fieldOfView: 0
+  tempFieldOfView: 0
+  maxFieldOfView: 0
+  minFieldOfView: 0
+  FieldOfViewSlider: {fileID: 1306817921}
+  FieldOfViewInputField: {fileID: 1547447102}
+  sampleLength: 0
+  tempSampleLength: 0
+  maxSampleLength: 0
+  minSampleLength: 0
+  SampleLengthSlider: {fileID: 1426716146}
+  SampleLengthInputField: {fileID: 1390131841}
   scanningType: 0
   tempScanningType: 0
   maxScanningType: 0
   ScanningTypeDropdown: {fileID: 1253426198}
+  cycleLength: 0
+  tempCycleLength: 0
+  maxCycleLength: 0
+  minCycleLength: 0
+  CycleLengthSlider: {fileID: 1238996734}
+  CycleLengthInputField: {fileID: 100046784}
+  depthLength: 0
+  tempDepthLength: 0
+  maxDepthLength: 0
+  minDepthLength: 0
+  DepthLengthSlider: {fileID: 944646865}
+  DepthLengthInputField: {fileID: 1211523947}
+  distanceIndicator: 0
+  tempDistanceIndicator: 0
+  maxDistanceIndicator: 0
+  DistanceIndicatorDropdown: {fileID: 768042644}
+  heightIndicator: 0
+  tempHeightIndicator: 0
+  maxHeightIndicator: 0
+  HeightIndicatorDropdown: {fileID: 985916470}
   vision: 0
   tempVision: 0
-  VisionToggle: {fileID: 0}
+  VisionToggle: {fileID: 191144019}
   cubesSpawned: 0
   tempCubesSpawned: 0
   maxCubesSpawned: 0
@@ -13369,15 +13437,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 24709254}
   m_HandleRect: {fileID: 629370732}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 50
-  m_WholeNumbers: 1
-  m_Value: 25
+  m_MinValue: 27.5
+  m_MaxValue: 4186
+  m_WholeNumbers: 0
+  m_Value: 110
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromSlider
+        m_MethodName: AdjustMinFrequencyFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13388,7 +13456,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencySliderChanged
+        m_MethodName: OnMinFrequencySliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13681,7 +13749,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromInputField
+        m_MethodName: AdjustDepthLengthFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13692,7 +13760,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementInputFieldChanged
+        m_MethodName: OnDepthLengthInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13707,8 +13775,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromInputField
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13718,8 +13786,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementInputFieldChanged
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13926,15 +13994,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 70555815}
   m_HandleRect: {fileID: 1277681054}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 50
+  m_MinValue: 100
+  m_MaxValue: 3000
   m_WholeNumbers: 1
-  m_Value: 25
+  m_Value: 1000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyFromSlider
+        m_MethodName: AdjustCycleLengthFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13945,7 +14013,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencySliderChanged
+        m_MethodName: OnCycleLengthSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14421,8 +14489,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -300, y: -28.3}
-  m_SizeDelta: {x: 60.9, y: 56.6}
+  m_AnchoredPosition: {x: -350, y: -28.3}
+  m_SizeDelta: {x: 150, y: 56.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1292212387
 MonoBehaviour:
@@ -14900,7 +14968,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14979,15 +15047,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 1107545070}
   m_HandleRect: {fileID: 1711094445}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 90
+  m_MinValue: 1
+  m_MaxValue: 180
   m_WholeNumbers: 1
-  m_Value: 45
+  m_Value: 90
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioSpreadDegreeFromSlider
+        m_MethodName: AdjustFieldOfViewFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14998,7 +15066,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioSpreadDegreeSliderChanged
+        m_MethodName: OnFieldOfViewSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16312,19 +16380,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 710771596}
   m_TextComponent: {fileID: 822318093}
   m_Placeholder: {fileID: 1099696842}
-  m_ContentType: 2
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 1
-  m_CharacterLimit: 2
+  m_CharacterValidation: 2
+  m_CharacterLimit: 3
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioVolumeRollOffFromInputField
+        m_MethodName: AdjustSampleLengthFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16335,7 +16403,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioVolumeRollOffInputFieldChanged
+        m_MethodName: OnSampleLengthInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16350,8 +16418,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioVolumeRollOffFromInputField
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16361,8 +16429,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioVolumeRollOffInputFieldChanged
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16377,7 +16445,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 25
+  m_Text: 1.0
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -16626,12 +16694,12 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 1
-  m_CharacterLimit: 2
+  m_CharacterLimit: 3
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustHorizontalStepsFromInputField
+        m_MethodName: AdjustHorizontalResolutionFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16642,7 +16710,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnHorizontalStepsInputFieldChanged
+        m_MethodName: OnHorizontalResolutionInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16657,8 +16725,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustHorizontalStepsFromInputField
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16668,8 +16736,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnHorizontalStepsInputFieldChanged
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16684,7 +16752,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 5
+  m_Text: 32
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -16720,8 +16788,8 @@ RectTransform:
   m_Father: {fileID: 1909681776}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17100,15 +17168,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 739203797}
   m_HandleRect: {fileID: 1398233093}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 50
-  m_WholeNumbers: 1
-  m_Value: 25
+  m_MinValue: 1
+  m_MaxValue: 10
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioVolumeRollOffFromSlider
+        m_MethodName: AdjustSampleLengthFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17119,7 +17187,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioVolumeRollOffSliderChanged
+        m_MethodName: OnSampleLengthSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17618,15 +17686,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 972888873}
   m_HandleRect: {fileID: 1582136514}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
+  m_MinValue: 2
+  m_MaxValue: 200
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 32
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustHorizontalStepsFromSlider
+        m_MethodName: AdjustHorizontalResolutionFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17637,7 +17705,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnHorizontalStepsSliderChanged
+        m_MethodName: OnHorizontalResolutionSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18101,8 +18169,8 @@ RectTransform:
   m_Father: {fileID: 950245048}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.09919442, y: 0}
+  m_AnchorMax: {x: 0.09919442, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -18459,12 +18527,12 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 1
-  m_CharacterLimit: 2
+  m_CharacterLimit: 3
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioSpreadDegreeFromInputField
+        m_MethodName: AdjustFieldOfViewFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18475,7 +18543,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioSpreadDegreeInputFieldChanged
+        m_MethodName: OnFieldOfViewInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18490,8 +18558,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustAudioSpreadDegreeFromInputField
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18501,8 +18569,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnAudioSpreadDegreeInputFieldChanged
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18517,7 +18585,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 45
+  m_Text: 90
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -18703,8 +18771,8 @@ RectTransform:
   m_Father: {fileID: 792720652}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.15151516, y: 0}
+  m_AnchorMax: {x: 0.15151516, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19230,7 +19298,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.09919442, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19531,7 +19599,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -300, y: -28.3}
-  m_SizeDelta: {x: 60.9, y: 56.6}
+  m_SizeDelta: {x: 85, y: 56.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1675037469
 MonoBehaviour:
@@ -19833,15 +19901,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 1655591342}
   m_HandleRect: {fileID: 1516843450}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
-  m_Value: 5
+  m_MinValue: 27.5
+  m_MaxValue: 4186
+  m_WholeNumbers: 0
+  m_Value: 440
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromSlider
+        m_MethodName: AdjustMaxFrequencyFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19852,7 +19920,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementSliderChanged
+        m_MethodName: OnMaxFrequencySliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19896,8 +19964,8 @@ RectTransform:
   m_Father: {fileID: 73656967}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.49720672, y: 0}
+  m_AnchorMax: {x: 0.49720672, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20958,7 +21026,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -27}
-  m_SizeDelta: {x: 40, y: 44}
+  m_SizeDelta: {x: 100, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1816957404
 MonoBehaviour:
@@ -20993,7 +21061,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 25
+  m_Text: 1000
 --- !u!222 &1816957405
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21041,15 +21109,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 1306594635}
   m_HandleRect: {fileID: 645233718}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
+  m_MinValue: 1
+  m_MaxValue: 16
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 16
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustStepDelayFromSlider
+        m_MethodName: AdjustVerticalResolutionFromSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21060,7 +21128,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnStepDelaySliderChanged
+        m_MethodName: OnVerticalResolutionSliderChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21280,7 +21348,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustStepDelayFromInputField
+        m_MethodName: AdjustVerticalResolutionFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21291,7 +21359,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnStepDelayInputFieldChanged
+        m_MethodName: OnVerticalResolutionInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21306,8 +21374,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustStepDelayFromInputField
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21317,8 +21385,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnStepDelayInputFieldChanged
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21333,7 +21401,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 5
+  m_Text: 16
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -22221,19 +22289,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2128061504}
   m_TextComponent: {fileID: 399424713}
   m_Placeholder: {fileID: 548359947}
-  m_ContentType: 2
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 1
-  m_CharacterLimit: 2
+  m_CharacterValidation: 2
+  m_CharacterLimit: 6
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromInputField
+        m_MethodName: AdjustMaxFrequencyFromInputField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22244,7 +22312,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementInputFieldChanged
+        m_MethodName: OnMaxFrequencyInputFieldChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22259,8 +22327,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: AdjustFrequencyIncrementFromInputField
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22270,8 +22338,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1139410104}
-        m_MethodName: OnFrequencyIncrementInputFieldChanged
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22286,7 +22354,7 @@ MonoBehaviour:
   m_CaretColor: {r: 0, g: 0, b: 0, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
-  m_Text: 5
+  m_Text: 440.0
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
@@ -23020,7 +23088,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -27}
-  m_SizeDelta: {x: 40, y: 44}
+  m_SizeDelta: {x: 70, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969394616
 MonoBehaviour:
@@ -23055,7 +23123,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 45
+  m_Text: 90
 --- !u!222 &1969394617
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23517,7 +23585,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 16
 --- !u!222 &2002189898
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23710,7 +23778,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -27}
-  m_SizeDelta: {x: 40, y: 44}
+  m_SizeDelta: {x: 150, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029307996
 MonoBehaviour:
@@ -23745,7 +23813,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 25
+  m_Text: 110.0
 --- !u!222 &2029307997
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24572,8 +24640,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -300, y: -28.3}
-  m_SizeDelta: {x: 60.9, y: 56.6}
+  m_AnchoredPosition: {x: -350, y: -28.3}
+  m_SizeDelta: {x: 150, y: 56.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2128061504
 MonoBehaviour:

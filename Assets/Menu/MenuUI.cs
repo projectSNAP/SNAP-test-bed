@@ -13,6 +13,7 @@ public class MenuUI : MonoBehaviour {
 	/*Main Menu UI elements*/
 	public static bool EscapeMenuIsOpen = false;
 	public static bool NewConfigurationMenuIsOpen = false;
+	public static bool MoreConfigurationMenuIsOpen = false;
 	public static bool SelectMapMenuIsOpen = false;
 	public static bool MapSettingsMenuIsOpen = false;
 	public static bool LogsMenuIsOpen = false;
@@ -21,48 +22,77 @@ public class MenuUI : MonoBehaviour {
 	public GameObject MapSelectionUI;
 	public GameObject MapSettingUI;
 	public GameObject LogsMenuUI;
+	public GameObject MoreConfigurationMenuUI;
 
 	/*Configuration settings elements*/
-	public float frequency;
-	public float tempFrequency;
+	public float frequencyMin;
+	public float tempFrequencyMin;
+	public float minFrequency;
+	public UnityEngine.UI.Slider FrequencyMinSlider;
+	public UnityEngine.UI.InputField FrequencyMinInputField;
+
+	public float frequencyMax;
+	public float tempFrequencyMax;
 	public float maxFrequency;
-	public UnityEngine.UI.Slider FrequencySlider;
-	public UnityEngine.UI.InputField FrequencyInputField;
+	public UnityEngine.UI.Slider FrequencyMaxSlider;
+	public UnityEngine.UI.InputField FrequencyMaxInputField;
 
-	public float frequencyIncrement;
-	public float tempFrequencyIncrement;
-	public float maxFrequencyIncrement;
-	public UnityEngine.UI.Slider FrequencyIncrementSlider;
-	public UnityEngine.UI.InputField FrequencyIncrementInputField;
+	public int horizontalResolution;
+	public int tempHorizontalResolution;
+	public int maxHorizontalRes;
+	public int minHorizontalRes;
+	public UnityEngine.UI.Slider HorizontalResolutionSlider;
+	public UnityEngine.UI.InputField HorizontalResolutionInputField;
 
-	public float horizontalSteps;
-	public float tempHorizontalSteps;
-	public float maxHorizontalSteps;
-	public UnityEngine.UI.Slider HorizontalStepsSlider;
-	public UnityEngine.UI.InputField HorizontalStepsInputField;
+	public int verticalResolution;
+	public int tempVerticalResolution;
+	public int maxVerticalRes;
+	public int minVerticalRes;
+	public UnityEngine.UI.Slider VerticalResolutionSlider;
+	public UnityEngine.UI.InputField VerticalResolutionInputField;
 
-	public float stepDelay;
-	public float tempStepDelay;
-	public float maxStepDelay;
-	public UnityEngine.UI.Slider StepDelaySlider;
-	public UnityEngine.UI.InputField StepDelayInputField;
+	public float fieldOfView;
+	public float tempFieldOfView;
+	public float maxFieldOfView;
+	public float minFieldOfView;
+	public UnityEngine.UI.Slider FieldOfViewSlider;
+	public UnityEngine.UI.InputField FieldOfViewInputField;
 
-	public float audioSpreadDegree;
-	public float tempAudioSpreadDegree;
-	public float maxAudioSpreadDegree;
-	public UnityEngine.UI.Slider AudioSpreadDegreeSlider;
-	public UnityEngine.UI.InputField AudioSpreadDegreeInputField;
-
-	public float audioVolumeRollOff;
-	public float tempAudioVolumeRollOff;
-	public float maxAudioVolumeRollOff;
-	public UnityEngine.UI.Slider AudioVolumeRollOffSlider;
-	public UnityEngine.UI.InputField AudioVolumeRollOffInputField;
+	public float sampleLength;
+	public float tempSampleLength;
+	public float maxSampleLength;
+	public float minSampleLength;
+	public UnityEngine.UI.Slider SampleLengthSlider;
+	public UnityEngine.UI.InputField SampleLengthInputField;
 
 	public int scanningType;
 	public int tempScanningType;
 	public int maxScanningType;
 	public UnityEngine.UI.Dropdown ScanningTypeDropdown;
+
+	public int cycleLength;
+	public int tempCycleLength;
+	public int maxCycleLength;
+	public int minCycleLength;
+	public UnityEngine.UI.Slider CycleLengthSlider;
+	public UnityEngine.UI.InputField CycleLengthInputField;
+
+	public int depthLength;
+	public int tempDepthLength;
+	public int maxDepthLength;
+	public int minDepthLength;
+	public UnityEngine.UI.Slider DepthLengthSlider;
+	public UnityEngine.UI.InputField DepthLengthInputField;
+
+	public int distanceIndicator;
+	public int tempDistanceIndicator;
+	public int maxDistanceIndicator;
+	public UnityEngine.UI.Dropdown DistanceIndicatorDropdown;
+
+	public int heightIndicator;
+	public int tempHeightIndicator;
+	public int maxHeightIndicator;
+	public UnityEngine.UI.Dropdown HeightIndicatorDropdown;
 
 	public bool vision;
 	public bool tempVision;
@@ -126,36 +156,51 @@ public class MenuUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		/*min value setting for all configurations*/
-		minValue = 0;
-
-		/*max settings*/
-		maxFrequency = 50;
-		maxFrequencyIncrement = 10;
-		maxHorizontalSteps = 10;
-		maxStepDelay = 10;
-		maxAudioSpreadDegree = 90;
-		maxAudioVolumeRollOff = 50;
-		maxScanningType = 1; //two scanning type options, 0 or 1
+		/*max/min settings*/
+		maxFrequency = 4186.0f;
+		minFrequency = 27.5f;
+		maxHorizontalRes = 200;
+		minHorizontalRes = 2;
+		maxVerticalRes = 16;
+		minVerticalRes = 1;
+		maxFieldOfView = 180;
+		minFieldOfView = 1;
+		maxSampleLength = 10.0f;
+		minSampleLength = 1.0f;
+		maxCycleLength = 3000;
+		minCycleLength = 100;
+		maxScanningType = 3; 	//four scanning type options, 0 to 3
+		maxDistanceIndicator = 3;
+		maxHeightIndicator = 3;
+		maxDepthLength = 15;
+		minDepthLength = 0;
 
 		/*default configuration settings*/
-		frequency = 25f;
-		frequencyIncrement = 5f;
-		horizontalSteps = 5f;
-		stepDelay = 5f;
-		audioSpreadDegree = 45f;
-		audioVolumeRollOff = 25f;
+		frequencyMax = 440.0f;
+		frequencyMin = 110.0f;
+		horizontalResolution = 32;
+		verticalResolution = 16;
+		fieldOfView = 90.0f; //converted to float in VAE
+		sampleLength = 1.0f;
+		cycleLength = 1000;
 		scanningType = 0;
+		distanceIndicator = 0;
+		heightIndicator = 0;
+		depthLength = 10;
 		vision = false;
 
 		/*default temp configuration settings*/
-		tempFrequency = 25f;
-		tempFrequencyIncrement = 5f;
-		tempHorizontalSteps = 5f;
-		tempStepDelay = 5f;
-		tempAudioSpreadDegree = 45f;
-		tempAudioVolumeRollOff = 25f;
+		tempFrequencyMax = 440.0f;
+		tempFrequencyMin = 110.0f;
+		tempHorizontalResolution = 32;
+		tempVerticalResolution = 16;
+		tempFieldOfView = 90.0f; //converted to float in VAE
+		tempSampleLength = 1.0f;
+		tempCycleLength = 1000;
 		tempScanningType = 0;
+		tempDistanceIndicator = 0;
+		tempHeightIndicator = 0;
+		tempDepthLength = 10;
 		tempVision = false;
 
 		/*max map settings*/
@@ -211,6 +256,7 @@ public class MenuUI : MonoBehaviour {
 		CloseConfigMenu ();
 		CloseMapSettingsMenu();
 		CloseLogsMenu ();
+		CloseMoreConfigMenu ();
 
 
 		/*Sets the cursor as active*/
@@ -227,11 +273,14 @@ public class MenuUI : MonoBehaviour {
 			} else if (NewConfigurationMenuIsOpen) {
 				CloseConfigMenu ();
 				OpenEscapeMenu ();
-			} else if (MapSettingsMenuIsOpen){
+			} else if (MapSettingsMenuIsOpen) {
 				CloseMapSettingsMenu ();
 				OpenEscapeMenu ();
-			} else if (LogsMenuIsOpen){
+			} else if (LogsMenuIsOpen) {
 				CloseLogsMenu ();
+				OpenEscapeMenu ();
+			}else if (MoreConfigurationMenuIsOpen){
+				CloseMoreConfigMenu ();
 				OpenEscapeMenu ();
 			} else {
 				OpenEscapeMenu ();
@@ -277,6 +326,20 @@ public class MenuUI : MonoBehaviour {
 		EscapeMenuIsOpen = false;
 	}
 
+	/*More Configuration Menu*/
+	public void CloseMoreConfigMenu(){
+		MoreConfigurationMenuUI.SetActive (false);
+		Time.timeScale = 1f;
+		MoreConfigurationMenuIsOpen = false;
+	}
+
+	public void OpenMoreConfigMenu(){
+		MoreConfigurationMenuUI.SetActive (true);
+		Time.timeScale = 0f;
+		MoreConfigurationMenuIsOpen = true;
+		NewConfigurationMenuIsOpen = false;
+	}
+
 	/* Load Configuration Button
 	 * Useful information on JSON for Unity:
 	 * 	https://docs.unity3d.com/Manual/JSONSerialization.html
@@ -289,66 +352,95 @@ public class MenuUI : MonoBehaviour {
 		LoadedConfig = JsonUtility.FromJson<SaveConfigurationSettings> (json);
 
 		/*set all configuration settings to loaded configurations*/
-		if (LoadedConfig.savedFrequency >= minValue && LoadedConfig.savedFrequency <= maxFrequency)
-			frequency = LoadedConfig.savedFrequency;
+		if (LoadedConfig.savedFrequencyMax >= minFrequency && LoadedConfig.savedFrequencyMax <= maxFrequency)
+			frequencyMax = LoadedConfig.savedFrequencyMax;
 		else
-			Debug.Log ("error: value for 'frequency' is out of range");
+			Debug.Log ("error: value for 'frequency max' is out of range");
 
-		if(LoadedConfig.savedFrequencyIncrement >= minValue && LoadedConfig.savedFrequencyIncrement <= maxFrequencyIncrement)
-			frequencyIncrement = LoadedConfig.savedFrequencyIncrement;
+		if (LoadedConfig.savedFrequencyMin >= minFrequency && LoadedConfig.savedFrequencyMin <= maxFrequency)
+			frequencyMin = LoadedConfig.savedFrequencyMin;
 		else
-			Debug.Log ("error: value for 'frequency increment' is out of range");
+			Debug.Log ("error: value for 'frequency min' is out of range");
 
-		if(LoadedConfig.savedHorizontalSteps >= minValue && LoadedConfig.savedHorizontalSteps <= maxHorizontalSteps)
-			horizontalSteps = LoadedConfig.savedHorizontalSteps;
+		if(LoadedConfig.savedHorizontalResolution >= minHorizontalRes && LoadedConfig.savedHorizontalResolution <= maxHorizontalRes)
+			horizontalResolution = LoadedConfig.savedHorizontalResolution;
 		else
-			Debug.Log ("error: value for 'horizontal steps' is out of range");
+			Debug.Log ("error: value for 'horizontal resolution' is out of range");
 
-		if(LoadedConfig.savedStepDelay >= minValue && LoadedConfig.savedStepDelay <= maxStepDelay)
-			stepDelay = LoadedConfig.savedStepDelay;
+		if(LoadedConfig.savedVerticalResolution >= minVerticalRes && LoadedConfig.savedVerticalResolution <= maxVerticalRes)
+			verticalResolution = LoadedConfig.savedVerticalResolution;
 		else
-			Debug.Log ("error: value for 'step delay' is out of range");
+			Debug.Log ("error: value for 'vertical resolution' is out of range");
 
-		if(LoadedConfig.savedAudioSpreadDegree >= minValue && LoadedConfig.savedAudioSpreadDegree <= maxAudioSpreadDegree)
-			audioSpreadDegree = LoadedConfig.savedAudioSpreadDegree;
+		if(LoadedConfig.savedFieldOfView >= minFieldOfView && LoadedConfig.savedFieldOfView <= maxFieldOfView)
+			fieldOfView = LoadedConfig.savedFieldOfView;
 		else
-			Debug.Log ("error: value for 'audio spread degree' is out of range");
+			Debug.Log ("error: value for 'field of view' is out of range");
 
-		if(LoadedConfig.savedAudioVolumeRollOff >= minValue && LoadedConfig.savedAudioVolumeRollOff <= maxAudioVolumeRollOff)
-			audioVolumeRollOff = LoadedConfig.savedAudioVolumeRollOff;
+		if(LoadedConfig.savedSampleLength >= minSampleLength && LoadedConfig.savedSampleLength <= maxSampleLength)
+			sampleLength = LoadedConfig.savedSampleLength;
 		else
-			Debug.Log ("error: value for 'audio volume roll-off' is out of range");
+			Debug.Log ("error: value for 'sample length' is out of range");
+
+		if(LoadedConfig.savedCycleLength >= minCycleLength && LoadedConfig.savedCycleLength <= maxCycleLength)
+			cycleLength = LoadedConfig.savedCycleLength;
+		else
+			Debug.Log ("error: value for 'cycle length' is out of range");
 
 		if(LoadedConfig.savedScanningType >= minValue && LoadedConfig.savedScanningType <= maxScanningType)
 			scanningType = LoadedConfig.savedScanningType;
 		else
 			Debug.Log ("error: value for 'scanning type' is out of range");
 
+		if(LoadedConfig.savedDistanceIndicator >= 0 && LoadedConfig.savedDistanceIndicator <= maxDistanceIndicator)
+			distanceIndicator = LoadedConfig.savedDistanceIndicator;
+		else
+			Debug.Log ("error: value for 'distance indicator' is out of range");
+
+		if(LoadedConfig.savedHeightIndicator >= 0 && LoadedConfig.savedHeightIndicator <= maxHeightIndicator)
+			heightIndicator = LoadedConfig.savedHeightIndicator;
+		else
+			Debug.Log ("error: value for 'height indicator' is out of range");
+
+		if(LoadedConfig.savedDepthLength >= minDepthLength && LoadedConfig.savedDepthLength <= maxDepthLength)
+			depthLength = LoadedConfig.savedDepthLength;
+		else
+			Debug.Log ("error: value for 'depth length' is out of range");
+
 		vision = LoadedConfig.savedVision;
 
-		/*set all configuration Sliders and Input Fields to loaded configuration values*/
-		FrequencySlider.value = frequency;
-		FrequencyInputField.text = frequency.ToString();
+		//set all configuration Sliders and Input Fields to loaded configuration values
+		FrequencyMaxSlider.value = frequencyMax;
+		FrequencyMaxInputField.text = frequencyMax.ToString ();
 
-		FrequencyIncrementSlider.value = frequencyIncrement;
-		FrequencyIncrementInputField.text = frequencyIncrement.ToString();
+		FrequencyMinSlider.value = frequencyMin;
+		FrequencyMinInputField.text = frequencyMin.ToString ();
 
-		HorizontalStepsSlider.value = horizontalSteps;
-		HorizontalStepsInputField.text = horizontalSteps.ToString();
+		HorizontalResolutionSlider.value = horizontalResolution;
+		HorizontalResolutionInputField.text = horizontalResolution.ToString();
 
-		StepDelaySlider.value = stepDelay;
-		StepDelayInputField.text = stepDelay.ToString();
+		VerticalResolutionSlider.value = verticalResolution;
+		VerticalResolutionInputField.text = verticalResolution.ToString ();
 
-		AudioSpreadDegreeSlider.value = audioSpreadDegree;
-		AudioSpreadDegreeInputField.text = audioSpreadDegree.ToString();
+		FieldOfViewSlider.value = fieldOfView;
+		FieldOfViewInputField.text = fieldOfView.ToString ();
 
-		AudioVolumeRollOffSlider.value = audioVolumeRollOff;
-		AudioVolumeRollOffInputField.text = audioVolumeRollOff.ToString();
+		SampleLengthSlider.value = sampleLength;
+		SampleLengthInputField.text = fieldOfView.ToString ();
+
+		CycleLengthSlider.value = cycleLength;
+		CycleLengthInputField.text = fieldOfView.ToString ();
+
+		DepthLengthSlider.value = depthLength;
+		DepthLengthInputField.text = depthLength.ToString ();
 
 		ScanningTypeDropdown.value = scanningType;
 
-		VisionToggle.isOn = vision;
+		DistanceIndicatorDropdown.value = distanceIndicator;
 
+		HeightIndicatorDropdown.value = heightIndicator;
+
+		VisionToggle.isOn = vision;
 	}
 
 	/*Back Button*/
@@ -365,13 +457,17 @@ public class MenuUI : MonoBehaviour {
 	 */
 	private SaveConfigurationSettings CreateConfigurationSave(){
 		SaveConfigurationSettings save = new SaveConfigurationSettings ();
-		save.savedFrequency = tempFrequency;
-		save.savedFrequencyIncrement = tempFrequencyIncrement;
-		save.savedHorizontalSteps = tempHorizontalSteps;
-		save.savedStepDelay = tempStepDelay;
-		save.savedAudioSpreadDegree = tempAudioSpreadDegree;
-		save.savedAudioVolumeRollOff = tempAudioVolumeRollOff;
+		save.savedFrequencyMax = tempFrequencyMax;
+		save.savedFrequencyMin = tempFrequencyMin;
+		save.savedHorizontalResolution = tempHorizontalResolution;
+		save.savedVerticalResolution = tempVerticalResolution;
+		save.savedFieldOfView = tempFieldOfView;
+		save.savedSampleLength = tempSampleLength;
+		save.savedCycleLength = tempCycleLength;
 		save.savedScanningType = tempScanningType;
+		save.savedDistanceIndicator = tempDistanceIndicator;
+		save.savedHeightIndicator = tempHeightIndicator;
+		save.savedDepthLength = tempDepthLength;
 		save.savedVision = tempVision;
 		return save;
 	}
@@ -473,29 +569,40 @@ public class MenuUI : MonoBehaviour {
 
 	public void OnCancelButtonClick(){
 		/* When the Cancel Button is clicked, set all Slider and Input Fields back to the original settings.*/
-		FrequencySlider.value = frequency;
-		FrequencyInputField.text = frequency.ToString();
+		FrequencyMaxSlider.value = frequencyMax;
+		FrequencyMaxInputField.text = frequencyMax.ToString ();
 
-		FrequencyIncrementSlider.value = frequencyIncrement;
-		FrequencyIncrementInputField.text = frequencyIncrement.ToString();
+		FrequencyMinSlider.value = frequencyMin;
+		FrequencyMinInputField.text = frequencyMin.ToString ();
 
-		HorizontalStepsSlider.value = horizontalSteps;
-		HorizontalStepsInputField.text = horizontalSteps.ToString();
+		HorizontalResolutionSlider.value = horizontalResolution;
+		HorizontalResolutionInputField.text = horizontalResolution.ToString();
 
-		StepDelaySlider.value = stepDelay;
-		StepDelayInputField.text = stepDelay.ToString();
+		VerticalResolutionSlider.value = verticalResolution;
+		VerticalResolutionInputField.text = verticalResolution.ToString ();
 
-		AudioSpreadDegreeSlider.value = audioSpreadDegree;
-		AudioSpreadDegreeInputField.text = audioSpreadDegree.ToString();
+		FieldOfViewSlider.value = fieldOfView;
+		FieldOfViewInputField.text = fieldOfView.ToString ();
 
-		AudioVolumeRollOffSlider.value = audioVolumeRollOff;
-		AudioVolumeRollOffInputField.text = audioVolumeRollOff.ToString();
+		SampleLengthSlider.value = sampleLength;
+		SampleLengthInputField.text = fieldOfView.ToString ();
+
+		CycleLengthSlider.value = cycleLength;
+		CycleLengthInputField.text = fieldOfView.ToString ();
+
+		DepthLengthSlider.value = depthLength;
+		DepthLengthInputField.text = depthLength.ToString ();
 
 		ScanningTypeDropdown.value = scanningType;
+
+		DistanceIndicatorDropdown.value = distanceIndicator;
+
+		HeightIndicatorDropdown.value = heightIndicator;
 
 		VisionToggle.isOn = vision;
 
 		CloseConfigMenu ();
+		CloseMoreConfigMenu ();
 		OpenEscapeMenu ();
 	}
 
@@ -503,17 +610,32 @@ public class MenuUI : MonoBehaviour {
 		/* When the Back Button is clicked, set all configurations equal to temporary configurations.
 		 * i.e. Remembers the configurations the user changed when they click the Back Button
 		 */
-		frequency = tempFrequency;
-		frequencyIncrement = tempFrequencyIncrement;
-		horizontalSteps = tempHorizontalSteps;
-		stepDelay = tempStepDelay;
-		audioSpreadDegree = tempAudioSpreadDegree;
-		audioVolumeRollOff = tempAudioVolumeRollOff;
+		frequencyMax = tempFrequencyMax;
+		frequencyMin = tempFrequencyMin;
+		horizontalResolution = tempHorizontalResolution;
+		verticalResolution = tempVerticalResolution;
+		fieldOfView = tempFieldOfView;
+		sampleLength = tempSampleLength;
+		cycleLength = tempCycleLength;
 		scanningType = tempScanningType;
+		distanceIndicator = tempDistanceIndicator;
+		heightIndicator = tempHeightIndicator;
+		depthLength = tempDepthLength;
 		vision = tempVision;
 
 		CloseConfigMenu ();
 		OpenEscapeMenu ();
+	}
+
+	public void OnConfigurationMoreButtonClick(){
+		/* When the "More" button is clicked it takes you to the menu with more configurations*/
+		CloseConfigMenu ();
+		OpenMoreConfigMenu ();
+	}
+
+	public void OnMoreConfigurationBackClick(){
+		CloseMoreConfigMenu ();
+		OpenConfigMenu ();
 	}
 	/****************************************************************************************************/
 
@@ -676,140 +798,219 @@ public class MenuUI : MonoBehaviour {
 	/****************************************************************************************************/
 
 
-	/********************************* Frequency Configuration ******************************************/
-	/*Adjusts the frequency when the Frequency Slider is moved*/
-	public void AdjustFrequencyFromSlider(){
-		tempFrequency = FrequencySlider.value;
+	/********************************* Frequency Max Configuration ******************************************/
+	/*Adjusts the max frequency when the max Frequency Slider is moved*/
+	public void AdjustMaxFrequencyFromSlider(){
+		tempFrequencyMax = FrequencyMaxSlider.value;
 	}
 
-	/*Adjust the frequency when the Frequency Input Field is changed*/
-	public void AdjustFrequencyFromInputField(){
-		tempFrequency = float.Parse(FrequencyInputField.text);
+	/*Adjust the max frequency when the max Frequency Input Field is changed*/
+	public void AdjustMaxFrequencyFromInputField(){
+		tempFrequencyMax = float.Parse(FrequencyMaxInputField.text);
 	}
 
-	/*Change the Frequency Input Field text to match Frequency Slider value when slider is moved*/
-	public void OnFrequencySliderChanged(){
-		FrequencyInputField.text = tempFrequency.ToString();
+	/*Change the max Frequency Input Field text to match max Frequency Slider value when slider is moved*/
+	public void OnMaxFrequencySliderChanged(){
+		FrequencyMaxInputField.text = tempFrequencyMax.ToString();
 	}
 
-	/*Change the Frequency Slider value to match Frequency Input Field when input field is changed*/
-	public void OnFrequencyInputFieldChanged(){
-		FrequencySlider.value = tempFrequency;
-	}
-	/****************************************************************************************************/
-
-
-	/******************************** Frequency Increment Configuration *********************************/
-	/*Adjusts the frequency increment when the Frequency Increment Slider is moved*/
-	public void AdjustFrequencyIncrementFromSlider(){
-		tempFrequencyIncrement = FrequencyIncrementSlider.value;
-	}
-
-	/*Adjust the frequency increment when the Frequency Increment Input Field is changed*/
-	public void AdjustFrequencyIncrementFromInputField(){
-		tempFrequencyIncrement = float.Parse (FrequencyIncrementInputField.text);
-	}
-
-	/*Change the Frequency Increment Input Field text to match Frequency Increment Slider value when slider is moved*/
-	public void OnFrequencyIncrementSliderChanged(){
-		FrequencyIncrementInputField.text = tempFrequencyIncrement.ToString();
-	}
-
-	/*Change the Frequency Increment Slider value to match Frequency Increment Input Field when input field is changed*/
-	public void OnFrequencyIncrementInputFieldChanged(){
-		FrequencyIncrementSlider.value = tempFrequencyIncrement;
+	/*Change the max Frequency Slider value to match max Frequency Input Field when input field is changed*/
+	public void OnMaxFrequencyInputFieldChanged(){
+		FrequencyMaxSlider.value = tempFrequencyMax;
 	}
 	/****************************************************************************************************/
 
 
-	/**************************************** Horizontal Steps *****************************************/
-	/*Adjusts the horizontal steps when the Horizontal Steps Slider is moved*/
-	public void AdjustHorizontalStepsFromSlider(){
-		tempHorizontalSteps = HorizontalStepsSlider.value;
+	/********************************* Frequency Min Configuration ******************************************/
+	/*Adjusts the Min frequency when the Min Frequency Slider is moved*/
+	public void AdjustMinFrequencyFromSlider(){
+		tempFrequencyMin = FrequencyMinSlider.value;
 	}
 
-	/*Adjust the horizontal steps when the Horizontal Steps Input Field is changed*/
-	public void AdjustHorizontalStepsFromInputField(){
-		tempHorizontalSteps = float.Parse (HorizontalStepsInputField.text);
+	/*Adjust the Min frequency when the Min Frequency Input Field is changed*/
+	public void AdjustMinFrequencyFromInputField(){
+		tempFrequencyMin = float.Parse(FrequencyMinInputField.text);
 	}
 
-	/*Change the Horizontal Steps Input Field text to match Horizontal Steps Slider value when slider is moved*/
-	public void OnHorizontalStepsSliderChanged(){
-		HorizontalStepsInputField.text = tempHorizontalSteps.ToString();
+	/*Change the Min Frequency Input Field text to match Min Frequency Slider value when slider is moved*/
+	public void OnMinFrequencySliderChanged(){
+		FrequencyMinInputField.text = tempFrequencyMin.ToString();
 	}
 
-	/*Change the Horizontal Steps Slider value to match Horizontal Steps Input Field when input field is changed*/
-	public void OnHorizontalStepsInputFieldChanged(){
-		HorizontalStepsSlider.value = tempHorizontalSteps;
-	}
-	/****************************************************************************************************/
-
-
-	/******************************************** Step Delay ********************************************/
-	/*Adjusts the step delay when the Step Delay Slider is moved*/
-	public void AdjustStepDelayFromSlider(){
-		tempStepDelay = StepDelaySlider.value;
-	}
-
-	/*Adjust the step delay when the Step Delay Input Field is changed*/
-	public void AdjustStepDelayFromInputField(){
-		tempStepDelay = float.Parse (StepDelayInputField.text);
-	}
-
-	/*Change the step delay Input Field text to match Step Delay Slider value when slider is moved*/
-	public void OnStepDelaySliderChanged(){
-		StepDelayInputField.text = tempStepDelay.ToString();
-	}
-
-	/*Change the step delay Slider value to match Step Delay Input Field when input field is changed*/
-	public void OnStepDelayInputFieldChanged(){
-		StepDelaySlider.value = tempStepDelay;
+	/*Change the max Frequency Slider value to match max Frequency Input Field when input field is changed*/
+	public void OnMinFrequencyInputFieldChanged(){
+		FrequencyMinSlider.value = tempFrequencyMin;
 	}
 	/****************************************************************************************************/
 
 
-	/**************************************** Audio Spread Degree ***************************************/
-	/*Adjusts the audio spread degree when the Audio Spread Degree Slider is moved*/
-	public void AdjustAudioSpreadDegreeFromSlider(){
-		tempAudioSpreadDegree = AudioSpreadDegreeSlider.value;
+	/********************************* Horizontal Resolution Configuration ******************************************/
+	/*Adjusts the Horizontal Resolution when the Horizontal Resolution Slider is moved*/
+	public void AdjustHorizontalResolutionFromSlider(){
+		tempHorizontalResolution = (int)HorizontalResolutionSlider.value;
 	}
 
-	/*Adjust the audio spread degree when the Audio Spread Degree Input Field is changed*/
-	public void AdjustAudioSpreadDegreeFromInputField(){
-		tempAudioSpreadDegree = float.Parse (AudioSpreadDegreeInputField.text);
+	/*Adjust the HorizontalResolution when the HorizontalResolution Input Field is changed*/
+	public void AdjustHorizontalResolutionFromInputField(){
+		tempHorizontalResolution = int.Parse(HorizontalResolutionInputField.text);
 	}
 
-	/*Change the audio spread degree Input Field text to match Audio Spread Degree Slider value when slider is moved*/
-	public void OnAudioSpreadDegreeSliderChanged(){
-		AudioSpreadDegreeInputField.text = tempAudioSpreadDegree.ToString();
+	/*Change the HorizontalResolution Input Field text to match HorizontalResolution Slider value when slider is moved*/
+	public void OnHorizontalResolutionSliderChanged(){
+		HorizontalResolutionInputField.text = tempHorizontalResolution.ToString();
 	}
 
-	/*Change the audio spread degree Slider value to match Audio Spread Degree Input Field when input field is changed*/
-	public void OnAudioSpreadDegreeInputFieldChanged(){
-		AudioSpreadDegreeSlider.value = tempAudioSpreadDegree;
+	/*Change the HorizontalResolution Slider value to match HorizontalResolution Input Field when input field is changed*/
+	public void OnHorizontalResolutionInputFieldChanged(){
+		HorizontalResolutionSlider.value = tempHorizontalResolution;
 	}
 	/****************************************************************************************************/
 
 
-	/*************************************** Audio Volume Roll-off **************************************/
-	/*Adjusts the audio volume roll-off when the Audio Volume Roll-off Slider is moved*/
-	public void AdjustAudioVolumeRollOffFromSlider(){
-		tempAudioVolumeRollOff = AudioVolumeRollOffSlider.value;
+	/********************************* Vertical Resolution Configuration ******************************************/
+	/*Adjusts the Vertical Resolution when the Vertical Resolution Slider is moved*/
+	public void AdjustVerticalResolutionFromSlider(){
+		tempVerticalResolution = (int)VerticalResolutionSlider.value;
 	}
 
-	/*Adjust the audio volume roll-off when the Audio Volume Roll-off Input Field is changed*/
-	public void AdjustAudioVolumeRollOffFromInputField(){
-		tempAudioVolumeRollOff = float.Parse (AudioVolumeRollOffInputField.text);
+	/*Adjust the VerticalResolution when the VerticalResolution Input Field is changed*/
+	public void AdjustVerticalResolutionFromInputField(){
+		tempVerticalResolution = int.Parse(VerticalResolutionInputField.text);
 	}
 
-	/*Change the audio volume roll-off Input Field text to match Audio Volume Roll-off Slider value when slider is moved*/
-	public void OnAudioVolumeRollOffSliderChanged(){
-		AudioVolumeRollOffInputField.text = tempAudioVolumeRollOff.ToString();
+	/*Change the Vertical Resolution Input Field text to match Vertical Resolution Slider value when slider is moved*/
+	public void OnVerticalResolutionSliderChanged(){
+		VerticalResolutionInputField.text = tempVerticalResolution.ToString();
 	}
 
-	/*Change the audio volume roll-off Slider value to match Audio Volume Roll-off Input Field when input field is changed*/
-	public void OnAudioVolumeRollOffInputFieldChanged(){
-		AudioVolumeRollOffSlider.value = tempAudioVolumeRollOff;
+	/*Change the Vertical Resolution Slider value to match Vertical Resolution Input Field when input field is changed*/
+	public void OnVerticalResolutionInputFieldChanged(){
+		VerticalResolutionSlider.value = tempVerticalResolution;
+	}
+	/****************************************************************************************************/
+
+
+	/********************************* Field of View Configuration ******************************************/
+	/*Adjusts the Vertical Resolution when the Vertical Resolution Slider is moved*/
+	public void AdjustFieldOfViewFromSlider(){
+		tempFieldOfView = FieldOfViewSlider.value;
+	}
+
+	/*Adjust the VerticalResolution when the VerticalResolution Input Field is changed*/
+	public void AdjustFieldOfViewFromInputField(){
+		tempFieldOfView = float.Parse(FieldOfViewInputField.text);
+	}
+
+	/*Change the Vertical Resolution Input Field text to match Vertical Resolution Slider value when slider is moved*/
+	public void OnFieldOfViewSliderChanged(){
+		FieldOfViewInputField.text = tempFieldOfView.ToString();
+	}
+
+	/*Change the Vertical Resolution Slider value to match Vertical Resolution Input Field when input field is changed*/
+	public void OnFieldOfViewInputFieldChanged(){
+		FieldOfViewSlider.value = tempFieldOfView;
+	}
+	/****************************************************************************************************/
+
+
+	/********************************* Sample Length Configuration ******************************************/
+	/*Adjusts the Vertical Resolution when the Vertical Resolution Slider is moved*/
+	public void AdjustSampleLengthFromSlider(){
+		tempSampleLength = SampleLengthSlider.value;
+	}
+
+	/*Adjust the VerticalResolution when the VerticalResolution Input Field is changed*/
+	public void AdjustSampleLengthFromInputField(){
+		tempSampleLength = float.Parse(SampleLengthInputField.text);
+	}
+
+	/*Change the Vertical Resolution Input Field text to match Vertical Resolution Slider value when slider is moved*/
+	public void OnSampleLengthSliderChanged(){
+		SampleLengthInputField.text = tempSampleLength.ToString();
+	}
+
+	/*Change the Vertical Resolution Slider value to match Vertical Resolution Input Field when input field is changed*/
+	public void OnSampleLengthInputFieldChanged(){
+		SampleLengthSlider.value = tempSampleLength;
+	}
+	/****************************************************************************************************/
+
+
+	/********************************* Cycle Length Configuration ******************************************/
+	/*Adjusts the Vertical Resolution when the Vertical Resolution Slider is moved*/
+	public void AdjustCycleLengthFromSlider(){
+		tempCycleLength = (int)CycleLengthSlider.value;
+	}
+
+	/*Adjust the VerticalResolution when the VerticalResolution Input Field is changed*/
+	public void AdjustCycleLengthFromInputField(){
+		tempCycleLength = int.Parse(CycleLengthInputField.text);
+	}
+
+	/*Change the Vertical Resolution Input Field text to match Vertical Resolution Slider value when slider is moved*/
+	public void OnCycleLengthSliderChanged(){
+		CycleLengthInputField.text = tempCycleLength.ToString();
+	}
+
+	/*Change the Vertical Resolution Slider value to match Vertical Resolution Input Field when input field is changed*/
+	public void OnCycleLengthInputFieldChanged(){
+		CycleLengthSlider.value = tempCycleLength;
+	}
+	/****************************************************************************************************/
+
+
+	/********************************* Depth Length Configuration ******************************************/
+	/*Adjusts the Vertical Resolution when the Vertical Resolution Slider is moved*/
+	public void AdjustDepthLengthFromSlider(){
+		tempDepthLength = (int)DepthLengthSlider.value;
+	}
+
+	/*Adjust the VerticalResolution when the VerticalResolution Input Field is changed*/
+	public void AdjustDepthLengthFromInputField(){
+		tempDepthLength = int.Parse(DepthLengthInputField.text);
+	}
+
+	/*Change the Vertical Resolution Input Field text to match Vertical Resolution Slider value when slider is moved*/
+	public void OnDepthLengthSliderChanged(){
+		DepthLengthInputField.text = tempDepthLength.ToString();
+	}
+
+	/*Change the Vertical Resolution Slider value to match Vertical Resolution Input Field when input field is changed*/
+	public void OnDepthLengthInputFieldChanged(){
+		DepthLengthSlider.value = tempDepthLength;
+	}
+	/****************************************************************************************************/
+
+
+	/******************************************* Scanning Type ******************************************/
+	public void AdjustScanningTypeDropdown(){
+		tempScanningType = ScanningTypeDropdown.value;
+	}
+
+	public void OnScanningTypeDropdownClicked(){
+		ScanningTypeDropdown.value = tempScanningType;
+	}
+	/****************************************************************************************************/
+
+
+	/******************************************* Distance Indicator ******************************************/
+	public void AdjustDistanceIndicatorDropdown(){
+		tempDistanceIndicator = DistanceIndicatorDropdown.value;
+	}
+
+	public void OnDistanceIndicatorDropdownClicked(){
+		DistanceIndicatorDropdown.value = tempDistanceIndicator;
+	}
+	/****************************************************************************************************/
+
+
+	/******************************************* Height Indicator ******************************************/
+	public void AdjustHeightIndicatorDropdown(){
+		tempHeightIndicator = HeightIndicatorDropdown.value;
+	}
+
+	public void OnHeightIndicatorDropdownClicked(){
+		HeightIndicatorDropdown.value = tempHeightIndicator;
 	}
 	/****************************************************************************************************/
 
@@ -825,15 +1026,7 @@ public class MenuUI : MonoBehaviour {
 	/****************************************************************************************************/
 
 
-	/******************************************* Scanning Type ******************************************/
-	public void AdjustScanningTypeDropdown(){
-		tempScanningType = ScanningTypeDropdown.value;
-	}
 
-	public void OnScanningTypeDropdownClicked(){
-		ScanningTypeDropdown.value = tempScanningType;
-	}
-	/****************************************************************************************************/
 
 
 

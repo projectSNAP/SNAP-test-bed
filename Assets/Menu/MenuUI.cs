@@ -623,6 +623,18 @@ public class MenuUI : MonoBehaviour {
 		depthLength = tempDepthLength;
 		vision = tempVision;
 
+		SaveConfigurationSettings save = CreateConfigurationSave (); //saves all the setting
+
+		string json = JsonUtility.ToJson (save);
+		var path = Application.dataPath + "/bin/config.json"; //save a config file to the bin folder for the VAE to recieve
+		string newPath = string.Concat(path);
+		if (newPath.Length != 0) {
+			File.WriteAllText (path, string.Empty); //makes sure that the file is empty before writing to it
+			StreamWriter writer = new StreamWriter (path, true);
+			writer.Write (json);
+			writer.Close ();
+		}
+
 		CloseConfigMenu ();
 		OpenEscapeMenu ();
 	}

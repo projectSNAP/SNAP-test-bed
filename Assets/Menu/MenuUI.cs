@@ -503,7 +503,7 @@ public class MenuUI : MonoBehaviour {
 		/*serialization of save*/
 
 
-		string json = JsonUtility.ToJson (save);
+		string json = JsonUtility.ToJson (save, true);
 		var path = StandaloneFileBrowser.SaveFilePanel("Save configuration", "", "newconfig", "json");
 		string newPath = string.Concat(path);
 		if (newPath.Length != 0) {
@@ -519,7 +519,7 @@ public class MenuUI : MonoBehaviour {
 
 		mainMapSettings = save;
 
-		string json = JsonUtility.ToJson (save);
+		string json = JsonUtility.ToJson (save, true);
 		var path = Application.dataPath + "/MapSettings/mapsetting.json";
 		if (path.Length != 0) {
 			File.WriteAllText (path, string.Empty); //makes sure that the file is empty before writing to it
@@ -625,7 +625,7 @@ public class MenuUI : MonoBehaviour {
 
 		SaveConfigurationSettings save = CreateConfigurationSave (); //saves all the setting
 
-		string json = JsonUtility.ToJson (save);
+		string json = JsonUtility.ToJson (save, true);
 		var path = Application.dataPath + "/bin/config.json"; //save a config file to the bin folder for the VAE to recieve
 		string newPath = string.Concat(path);
 		if (newPath.Length != 0) {

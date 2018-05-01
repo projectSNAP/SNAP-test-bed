@@ -1,0 +1,14 @@
+{
+    "frequencyMax": 440.0,
+    "frequencyMin": 110.0,
+    "horizontalResolution": 32,
+    "verticalResolution": 16,
+    "fieldOfView": 90.0,
+    "sampleLength": 1.0,
+    "cycleLength": 1000,
+    "scanningType": 0,
+    "distanceIndicator": 0,
+    "heightIndicator": 0,
+    "depthLength": 10,
+    "vision": false
+}

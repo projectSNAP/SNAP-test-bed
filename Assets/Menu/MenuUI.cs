@@ -231,13 +231,13 @@ public class MenuUI : MonoBehaviour {
 		tempMapSelected = 0;
 
 		/*default map settings*/
-		mainMapSettings.savedCubesSpawned = cubesSpawned;
-		mainMapSettings.savedSpheresSpawned = spheresSpawned;
-		mainMapSettings.savedCubeMinSize = cubeMinSize;
-		mainMapSettings.savedCubeMaxSize = cubeMaxSize;
-		mainMapSettings.savedSphereMinSize = sphereMinSize;
-		mainMapSettings.savedSphereMaxSize = sphereMaxSize;
-		mainMapSettings.savedMapSelected = 0;
+		mainMapSettings.cubesSpawned = cubesSpawned;
+		mainMapSettings.spheresSpawned = spheresSpawned;
+		mainMapSettings.cubeMinSize = cubeMinSize;
+		mainMapSettings.cubeMaxSize = cubeMaxSize;
+		mainMapSettings.sphereMinSize = sphereMinSize;
+		mainMapSettings.sphereMaxSize = sphereMaxSize;
+		mainMapSettings.mapSelected = 0;
 
 
 
@@ -352,62 +352,60 @@ public class MenuUI : MonoBehaviour {
 		LoadedConfig = JsonUtility.FromJson<SaveConfigurationSettings> (json);
 
 		/*set all configuration settings to loaded configurations*/
-		if (LoadedConfig.savedFrequencyMax >= minFrequency && LoadedConfig.savedFrequencyMax <= maxFrequency)
-			frequencyMax = LoadedConfig.savedFrequencyMax;
+		if (LoadedConfig.frequencyMax >= minFrequency && LoadedConfig.frequencyMax <= maxFrequency)
+			frequencyMax = LoadedConfig.frequencyMax;
 		else
 			Debug.Log ("error: value for 'frequency max' is out of range");
 
-		if (LoadedConfig.savedFrequencyMin >= minFrequency && LoadedConfig.savedFrequencyMin <= maxFrequency)
-			frequencyMin = LoadedConfig.savedFrequencyMin;
+		if (LoadedConfig.frequencyMin >= minFrequency && LoadedConfig.frequencyMin <= maxFrequency)
+			frequencyMin = LoadedConfig.frequencyMin;
 		else
 			Debug.Log ("error: value for 'frequency min' is out of range");
 
-		if(LoadedConfig.savedHorizontalResolution >= minHorizontalRes && LoadedConfig.savedHorizontalResolution <= maxHorizontalRes)
-			horizontalResolution = LoadedConfig.savedHorizontalResolution;
+		if(LoadedConfig.horizontalResolution >= minHorizontalRes && LoadedConfig.horizontalResolution <= maxHorizontalRes)
+			horizontalResolution = LoadedConfig.horizontalResolution;
 		else
 			Debug.Log ("error: value for 'horizontal resolution' is out of range");
 
-		if(LoadedConfig.savedVerticalResolution >= minVerticalRes && LoadedConfig.savedVerticalResolution <= maxVerticalRes)
-			verticalResolution = LoadedConfig.savedVerticalResolution;
+		if(LoadedConfig.verticalResolution >= minVerticalRes && LoadedConfig.verticalResolution <= maxVerticalRes)
+			verticalResolution = LoadedConfig.verticalResolution;
 		else
 			Debug.Log ("error: value for 'vertical resolution' is out of range");
 
-		if(LoadedConfig.savedFieldOfView >= minFieldOfView && LoadedConfig.savedFieldOfView <= maxFieldOfView)
-			fieldOfView = LoadedConfig.savedFieldOfView;
+		if(LoadedConfig.fieldOfView >= minFieldOfView && LoadedConfig.fieldOfView <= maxFieldOfView)
+			fieldOfView = LoadedConfig.fieldOfView;
 		else
 			Debug.Log ("error: value for 'field of view' is out of range");
 
-		if(LoadedConfig.savedSampleLength >= minSampleLength && LoadedConfig.savedSampleLength <= maxSampleLength)
-			sampleLength = LoadedConfig.savedSampleLength;
+		if(LoadedConfig.sampleLength >= minSampleLength && LoadedConfig.sampleLength <= maxSampleLength)
+			sampleLength = LoadedConfig.sampleLength;
 		else
 			Debug.Log ("error: value for 'sample length' is out of range");
 
-		if(LoadedConfig.savedCycleLength >= minCycleLength && LoadedConfig.savedCycleLength <= maxCycleLength)
-			cycleLength = LoadedConfig.savedCycleLength;
+		if(LoadedConfig.cycleLength >= minCycleLength && LoadedConfig.cycleLength <= maxCycleLength)
+			cycleLength = LoadedConfig.cycleLength;
 		else
 			Debug.Log ("error: value for 'cycle length' is out of range");
 
-		if(LoadedConfig.savedScanningType >= minValue && LoadedConfig.savedScanningType <= maxScanningType)
-			scanningType = LoadedConfig.savedScanningType;
+		if(LoadedConfig.scanningType >= minValue && LoadedConfig.scanningType <= maxScanningType)
+			scanningType = LoadedConfig.scanningType;
 		else
 			Debug.Log ("error: value for 'scanning type' is out of range");
 
-		if(LoadedConfig.savedDistanceIndicator >= 0 && LoadedConfig.savedDistanceIndicator <= maxDistanceIndicator)
-			distanceIndicator = LoadedConfig.savedDistanceIndicator;
+		if(LoadedConfig.distanceIndicator >= 0 && LoadedConfig.distanceIndicator <= maxDistanceIndicator)
+			distanceIndicator = LoadedConfig.distanceIndicator;
 		else
 			Debug.Log ("error: value for 'distance indicator' is out of range");
 
-		if(LoadedConfig.savedHeightIndicator >= 0 && LoadedConfig.savedHeightIndicator <= maxHeightIndicator)
-			heightIndicator = LoadedConfig.savedHeightIndicator;
+		if(LoadedConfig.heightIndicator >= 0 && LoadedConfig.heightIndicator <= maxHeightIndicator)
+			heightIndicator = LoadedConfig.heightIndicator;
 		else
 			Debug.Log ("error: value for 'height indicator' is out of range");
 
-		if(LoadedConfig.savedDepthLength >= minDepthLength && LoadedConfig.savedDepthLength <= maxDepthLength)
-			depthLength = LoadedConfig.savedDepthLength;
+		if(LoadedConfig.depthLength >= minDepthLength && LoadedConfig.depthLength <= maxDepthLength)
+			depthLength = LoadedConfig.depthLength;
 		else
 			Debug.Log ("error: value for 'depth length' is out of range");
-
-		vision = LoadedConfig.savedVision;
 
 		//set all configuration Sliders and Input Fields to loaded configuration values
 		FrequencyMaxSlider.value = frequencyMax;
@@ -457,30 +455,30 @@ public class MenuUI : MonoBehaviour {
 	 */
 	private SaveConfigurationSettings CreateConfigurationSave(){
 		SaveConfigurationSettings save = new SaveConfigurationSettings ();
-		save.savedFrequencyMax = tempFrequencyMax;
-		save.savedFrequencyMin = tempFrequencyMin;
-		save.savedHorizontalResolution = tempHorizontalResolution;
-		save.savedVerticalResolution = tempVerticalResolution;
-		save.savedFieldOfView = tempFieldOfView;
-		save.savedSampleLength = tempSampleLength;
-		save.savedCycleLength = tempCycleLength;
-		save.savedScanningType = tempScanningType;
-		save.savedDistanceIndicator = tempDistanceIndicator;
-		save.savedHeightIndicator = tempHeightIndicator;
-		save.savedDepthLength = tempDepthLength;
-		save.savedVision = tempVision;
+		save.frequencyMax = tempFrequencyMax;
+		save.frequencyMin = tempFrequencyMin;
+		save.horizontalResolution = tempHorizontalResolution;
+		save.verticalResolution = tempVerticalResolution;
+		save.fieldOfView = tempFieldOfView;
+		save.sampleLength = tempSampleLength;
+		save.cycleLength = tempCycleLength;
+		save.scanningType = tempScanningType;
+		save.distanceIndicator = tempDistanceIndicator;
+		save.heightIndicator = tempHeightIndicator;
+		save.depthLength = tempDepthLength;
 		return save;
 	}
 
 	private SaveMapSettings CreateMapSave(){
 		SaveMapSettings save = new SaveMapSettings();
-		save.savedCubesSpawned = tempCubesSpawned;
-		save.savedSpheresSpawned = tempSpheresSpawned;
-		save.savedCubeMinSize = tempCubeMinSize;
-		save.savedCubeMaxSize = tempCubeMaxSize;
-		save.savedSphereMinSize = tempSphereMinSize;
-		save.savedSphereMaxSize = tempSphereMaxSize;
-		save.savedMapSelected = tempMapSelected;
+		save.cubesSpawned = tempCubesSpawned;
+		save.spheresSpawned = tempSpheresSpawned;
+		save.cubeMinSize = tempCubeMinSize;
+		save.cubeMaxSize = tempCubeMaxSize;
+		save.sphereMinSize = tempSphereMinSize;
+		save.sphereMaxSize = tempSphereMaxSize;
+		save.mapSelected = tempMapSelected;
+		save.vision = tempVision;
 
 		if(tempMapSelected == 0){
 			HallwayRandomObjects = true;

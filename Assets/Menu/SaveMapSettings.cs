@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveMapSettings{
-	public int savedCubesSpawned;
-	public int savedSpheresSpawned;
-	public int savedCubeMinSize;
-	public int savedSphereMinSize;
-	public int savedCubeMaxSize;
-	public int savedSphereMaxSize;
-	public int savedMapSelected; //0-hallway 1-Dynamic
-	public bool savedVision;
+	public int cubesSpawned;
+	public int spheresSpawned;
+	public int cubeMinSize;
+	public int sphereMinSize;
+	public int cubeMaxSize;
+	public int sphereMaxSize;
+	public int mapSelected; //0-hallway 1-Dynamic
+	public bool vision;
+	public int depthLength;
 }

@@ -10,7 +10,6 @@ public class SpawnObstacles : MonoBehaviour {
 	public GameObject cubePrefab;
 	public GameObject spherePrefab;
 
-
 	public Vector3 center;
 	public Vector3 size;
 
@@ -23,6 +22,9 @@ public class SpawnObstacles : MonoBehaviour {
 	private int numCubes;
 	private int numSpheres;
 
+	private bool vision;
+	public GameObject visionBlocker;
+
 	private SaveMapSettings MapSetting = new SaveMapSettings();
 
 
@@ -32,13 +34,14 @@ public class SpawnObstacles : MonoBehaviour {
 
 		LoadMapSettings();
 
-		numCubes = MapSetting.savedCubesSpawned;
-		numSpheres = MapSetting.savedSpheresSpawned;
-		minCubeSize = MapSetting.savedCubeMinSize;
-		maxCubeSize = MapSetting.savedCubeMaxSize;
-		minSphereSize = MapSetting.savedSphereMinSize;
-		maxSphereSize =  MapSetting.savedSphereMaxSize;
-
+		numCubes = MapSetting.cubesSpawned;
+		numSpheres = MapSetting.spheresSpawned;
+		minCubeSize = MapSetting.cubeMinSize;
+		maxCubeSize = MapSetting.cubeMaxSize;
+		minSphereSize = MapSetting.sphereMinSize;
+		maxSphereSize =  MapSetting.sphereMaxSize;
+		vision = MapSetting.vision;
+		visionBlocker.SetActive (vision);
 
 		/*Generate Cubes*/
 		for(int i = 0; i < numCubes; i++){

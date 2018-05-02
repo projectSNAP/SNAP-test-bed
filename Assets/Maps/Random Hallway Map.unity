@@ -421,6 +421,7 @@ MonoBehaviour:
   center: {x: 0, y: 1, z: 0}
   size: {x: 20, y: 1, z: 75}
   visionBlocker: {fileID: 1942728784}
+  cam: {fileID: 1942728785}
 --- !u!4 &424251491
 Transform:
   m_ObjectHideFlags: 0
@@ -913,12 +914,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1055157079535972, guid: e46515343c3564d4291383385de65a3a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20609718746509356, guid: e46515343c3564d4291383385de65a3a,
+        type: 2}
+      propertyPath: far clip plane
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e46515343c3564d4291383385de65a3a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1942728784 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1055157079535972, guid: e46515343c3564d4291383385de65a3a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1942728783}
+--- !u!20 &1942728785 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20609718746509356, guid: e46515343c3564d4291383385de65a3a,
     type: 2}
   m_PrefabInternal: {fileID: 1942728783}
 --- !u!114 &1968474088 stripped

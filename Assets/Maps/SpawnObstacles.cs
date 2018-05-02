@@ -25,6 +25,9 @@ public class SpawnObstacles : MonoBehaviour {
 	private bool vision;
 	public GameObject visionBlocker;
 
+	private int depthLength;
+	public Camera cam; //FirstPersonCharacter camera
+
 	private SaveMapSettings MapSetting = new SaveMapSettings();
 
 
@@ -41,6 +44,8 @@ public class SpawnObstacles : MonoBehaviour {
 		minSphereSize = MapSetting.sphereMinSize;
 		maxSphereSize =  MapSetting.sphereMaxSize;
 		vision = MapSetting.vision;
+		depthLength = MapSetting.depthLength;
+		cam.farClipPlane = depthLength;
 		visionBlocker.SetActive (vision);
 
 		/*Generate Cubes*/

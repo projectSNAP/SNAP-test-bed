@@ -1,11 +1,11 @@
 {
-    "cubesSpawned": 27,
-    "spheresSpawned": 28,
-    "cubeMinSize": 3,
-    "sphereMinSize": 3,
-    "cubeMaxSize": 6,
+    "cubesSpawned": 1,
+    "spheresSpawned": 1,
+    "cubeMinSize": 1,
+    "sphereMinSize": 1,
+    "cubeMaxSize": 3,
     "sphereMaxSize": 4,
     "mapSelected": 0,
     "vision": false,
-    "depthLength": 0
+    "depthLength": 37
 }

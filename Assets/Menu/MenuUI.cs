@@ -19,7 +19,6 @@ public class MenuUI : MonoBehaviour {
 	public static bool LogsMenuIsOpen = false;
 	public GameObject ConfigurationMenuUI;
 	public GameObject EscapeMenuUI;
-	public GameObject MapSelectionUI;
 	public GameObject MapSettingUI;
 	public GameObject LogsMenuUI;
 	public GameObject MoreConfigurationMenuUI;
@@ -151,8 +150,6 @@ public class MenuUI : MonoBehaviour {
 	/*Map Selection UI elements*/
 	public static bool HallwayRandomObjects = true;
 	public static bool HallwayDynamic = false;
-	public UnityEngine.UI.Toggle HallwayRandomObjectToggle;
-	public UnityEngine.UI.Toggle HallwayDynamicToggle;
 
 	// Use this for initialization
 	void Start () {
@@ -172,8 +169,8 @@ public class MenuUI : MonoBehaviour {
 		maxScanningType = 3; 	//four scanning type options, 0 to 3
 		maxDistanceIndicator = 3;
 		maxHeightIndicator = 3;
-		maxDepthLength = 15;
-		minDepthLength = 0;
+		maxDepthLength = 100;
+		minDepthLength = 15;
 
 		/*default configuration settings*/
 		frequencyMax = 440.0f;
@@ -186,7 +183,7 @@ public class MenuUI : MonoBehaviour {
 		scanningType = 0;
 		distanceIndicator = 0;
 		heightIndicator = 0;
-		depthLength = 10;
+		depthLength = 60;
 		vision = false;
 
 		/*default temp configuration settings*/
@@ -200,7 +197,7 @@ public class MenuUI : MonoBehaviour {
 		tempScanningType = 0;
 		tempDistanceIndicator = 0;
 		tempHeightIndicator = 0;
-		tempDepthLength = 10;
+		tempDepthLength = 60;
 		tempVision = false;
 
 		/*max map settings*/
@@ -213,43 +210,51 @@ public class MenuUI : MonoBehaviour {
 		maxScanningType = 1; //two scanning type options, 0 or 1
 
 		/*default configuration settings*/
-		cubesSpawned = 15;
-		spheresSpawned = 15;
-		cubeMinSize = 2;
-		cubeMaxSize = 4;
-		sphereMinSize = 2;
-		sphereMaxSize = 4;
-		mapSelected = 0;
+		LoadMapSettings ();
 
 		/*default temp configuration settings*/
-		tempCubesSpawned = 15;
-		tempSpheresSpawned = 15;
-		tempCubeMinSize = 2;
-		tempCubeMaxSize = 4;
-		tempSphereMinSize = 2;
-		tempSphereMaxSize = 4;
-		tempMapSelected = 0;
+		tempCubesSpawned = cubesSpawned;
+		tempSpheresSpawned = spheresSpawned;
+		tempCubeMinSize = cubeMinSize;
+		tempCubeMaxSize = cubeMaxSize;
+		tempSphereMinSize = sphereMinSize;
+		tempSphereMaxSize = sphereMaxSize;
+		tempMapSelected = mapSelected;
 
-		/*default map settings*/
-		mainMapSettings.cubesSpawned = cubesSpawned;
-		mainMapSettings.spheresSpawned = spheresSpawned;
-		mainMapSettings.cubeMinSize = cubeMinSize;
-		mainMapSettings.cubeMaxSize = cubeMaxSize;
-		mainMapSettings.sphereMinSize = sphereMinSize;
-		mainMapSettings.sphereMaxSize = sphereMaxSize;
-		mainMapSettings.mapSelected = 0;
+		/*Set all text values in configuration menu*/
+		FrequencyMaxInputField.text = frequencyMax.ToString ();
+		FrequencyMaxSlider.value = frequencyMax;
+		FrequencyMinInputField.text = frequencyMin.ToString ();
+		FrequencyMinSlider.value = frequencyMin;
+		HorizontalResolutionInputField.text = horizontalResolution.ToString ();
+		HorizontalResolutionSlider.value = horizontalResolution;
+		VerticalResolutionInputField.text = verticalResolution.ToString ();
+		VerticalResolutionSlider.value = verticalResolution;
+		FieldOfViewInputField.text = fieldOfView.ToString ();
+		FieldOfViewSlider.value = fieldOfView;
+		SampleLengthInputField.text = sampleLength.ToString ();
+		SampleLengthSlider.value = sampleLength;
+		CycleLengthInputField.text = cycleLength.ToString ();
+		CycleLengthSlider.value = cycleLength;
+		DepthLengthInputField.text = depthLength.ToString ();
+		DepthLengthSlider.value = depthLength;
 
+		/*Set all text values in map settings menu*/
+		CubesSpawnedInputField.text = cubesSpawned.ToString();
+		CubesSpawnedSlider.value = cubesSpawned;
+		SpheresSpawnedInputField.text = spheresSpawned.ToString ();
+		SpheresSpawnedSlider.value = spheresSpawned;
+		CubeMinSizeInputField.text = cubeMinSize.ToString ();
+		CubeMinSizeSlider.value = cubeMinSize;
+		CubeMaxSizeInputField.text = cubeMaxSize.ToString ();
+		CubeMaxSizeSlider.value = cubeMaxSize;
+		SphereMinSizeInputField.text = sphereMinSize.ToString ();
+		SphereMinSizeSlider.value = sphereMinSize;
+		SphereMaxSizeInputField.text = sphereMaxSize.ToString ();
+		SphereMaxSizeSlider.value = sphereMaxSize;
+		MapSelectedDropdown.value = mapSelected;
+		VisionToggle.isOn = vision;
 
-
-		/*default Map Selection settings*/
-		if (HallwayRandomObjects) {
-			HallwayRandomObjectToggle.isOn = true;
-		} else if (HallwayDynamic) {
-			HallwayDynamicToggle.isOn = true;
-		} else {
-			HallwayRandomObjectToggle.isOn = false;
-			HallwayDynamicToggle.isOn = false;
-		}
 
 		/*Main Menu will be showing when a user clicks any "back to main menu" button*/
 		EscapeMenuUI.SetActive (true);
@@ -338,6 +343,35 @@ public class MenuUI : MonoBehaviour {
 		Time.timeScale = 0f;
 		MoreConfigurationMenuIsOpen = true;
 		NewConfigurationMenuIsOpen = false;
+	}
+
+	/* Load Map Settings*/
+	private void LoadMapSettings(){
+		var path = Application.dataPath + "/MapSettings/mapsetting.json";
+		if (File.Exists (path) == false) {
+			/*default values*/
+			cubesSpawned = 15;
+			spheresSpawned = 15;
+			cubeMinSize = 2;
+			cubeMaxSize = 4;
+			sphereMinSize = 2;
+			sphereMaxSize = 4;
+			mapSelected = 0;
+		}else{
+			string result = string.Concat(path);
+			string json = File.ReadAllText (result);
+			mainMapSettings = JsonUtility.FromJson<SaveMapSettings> (json);
+			cubesSpawned = mainMapSettings.cubesSpawned;
+			spheresSpawned = mainMapSettings.spheresSpawned;
+			cubeMinSize = mainMapSettings.cubeMinSize;
+			cubeMaxSize = mainMapSettings.cubeMaxSize;
+			sphereMinSize = mainMapSettings.sphereMinSize;
+			sphereMaxSize = mainMapSettings.sphereMaxSize;
+			mapSelected = mainMapSettings.mapSelected;
+			vision = mainMapSettings.vision;
+			depthLength = mainMapSettings.depthLength;
+			///TO DO: IMPLEMENT ERROR CHECKING similar to OnLoadConfigurationClick
+		}
 	}
 
 	/* Load Configuration Button
@@ -479,6 +513,7 @@ public class MenuUI : MonoBehaviour {
 		save.sphereMaxSize = tempSphereMaxSize;
 		save.mapSelected = tempMapSelected;
 		save.vision = tempVision;
+		save.depthLength = tempDepthLength;
 
 		if(tempMapSelected == 0){
 			HallwayRandomObjects = true;
@@ -533,6 +568,7 @@ public class MenuUI : MonoBehaviour {
 		sphereMinSize = tempSphereMinSize;
 		sphereMaxSize = tempSphereMaxSize;
 		mapSelected = tempMapSelected;
+		depthLength = tempDepthLength;
 
 		CloseMapSettingsMenu();
 		OpenEscapeMenu();
@@ -622,6 +658,7 @@ public class MenuUI : MonoBehaviour {
 		vision = tempVision;
 
 		SaveConfigurationSettings save = CreateConfigurationSave (); //saves all the setting
+		SaveMapSettingsOnSaveClick();
 
 		string json = JsonUtility.ToJson (save, true);
 		var path = Application.dataPath + "/bin/config.json"; //save a config file to the bin folder for the VAE to recieve
@@ -1038,54 +1075,7 @@ public class MenuUI : MonoBehaviour {
 
 
 
-
-
-
-	/************************************** Map Selection Menu ******************************************/
-	public void OnSelectMapButtonClicked(){
-		CloseEscapeMenu ();
-		OpenMapSelectionMenu ();
-	}
-
-	public void OnMapSettingsButtonClicked(){
-		CloseEscapeMenu();
-		OpenMapSettingsMenu();
-	}
-
-	public void OnSelectMapBackButtonClicked(){
-		CloseMapSelectionMenu ();
-		OpenEscapeMenu ();
-	}
-
-	public void OnHallwayMapRandomObjectsToggled(){
-		if (HallwayRandomObjectToggle.isOn == true) {
-			HallwayDynamicToggle.isOn = false;
-			HallwayDynamic = false;
-		}
-		HallwayRandomObjects = HallwayRandomObjectToggle.isOn;
-	}
-
-	public void OnHallwayMapDynamicToggled(){
-		if (HallwayDynamicToggle.isOn == true) {
-			HallwayRandomObjectToggle.isOn = false;
-			HallwayRandomObjects = false;
-		}
-		HallwayDynamic = HallwayDynamicToggle.isOn;
-	}
-
-
-	public void CloseMapSelectionMenu (){
-		MapSelectionUI.SetActive (false);
-		Time.timeScale = 1f;
-		SelectMapMenuIsOpen = false;
-	}
-
-	public void OpenMapSelectionMenu(){
-		MapSelectionUI.SetActive (true);
-		Time.timeScale = 0f;
-		SelectMapMenuIsOpen = true;
-		EscapeMenuIsOpen = false;
-	}
+	/************************************** Map Settings Menu ******************************************/
 
 	public void OpenMapSettingsMenu(){
 		MapSettingUI.SetActive(true);
@@ -1093,6 +1083,7 @@ public class MenuUI : MonoBehaviour {
 		MapSettingsMenuIsOpen = true;
 		EscapeMenuIsOpen = false;
 	}
+
 	/****************************************************************************************************/
 
 

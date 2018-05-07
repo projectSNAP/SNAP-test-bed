@@ -592,6 +592,8 @@ MonoBehaviour:
     type: 2}
   center: {x: 0, y: 1, z: 0}
   size: {x: 20, y: 1, z: 75}
+  visionBlocker: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!4 &424251491
 Transform:
   m_ObjectHideFlags: 0
@@ -2013,7 +2015,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0af96a7abce0a479da5f6a45dba6671d, type: 2}
+  - {fileID: 2100000, guid: 4afa608f9aafd4500a2645127ecfa3de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

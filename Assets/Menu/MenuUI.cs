@@ -169,8 +169,8 @@ public class MenuUI : MonoBehaviour {
 		maxScanningType = 3; 	//four scanning type options, 0 to 3
 		maxDistanceIndicator = 3;
 		maxHeightIndicator = 3;
-		maxDepthLength = 100;
-		minDepthLength = 15;
+		maxDepthLength = 50;
+		minDepthLength = 1;
 
 		/*default configuration settings*/
 		frequencyMax = 440.0f;
@@ -183,7 +183,7 @@ public class MenuUI : MonoBehaviour {
 		scanningType = 0;
 		distanceIndicator = 0;
 		heightIndicator = 0;
-		depthLength = 60;
+		depthLength = 10;
 		vision = false;
 
 		/*default temp configuration settings*/
@@ -197,7 +197,7 @@ public class MenuUI : MonoBehaviour {
 		tempScanningType = 0;
 		tempDistanceIndicator = 0;
 		tempHeightIndicator = 0;
-		tempDepthLength = 60;
+		tempDepthLength = 10;
 		tempVision = false;
 
 		/*max map settings*/

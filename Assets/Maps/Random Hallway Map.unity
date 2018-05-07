@@ -916,12 +916,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1055157079535972, guid: e46515343c3564d4291383385de65a3a, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 20609718746509356, guid: e46515343c3564d4291383385de65a3a,
         type: 2}
       propertyPath: far clip plane
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055157079535972, guid: e46515343c3564d4291383385de65a3a, type: 2}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1291646676807082, guid: e46515343c3564d4291383385de65a3a, type: 2}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757410254714890, guid: e46515343c3564d4291383385de65a3a, type: 2}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e46515343c3564d4291383385de65a3a, type: 2}
@@ -1057,7 +1069,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0af96a7abce0a479da5f6a45dba6671d, type: 2}
+  - {fileID: 2100000, guid: 4afa608f9aafd4500a2645127ecfa3de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

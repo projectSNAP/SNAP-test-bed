@@ -1,0 +1,14 @@
+{
+    "savedFrequencyMax": 440.0,
+    "savedFrequencyMin": 110.0,
+    "savedHorizontalResolution": 32,
+    "savedVerticalResolution": 16,
+    "savedFieldOfView": 90.0,
+    "savedSampleLength": 1.0,
+    "savedCycleLength": 1000,
+    "savedScanningType": 1,
+    "savedDistanceIndicator": 0,
+    "savedHeightIndicator": 0,
+    "savedDepthLength": 10,
+    "savedVision": false
+}

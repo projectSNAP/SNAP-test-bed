@@ -1,1 +1,10 @@
-{"savedCubesSpawned":15,"savedSpheresSpawned":15,"savedCubeMinSize":2,"savedSphereMinSize":2,"savedCubeMaxSize":4,"savedSphereMaxSize":4,"savedMapSelected":0,"savedVision":false}
+{
+    "savedCubesSpawned": 10,
+    "savedSpheresSpawned": 10,
+    "savedCubeMinSize": 2,
+    "savedSphereMinSize": 2,
+    "savedCubeMaxSize": 4,
+    "savedSphereMaxSize": 4,
+    "savedMapSelected": 0,
+    "savedVision": false
+}

@@ -78,10 +78,8 @@ public class SharedMemory : MonoBehaviour {
 		tex.ReadPixels(new Rect(0, 0, width, height), 0, 0, false);
 		tex.Apply();
 		bytes = tex.GetRawTextureData(); //bytes of image
-		print("w: " + width);
 		dim [0] = width;
 		dim [1] = height;
-		print ("dim w: " + dim[0] + " dim h: " + dim[1]);
 
 		//Copy our dimensions of the image to shared memory space
 		Marshal.Copy(dim, 0, ptrToDim, dim.Length);
